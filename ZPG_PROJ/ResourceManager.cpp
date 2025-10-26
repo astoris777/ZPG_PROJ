@@ -4,6 +4,7 @@
 #include "triangle.h"
 #include "sphere.h"
 #include <iostream>
+#include "Camera.h"
 
 ResourceManager::ResourceManager()
 {
@@ -44,4 +45,10 @@ void ResourceManager::createModels()
     models.push_back(new VertexArray(sphere, sphereVertexCount, VertexArray::POSITION_NORMAL));
 
     std::cout << "=== MODELS CREATED ===" << std::endl;
+}
+
+void ResourceManager::attachShadersToCamera(Camera* camera) {
+    for (auto shader : shaders) {
+        camera->attach(shader);
+    }
 }

@@ -1,5 +1,6 @@
 #include "SceneBuilder.h"
-#include "Transformations.h"
+#include "Transform.h"
+#include "TranslateTransform.h"
 #include <cstdlib>
 #include <ctime>
 #include <iostream>

@@ -3,6 +3,8 @@
 #include "ShaderProgram.h"
 #include "VertexArray.h"
 
+class Camera; // Forward declare Camera class
+
 class ResourceManager
 {
 public:
@@ -11,6 +13,7 @@ public:
 
     void createShaders();
     void createModels();
+    void attachShadersToCamera(Camera* camera); // Add Camera as an argument here
 
     ShaderProgram* getLambertShader() const { return shaders[0]; }
     ShaderProgram* getPhongShader() const { return shaders[1]; }

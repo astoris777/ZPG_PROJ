@@ -22,6 +22,7 @@ void Application::initialization(int width, int height)
 
     resourceManager->createShaders();
     resourceManager->createModels();
+    resourceManager->attachShadersToCamera(window->camera);
     sceneManager->createScenes();
 }
 
