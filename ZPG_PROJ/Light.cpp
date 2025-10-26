@@ -10,7 +10,6 @@ void Light::setUniforms(Shader* shader, const std::string& prefix) const {
     shader->setUniform("lightPosition", position);
     shader->setUniform("lightColor", color);
     shader->setUniform("lightIntensity", intensity);
-    shader->setUniform("lightSpecular", specular); 
 }
 
 void Light::setUniformsArray(Shader* shader, int index) const {
