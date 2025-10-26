@@ -2,6 +2,7 @@
 #include <iostream>
 
 Window::Window(int width, int height, const char* title)
+    : currentWidth(width), currentHeight(height)
 {
     camera = new Camera();
 
@@ -25,11 +26,15 @@ Window::Window(int width, int height, const char* title)
 
     glEnable(GL_DEPTH_TEST);
 
+    // Set initial viewport
+    glViewport(0, 0, width, height);
+
     inputManager = new InputManager(window, camera);
 
     glfwSetWindowUserPointer(window, this);
     glfwSetMouseButtonCallback(window, mouseButtonCallback);
     glfwSetCursorPosCallback(window, cursorPositionCallback);
+    glfwSetFramebufferSizeCallback(window, framebufferSizeCallback);
 }
 
 Window::~Window()
@@ -79,4 +84,13 @@ void Window::cursorPositionCallback(GLFWwindow* winPtr, double xpos, double ypos
 {
     Window* win = static_cast<Window*>(glfwGetWindowUserPointer(winPtr));
     win->inputManager->updateMousePosition(xpos, ypos);
+}
+
+void Window::framebufferSizeCallback(GLFWwindow* winPtr, int width, int height)
+{
+    Window* win = static_cast<Window*>(glfwGetWindowUserPointer(winPtr));
+    win->currentWidth = width;
+    win->currentHeight = height;
+
+    glViewport(0, 0, width, height);
 }

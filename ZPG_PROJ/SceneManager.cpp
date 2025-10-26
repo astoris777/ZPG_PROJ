@@ -1,10 +1,11 @@
 #include "SceneManager.h"
 #include "ResourceManager.h"
 #include "SceneBuilder.h"
+#include "Window.h"
 #include <iostream>
 
-SceneManager::SceneManager(ResourceManager* resourceManager, Camera* camera)
-    : activeScene(0), resourceManager(resourceManager), camera(camera)
+SceneManager::SceneManager(ResourceManager* resourceManager, Camera* camera, Window* window)
+    : activeScene(0), resourceManager(resourceManager), camera(camera), window(window)
 {
 }
 
@@ -42,7 +43,11 @@ void SceneManager::update(float deltaTime)
 void SceneManager::render()
 {
     glm::mat4 view = camera->getViewMatrix();
-    glm::mat4 projection = glm::perspective(glm::radians(45.0f), 800.0f / 600.0f, 0.1f, 100.0f);
+
+    // Use dynamic aspect ratio based on current window size
+    float aspectRatio = window->getAspectRatio();
+    glm::mat4 projection = glm::perspective(glm::radians(45.0f), aspectRatio, 0.1f, 100.0f);
+
     glm::vec3 cameraPos = camera->getPosition();
 
     scenes[activeScene]->draw(projection, view, cameraPos);

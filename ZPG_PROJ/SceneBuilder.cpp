@@ -46,7 +46,7 @@ Scene* SceneBuilder::createSpeheresWithLightning(ResourceManager* resources)
         0.8f,
         glm::vec3(1.0f, 0.5f, 0.5f)
     );
-    scene->addLight(light2);
+    //scene->addLight(light2);
 
     scene->addMaterial(sphereMaterial);
 

@@ -5,11 +5,12 @@
 #include "Light.h"
 
 class ResourceManager;
+class Window;
 
 class SceneManager
 {
 public:
-    SceneManager(ResourceManager* resourceManager, Camera* camera);
+    SceneManager(ResourceManager* resourceManager, Camera* camera, Window* window);
     ~SceneManager();
 
     void createScenes();
@@ -23,6 +24,7 @@ private:
     int activeScene;
     ResourceManager* resourceManager;
     Camera* camera;
+    Window* window;
 
     void setupLights();
 };

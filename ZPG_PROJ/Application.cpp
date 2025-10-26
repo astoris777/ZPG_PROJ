@@ -18,7 +18,7 @@ void Application::initialization(int width, int height)
 {
     window = new Window(width, height, "Opengl Application");
     resourceManager = new ResourceManager();
-    sceneManager = new SceneManager(resourceManager, window->camera);
+    sceneManager = new SceneManager(resourceManager, window->camera, window);
 
     resourceManager->createShaders();
     resourceManager->createModels();
