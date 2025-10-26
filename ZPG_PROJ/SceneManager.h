@@ -17,11 +17,18 @@ public:
     void update(float deltaTime);
     void render();
     void switchScene(int sceneIndex);
+    
+    // ????????? ?????? ??? ?????????? FOV
+    void setFOV45() { currentFOV = 45.0f; }
+    void setFOV90() { currentFOV = 90.0f; }
+    void setFOV130() { currentFOV = 130.0f; }
+    float getCurrentFOV() const { return currentFOV; }
 
 private:
     std::vector<Scene*> scenes;
     std::vector<Light*> lights;
     int activeScene;
+    float currentFOV; // ??????? ???? ??????
     ResourceManager* resourceManager;
     Camera* camera;
     Window* window;

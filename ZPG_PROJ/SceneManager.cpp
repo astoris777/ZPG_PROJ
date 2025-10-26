@@ -5,7 +5,7 @@
 #include <iostream>
 
 SceneManager::SceneManager(ResourceManager* resourceManager, Camera* camera, Window* window)
-    : activeScene(0), resourceManager(resourceManager), camera(camera), window(window)
+    : activeScene(0), currentFOV(45.0f), resourceManager(resourceManager), camera(camera), window(window)
 {
 }
 
@@ -43,14 +43,21 @@ void SceneManager::update(float deltaTime)
 void SceneManager::render()
 {
     glm::mat4 view = camera->getViewMatrix();
-
-    // Use dynamic aspect ratio based on current window size
+    
+    // ?????????? ??????? FOV ??? ??????? ???????????? ???????
     float aspectRatio = window->getAspectRatio();
-    glm::mat4 projection = glm::perspective(glm::radians(45.0f), aspectRatio, 0.1f, 100.0f);
-
+    glm::mat4 projection = glm::perspective(glm::radians(currentFOV), aspectRatio, 0.1f, 100.0f);
+    
     glm::vec3 cameraPos = camera->getPosition();
 
     scenes[activeScene]->draw(projection, view, cameraPos);
+    
+    // ??????? ?????????? ? ??????? FOV
+    static float lastFOV = -1.0f;
+    if (lastFOV != currentFOV) {
+        std::cout << "Current FOV: " << currentFOV << "°" << std::endl;
+        lastFOV = currentFOV;
+    }
 }
 
 void SceneManager::switchScene(int sceneIndex)

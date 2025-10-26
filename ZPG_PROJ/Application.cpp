@@ -29,6 +29,7 @@ void Application::processInput(float deltaTime)
 {
     float cameraSpeed = 2.5f * deltaTime;
 
+    // ?????????? ???????
     if (window->isKeyPressed(GLFW_KEY_W))
         window->camera->moveForward(cameraSpeed);
     if (window->isKeyPressed(GLFW_KEY_S))
@@ -37,9 +38,32 @@ void Application::processInput(float deltaTime)
         window->camera->moveLeft(cameraSpeed);
     if (window->isKeyPressed(GLFW_KEY_D))
         window->camera->moveRight(cameraSpeed);
-    if (window->isKeyPressed(GLFW_KEY_ESCAPE))
-        glfwSetWindowShouldClose(window->window, true);
 
+    // ?????????? FOV ? ??????? ?????????????? ??????
+    static bool f1Pressed = false, f2Pressed = false, f3Pressed = false;
+
+    if (window->isKeyPressed(GLFW_KEY_F1) && !f1Pressed) {
+        sceneManager->setFOV45();
+        f1Pressed = true;
+    } else if (!window->isKeyPressed(GLFW_KEY_F1)) {
+        f1Pressed = false;
+    }
+
+    if (window->isKeyPressed(GLFW_KEY_F2) && !f2Pressed) {
+        sceneManager->setFOV90();
+        f2Pressed = true;
+    } else if (!window->isKeyPressed(GLFW_KEY_F2)) {
+        f2Pressed = false;
+    }
+
+    if (window->isKeyPressed(GLFW_KEY_F3) && !f3Pressed) {
+        sceneManager->setFOV130();
+        f3Pressed = true;
+    } else if (!window->isKeyPressed(GLFW_KEY_F3)) {
+        f3Pressed = false;
+    }
+
+    // ???????????? ????
     if (window->isKeyPressed(GLFW_KEY_1))
     {
         sceneManager->switchScene(0);
@@ -57,6 +81,7 @@ void Application::processInput(float deltaTime)
         sceneManager->switchScene(3);
     }
 
+    // ????? ?? ??????????
     if (window->isKeyPressed(GLFW_KEY_ESCAPE))
         glfwSetWindowShouldClose(window->window, true);
 }
@@ -64,6 +89,12 @@ void Application::processInput(float deltaTime)
 void Application::run()
 {
     float lastFrame = glfwGetTime();
+
+    std::cout << "=== FOV Control ===" << std::endl;
+    std::cout << "F1 - FOV 45°" << std::endl;
+    std::cout << "F2 - FOV 90°" << std::endl;
+    std::cout << "F3 - FOV 130°" << std::endl;
+    std::cout << "===================" << std::endl;
 
     while (!window->shouldClose())
     {
