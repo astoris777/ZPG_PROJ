@@ -54,7 +54,7 @@ void SceneManager::render()
     
     static float lastFOV = -1.0f;
     if (lastFOV != currentFOV) {
-        std::cout << "Current FOV: " << currentFOV << "°" << std::endl;
+        std::cout << "Current FOV: " << currentFOV << std::endl;
         lastFOV = currentFOV;
     }
 }

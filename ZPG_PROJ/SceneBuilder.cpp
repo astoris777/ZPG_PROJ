@@ -51,13 +51,6 @@ Scene* SceneBuilder::createSpeheresWithLightning(ResourceManager* resources)
 
     scene->addMaterial(sphereMaterial);
 
-    std::cout << "=== Scene Setup ===" << std::endl;
-    std::cout << "Light1 position: (" << light1->position.x << ", " << light1->position.y << ", " << light1->position.z << ")" << std::endl;
-    std::cout << "Light1 color: (" << light1->color.r << ", " << light1->color.g << ", " << light1->color.b << ")" << std::endl;
-    std::cout << "Light2 position: (" << light2->position.x << ", " << light2->position.y << ", " << light2->position.z << ")" << std::endl;
-    std::cout << "Light2 color: (" << light2->color.r << ", " << light2->color.g << ", " << light2->color.b << ")" << std::endl;
-    std::cout << "Material color: (" << sphereMaterial->color.r << ", " << sphereMaterial->color.g << ", " << sphereMaterial->color.b << ")" << std::endl;
-
     scene->addObject(sphere1);
     scene->addObject(sphere2);
     scene->addObject(sphere3);
