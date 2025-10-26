@@ -30,7 +30,6 @@ void Application::processInput(float deltaTime)
 {
     float cameraSpeed = 2.5f * deltaTime;
 
-    // ?????????? ???????
     if (window->isKeyPressed(GLFW_KEY_W))
         window->camera->moveForward(cameraSpeed);
     if (window->isKeyPressed(GLFW_KEY_S))
@@ -40,7 +39,6 @@ void Application::processInput(float deltaTime)
     if (window->isKeyPressed(GLFW_KEY_D))
         window->camera->moveRight(cameraSpeed);
 
-    // ?????????? FOV ? ??????? ?????????????? ??????
     static bool f1Pressed = false, f2Pressed = false, f3Pressed = false;
 
     if (window->isKeyPressed(GLFW_KEY_F1) && !f1Pressed) {
@@ -64,7 +62,7 @@ void Application::processInput(float deltaTime)
         f3Pressed = false;
     }
 
-    // ???????????? ????
+ 
     if (window->isKeyPressed(GLFW_KEY_1))
     {
         sceneManager->switchScene(0);
@@ -82,7 +80,6 @@ void Application::processInput(float deltaTime)
         sceneManager->switchScene(3);
     }
 
-    // ????? ?? ??????????
     if (window->isKeyPressed(GLFW_KEY_ESCAPE))
         glfwSetWindowShouldClose(window->window, true);
 }
@@ -91,11 +88,6 @@ void Application::run()
 {
     float lastFrame = glfwGetTime();
 
-    std::cout << "=== FOV Control ===" << std::endl;
-    std::cout << "F1 - FOV 45°" << std::endl;
-    std::cout << "F2 - FOV 90°" << std::endl;
-    std::cout << "F3 - FOV 130°" << std::endl;
-    std::cout << "===================" << std::endl;
 
     while (!window->shouldClose())
     {

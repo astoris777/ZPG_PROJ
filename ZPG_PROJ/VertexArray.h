@@ -5,9 +5,9 @@ class VertexArray
 {
 public:
     enum Format {
-        POSITION_COLOR,      //  x,y,z, r,g,b
-        POSITION_COLOR_NORMAL, //  x,y,z, r,g,b, nx,ny,nz
-        POSITION_NORMAL // x, y, z, nx, ny, nz
+        POSITION_COLOR,      
+        POSITION_COLOR_NORMAL, 
+        POSITION_NORMAL 
     };
 
     VertexArray(const float* vertices, GLsizei count, Format format = POSITION_COLOR_NORMAL);

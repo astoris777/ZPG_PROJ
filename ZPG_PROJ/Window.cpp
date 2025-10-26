@@ -26,7 +26,6 @@ Window::Window(int width, int height, const char* title)
 
     glEnable(GL_DEPTH_TEST);
 
-    // Set initial viewport
     glViewport(0, 0, width, height);
 
     inputManager = new InputManager(window, camera);
