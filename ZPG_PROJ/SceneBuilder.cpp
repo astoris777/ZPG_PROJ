@@ -1,118 +1,87 @@
 #include "SceneBuilder.h"
 #include "Transform.h"
 #include "TranslateTransform.h"
+#include "MoveTransform.h"
+#include "ScaleTransform.h"
+#include "RotateTransform.h"
 #include <cstdlib>
 #include <ctime>
 #include <iostream>
 
-Scene* SceneBuilder::createSpeheresWithLightning(ResourceManager* resources)
-{
-    Scene* scene = new Scene();
-
-    ShaderProgram* phongShader = resources->getPhongShader();
-    VertexArray* sphereModel = resources->getSphereModel();
-
-    Material* sphereMaterial = new Material(glm::vec3(1.0f, 0.0f, 0.0f));
-
-    float distance = 2.0f;
-    float depth = -5.0f;
-
-    RenderableObject* sphere1 = new RenderableObject(phongShader, sphereModel);
-    sphere1->transform.add(new TranslateTransform(glm::vec3(0.0f, distance, depth)));
-    sphere1->setMaterial(sphereMaterial);
-
-    RenderableObject* sphere2 = new RenderableObject(phongShader, sphereModel);
-    sphere2->transform.add(new TranslateTransform(glm::vec3(0.0f, -distance, depth)));
-    sphere2->setMaterial(sphereMaterial);
-
-    RenderableObject* sphere3 = new RenderableObject(phongShader, sphereModel);
-    sphere3->transform.add(new TranslateTransform(glm::vec3(-distance, 0.0f, depth)));
-    sphere3->setMaterial(sphereMaterial);
-
-    RenderableObject* sphere4 = new RenderableObject(phongShader, sphereModel);
-    sphere4->transform.add(new TranslateTransform(glm::vec3(distance, 0.0f, depth)));
-    sphere4->setMaterial(sphereMaterial);
-
-    Light* light1 = new Light(
-        glm::vec3(0.0f, 0.0f, -5.0f),
-        glm::vec3(1.0f, 1.0f, 1.0f),
-        1.0f,
-        glm::vec3(1.0f, 1.0f, 1.0f)
-    );
-    scene->addLight(light1);
-
-    Light* light2 = new Light(
-        glm::vec3(5.0f, 5.0f, -3.0f),
-        glm::vec3(1.0f, 0.5f, 0.5f),
-        0.8f,
-        glm::vec3(1.0f, 0.5f, 0.5f)
-    );
-    scene->addLight(light2);
-
-    scene->addMaterial(sphereMaterial);
-
-    scene->addObject(sphere1);
-    scene->addObject(sphere2);
-    scene->addObject(sphere3);
-    scene->addObject(sphere4);
-
-    return scene;
-}
-
 Scene* SceneBuilder::createForestScene(ResourceManager* resources)
 {
-    Scene* scene = new Scene();
+	Scene* scene = new Scene(); 
 
-    ShaderProgram* phongShader = resources->getPhongShader();
+	int treeCount = 50;
+	int bushCount = 30;
 
-    VertexArray* treeModel = resources->getTreeModel();
-    VertexArray* bushModel = resources->getBushModel();
+	// ??????? ?????????
+	Material* treeMaterial = new Material(glm::vec3(0.6f, 0.4f, 0.2f)); // ???????
+	Material* bushMaterial = new Material(glm::vec3(0.2f, 0.6f, 0.3f)); // ??????? ??? ??????
+	
+	scene->addMaterial(treeMaterial);
+	scene->addMaterial(bushMaterial);
 
-    Material* treeMaterial = new Material(glm::vec3(0.4f, 0.3f, 0.2f));
-    Material* bushMaterial = new Material(glm::vec3(0.2f, 0.6f, 0.3f));
+	// ??????? ???????
+	for (int i = 0; i < treeCount; i++)
+	{
+		float treeX = static_cast<float>(rand()) / static_cast<float>(RAND_MAX) * 20.0f - 10.0f;
+		float treeY = static_cast<float>(rand()) / static_cast<float>(RAND_MAX) * 0.1f;
+		float treeZ = static_cast<float>(rand()) / static_cast<float>(RAND_MAX) * 20.0f - 10.0f;
+		float randomRotation = static_cast<float>(rand() % 360);
 
-    Light* sunLight = new Light(
-        glm::vec3(10.0f, 20.0f, 10.0f),
-        glm::vec3(1.0f, 1.0f, 0.1f),
-        2.0f
-    );
-    scene->addLight(sunLight);
-    scene->addMaterial(treeMaterial);
-    scene->addMaterial(bushMaterial);
+		RenderableObject* tree = new RenderableObject(
+			resources->getPhongShader(),
+			resources->getTreeModel()
+		);
 
-    srand(static_cast<unsigned int>(time(0)));
+		tree->transform.add(new TranslateTransform(glm::vec3(treeX, treeY, treeZ)));
+		tree->transform.add(new ScaleTransform(glm::vec3(0.5f)));
+		tree->transform.add(new RotateTransform(randomRotation, glm::vec3(0.0f, 1.0f, 0.0f)));
+		tree->setMaterial(treeMaterial);
 
-    auto getRandom = [](float min, float max) {
-        return min + static_cast<float>(rand()) / (static_cast<float>(RAND_MAX / (max - min)));
-        };
+		scene->addObject(tree);
+	}
 
-    auto generatePositions = [&](int count, float range) {
-        std::vector<glm::vec3> positions;
-        for (int i = 0; i < count; ++i) {
-            float x = getRandom(-range, range);
-            float z = getRandom(-range, range);
-            positions.emplace_back(x, 0.0f, z);
-        }
-        return positions;
-        };
+	// ??????? ?????
+	for (int i = 0; i < bushCount; i++)
+	{
+		float bushX = static_cast<float>(rand()) / static_cast<float>(RAND_MAX) * 15.0f - 7.5f;
+		float bushY = 0.0f;
+		float bushZ = static_cast<float>(rand()) / static_cast<float>(RAND_MAX) * 15.0f - 7.5f;
+		float randomRotation = static_cast<float>(rand() % 360);
 
-    auto treePositions = generatePositions(50, 50.0f);
-    auto bushPositions = generatePositions(50, 50.0f);
+		RenderableObject* bush = new RenderableObject(
+			resources->getPhongShader(),
+			resources->getBushModel()
+		);
 
-    for (auto& pos : treePositions) {
-        RenderableObject* tree = new RenderableObject(phongShader, treeModel);
-        tree->transform.add(new TranslateTransform(pos));
-        tree->setMaterial(treeMaterial);
-        scene->addObject(tree);
-    }
+		bush->transform.add(new TranslateTransform(glm::vec3(bushX, bushY, bushZ)));
+		bush->transform.add(new ScaleTransform(glm::vec3(0.3f)));
+		bush->transform.add(new RotateTransform(randomRotation, glm::vec3(0.0f, 1.0f, 0.0f)));
+		bush->setMaterial(bushMaterial);
 
-    for (auto& pos : bushPositions) {
-        RenderableObject* bush = new RenderableObject(phongShader, bushModel);
-        bush->transform.add(new TranslateTransform(pos));
-        bush->setMaterial(bushMaterial);
-        scene->addObject(bush);
-    }
+		scene->addObject(bush);
+	}
 
-    return scene;
+	
+	// 2. ?????? (directional light) - ???????? ???????? ?????
+	Light* sunLight = Light::createDirectional(
+		glm::vec3(-0.3f, -1.0f, -0.2f),  // ??????????? (??????-??????)
+		glm::vec3(1.0f, 0.95f, 0.8f),    // ?????? ????????? ????
+		1.5f                             // ???????
+	);
+	//scene->addLight(sunLight);
+	
+	// 3. ?????????????? ??????????? ???? (point light)
+	Light* fillLight = Light::createPoint(
+		glm::vec3(5.0f, 10.0f, 5.0f),    // ???????
+		glm::vec3(0.6f, 0.7f, 1.0f),     // ???????? ??????????? ????
+		0.8f,                            // ?????????????
+		1.0f, 0.1f, 0.05f               // Attenuation ?????????
+	);
+	//scene->addLight(fillLight);
 
+	return scene;
 }
+

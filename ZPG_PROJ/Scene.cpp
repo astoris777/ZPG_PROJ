@@ -19,11 +19,34 @@ void Scene::addObject(RenderableObject* obj)
     objects.push_back(obj);
 }
 
+void Scene::addLight(Light* light)
+{
+    lights.push_back(light);
+}
+
+void Scene::addMaterial(Material* material)
+{
+    materials.push_back(material);
+}
+
+void Scene::bindObjectToLight(RenderableObject* obj, Light* light, const glm::vec3& offset)
+{
+    objectLightBindings.push_back({ obj, light, offset });
+}
+
 void Scene::update(float deltaTime)
 {
+    // ???????? ????????????? ????????
     for (auto obj : objects)
     {
         obj->transform.update(deltaTime);
+    }
+
+    // ???????? ??????? ????????? ??????
+    for (auto& binding : objectLightBindings)
+    {
+        glm::vec3 objectPos = binding.object->transform.getPosition();
+        binding.light->setPosition(objectPos + binding.offset);
     }
 }
 
@@ -45,14 +68,4 @@ void Scene::draw(const glm::mat4& projection, const glm::mat4& view, const glm::
 
         obj->draw(projection, view);
     }
-}
-
-void Scene::addLight(Light* light)
-{
-    lights.push_back(light);
-}
-
-void Scene::addMaterial(Material* material)
-{
-    materials.push_back(material);
 }

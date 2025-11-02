@@ -28,4 +28,10 @@ public:
         for (auto t : transforms)
             delete t;
     }
+
+    glm::vec3 getPosition() const
+    {
+        glm::mat4 M = getModelMatrix();
+        return glm::vec3(M[3]);
+	}
 };

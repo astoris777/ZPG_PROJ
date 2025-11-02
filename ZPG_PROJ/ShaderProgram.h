@@ -13,9 +13,4 @@ public:
         setUniform("viewMatrix", view);
         setUniform("projectionMatrix", projection);
     }
-
-    void setLight(const Light& light, const std::string& prefix = "light") {
-        use();
-        light.setUniforms(this, prefix);
-    }
 };

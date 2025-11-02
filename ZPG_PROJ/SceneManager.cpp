@@ -17,19 +17,10 @@ SceneManager::~SceneManager()
         delete light;
 }
 
-void SceneManager::setupLights()
-{
-    lights.push_back(new Light(glm::vec3(2.0f, 3.0f, 2.0f), glm::vec3(1.0f, 1.0f, 1.0f), 1.0f, glm::vec3(1.0f, 1.0f, 1.0f)));
-    lights.push_back(new Light(glm::vec3(-2.0f, 2.0f, -1.0f), glm::vec3(0.8f, 0.8f, 1.0f), 0.5f, glm::vec3(0.8f, 0.8f, 1.0f)));
-}
-
 void SceneManager::createScenes()
 {
-    setupLights();
-
-    Scene* sphereScene = SceneBuilder::createSpeheresWithLightning(resourceManager);
     Scene* forestScene = SceneBuilder::createForestScene(resourceManager);
-    scenes.push_back(sphereScene);
+    
     scenes.push_back(forestScene);
 
     activeScene = 0;
@@ -54,7 +45,6 @@ void SceneManager::render()
     
     static float lastFOV = -1.0f;
     if (lastFOV != currentFOV) {
-        std::cout << "Current FOV: " << currentFOV << std::endl;
         lastFOV = currentFOV;
     }
 }

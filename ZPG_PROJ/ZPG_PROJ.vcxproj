@@ -26,10 +26,11 @@
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="Light.h" />
     <ClInclude Include="Material.h" />
+    <ClInclude Include="MoveTransform.h" />
     <ClInclude Include="RenderableObject.h" />
     <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="RotateTransform.h" />
-    <ClInclude Include="ScaleRotate.h" />
+    <ClInclude Include="ScaleTransform.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneBuilder.h" />
     <ClInclude Include="SceneManager.h" />

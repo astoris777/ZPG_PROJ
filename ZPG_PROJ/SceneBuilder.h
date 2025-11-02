@@ -6,7 +6,6 @@
 
 class SceneBuilder {
 public:
-    static Scene* createSpeheresWithLightning(ResourceManager* resources);
     static Scene* createForestScene(ResourceManager* resources);
 
 };
