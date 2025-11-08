@@ -54,18 +54,20 @@ void Scene::draw(const glm::mat4& projection, const glm::mat4& view, const glm::
 {
     for (auto obj : objects)
     {
-        if (!lights.empty() && obj->shader) {
+        if (obj->shader) {
             obj->shader->use();
 
-            obj->shader->setUniform("numberOfLights", static_cast<int>(lights.size()));
+            if (!lights.empty()) {
+                obj->shader->setUniform("numberOfLights", static_cast<int>(lights.size()));
 
-            for (size_t i = 0; i < lights.size() && i < 4; ++i) {
-                lights[i]->setUniformsArray(obj->shader, static_cast<int>(i));
+                for (size_t i = 0; i < lights.size() && i < 6; ++i) {
+                    lights[i]->setUniformsArray(obj->shader, static_cast<int>(i));
+                }
+
+                obj->shader->setUniform("viewPos", cameraPos);
             }
 
-            obj->shader->setUniform("viewPos", cameraPos);
+            obj->draw(projection, view);
         }
-
-        obj->draw(projection, view);
     }
 }

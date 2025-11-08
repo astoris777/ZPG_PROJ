@@ -7,33 +7,32 @@
 #include <cstdlib>
 #include <ctime>
 #include <iostream>
+#include "Model.h"
 
 Scene* SceneBuilder::createForestScene(ResourceManager* resources)
 {
-	Scene* scene = new Scene(); 
+	Scene* scene = new Scene();
 
 	int treeCount = 50;
 	int bushCount = 30;
 
-	// ??????? ?????????
 	Material* treeMaterial = new Material(
-		glm::vec3(0.4f, 0.3f, 0.2f),    // ambient - ??????? (???? 0.2, 0.15, 0.1)
-		glm::vec3(0.6f, 0.4f, 0.2f),    // diffuse - ???????? ????
-		glm::vec3(0.3f, 0.3f, 0.3f),    // specular - ?????
-		32.0f                            // shininess
+		glm::vec3(0.4f, 0.3f, 0.2f),
+		glm::vec3(0.6f, 0.4f, 0.2f),
+		glm::vec3(0.3f, 0.3f, 0.3f),
+		32.0f
 	);
 
 	Material* bushMaterial = new Material(
-		glm::vec3(0.1f, 0.2f, 0.15f),   // ambient
-		glm::vec3(0.2f, 0.6f, 0.3f),    // diffuse - ???????? ????
-		glm::vec3(0.2f, 0.2f, 0.2f),    // specular
-		16.0f                            // shininess
+		glm::vec3(0.1f, 0.2f, 0.15f),
+		glm::vec3(0.2f, 0.6f, 0.3f),
+		glm::vec3(0.2f, 0.2f, 0.2f),
+		16.0f
 	);
-	
+
 	scene->addMaterial(treeMaterial);
 	scene->addMaterial(bushMaterial);
 
-	// ??????? ???????
 	for (int i = 0; i < treeCount; i++)
 	{
 		float treeX = static_cast<float>(rand()) / static_cast<float>(RAND_MAX) * 20.0f - 10.0f;
@@ -54,7 +53,6 @@ Scene* SceneBuilder::createForestScene(ResourceManager* resources)
 		scene->addObject(tree);
 	}
 
-	// ??????? ?????
 	for (int i = 0; i < bushCount; i++)
 	{
 		float bushX = static_cast<float>(rand()) / static_cast<float>(RAND_MAX) * 15.0f - 7.5f;
@@ -75,23 +73,139 @@ Scene* SceneBuilder::createForestScene(ResourceManager* resources)
 		scene->addObject(bush);
 	}
 
-	
-	// ???????? ambient ???? ??? ???????? ?????????
 	Light* ambientLight = Light::createAmbient(
-		glm::vec3(0.3f, 0.3f, 0.25f),  // ?????? ambient ????
-		0.4f                            // ?????????????
+		glm::vec3(0.3f, 0.3f, 0.25f),
+		0.4f
 	);
 	scene->addLight(ambientLight);
 
-	// Directional ???? (??????)
 	Light* sunLight = Light::createDirectional(
-		glm::vec3(-0.2f, 5.0f, -0.3f),  // ??????????? ?????
-		glm::vec3(1.0f, 0.95f, 0.8f),    // ???? ??????
-		0.8f                              // ?????????????
+		glm::vec3(-0.3f, -1.0f, -0.4f),
+		glm::vec3(1.0f, 0.95f, 0.8f),
+		0.9f
 	);
 	scene->addLight(sunLight);
-
 
 	return scene;
 }
 
+
+Scene* SceneBuilder::createSampleScene(ResourceManager* resources)
+{
+	Scene* scene = new Scene();
+
+	VertexArray* f1model = Model::loadFromFile("formula1.obj");
+	RenderableObject* f1car = new RenderableObject(
+		resources->getPhongShader(),
+		f1model
+	);
+
+	f1car->transform.add(new TranslateTransform(glm::vec3(0.0f, 0.0f, 0.0f)));
+	f1car->transform.add(new ScaleTransform(glm::vec3(0.5f)));
+	scene->addObject(f1car);
+
+	Material* carMaterial = new Material(
+		glm::vec3(0.3f, 0.3f, 0.3f),
+		glm::vec3(0.8f, 0.0f, 0.0f),
+		glm::vec3(1.0f, 1.0f, 1.0f),
+		64.0f
+	);
+	f1car->setMaterial(carMaterial);
+	scene->addMaterial(carMaterial);
+
+	Light* ambientLight = Light::createAmbient(
+		glm::vec3(1.0f, 1.0f, 1.0f),
+		0.3f
+	);
+	scene->addLight(ambientLight);
+
+	Light* directionalLight = Light::createDirectional(
+		glm::vec3(-0.3f, -1.0f, -0.5f),
+		glm::vec3(1.0f, 1.0f, 1.0f),
+		0.8f
+	);
+	scene->addLight(directionalLight);
+
+	Light* pointLight = Light::createPoint(
+		glm::vec3(3.0f, 3.0f, 3.0f),
+		glm::vec3(1.0f, 1.0f, 1.0f),
+		1.0f,
+		1.0f,
+		0.09f,
+		0.032f
+	);
+	scene->addLight(pointLight);
+
+	return scene;
+}
+
+
+Scene* SceneBuilder::createFionaScene(ResourceManager* resources)
+{
+	Scene* scene = new Scene();
+
+	VertexArray* fionaModel = Model::loadFromFile("fiona.obj");
+	std::vector<Material*> fionaMaterials = Model::loadMaterials("fiona.obj");
+
+	RenderableObject* fiona = new RenderableObject(
+		resources->getPhongShader(),
+		fionaModel
+	);
+
+	fiona->transform.add(new TranslateTransform(glm::vec3(0.0f, 0.0f, 0.0f)));
+
+	if (!fionaMaterials.empty()) {
+		fiona->setMaterial(fionaMaterials[0]);
+		scene->addMaterial(fionaMaterials[0]);
+		std::cout << "? Applied material from MTL file" << std::endl;
+	}
+	else {
+		Texture* fionaTexture = new Texture("assets/fiona.png");
+		Material* fionaMaterial = new Material(
+			glm::vec3(0.5f, 0.5f, 0.5f),
+			glm::vec3(1.0f, 1.0f, 1.0f),
+			glm::vec3(0.5f, 0.5f, 0.5f),
+			32.0f,
+			fionaTexture
+		);
+		fiona->setMaterial(fionaMaterial);
+		scene->addMaterial(fionaMaterial);
+	}
+
+	scene->addObject(fiona);
+
+	Light* ambientLight = Light::createAmbient(
+		glm::vec3(0.6f, 0.6f, 0.6f),
+		0.6f
+	);
+	scene->addLight(ambientLight);
+
+	Light* directionalLight = Light::createDirectional(
+		glm::vec3(-0.2f, -1.0f, -0.3f),
+		glm::vec3(1.0f, 1.0f, 1.0f),
+		0.9f
+	);
+	scene->addLight(directionalLight);
+
+	Light* frontLight = Light::createPoint(
+		glm::vec3(0.0f, 2.0f, 5.0f),
+		glm::vec3(1.0f, 1.0f, 1.0f),
+		1.2f
+	);
+	scene->addLight(frontLight);
+
+	return scene;
+}
+
+Scene* SceneBuilder::createAirplaneScene(ResourceManager* resources)
+{
+	Scene* scene = new Scene();
+
+	VertexArray* airplaneModel = Model::loadFromFile("11803_Airplane_v1_l1.obj");
+	std::vector<Material*> airplaneMaterials = Model::loadMaterials("11803_Airplane_v1_l1.obj");
+
+
+
+
+	return scene;
+}

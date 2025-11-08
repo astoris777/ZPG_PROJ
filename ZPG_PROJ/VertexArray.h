@@ -7,7 +7,8 @@ public:
     enum Format {
         POSITION_COLOR,      
         POSITION_COLOR_NORMAL, 
-        POSITION_NORMAL 
+        POSITION_NORMAL,
+		POSITION_NORMAL_UV
     };
 
     VertexArray(const float* vertices, GLsizei count, Format format = POSITION_COLOR_NORMAL);

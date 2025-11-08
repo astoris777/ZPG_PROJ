@@ -11,8 +11,6 @@ RenderableObject::~RenderableObject()
 
 void RenderableObject::draw(const glm::mat4& projection, const glm::mat4& view)
 {
-    shader->use();
-
     glm::mat4 model = transform.getModelMatrix();
 
     shader->setUniform("projectionMatrix", projection);
