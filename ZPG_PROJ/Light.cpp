@@ -33,11 +33,11 @@ Light::Light(const glm::vec3& directionOrDummy, float intensity, LightType light
     position(0.0f), constantFactor(1.0f), linearFactor(0.0f), quadraticFactor(0.0f),
     cutoff(0.0f), outerCutoff(0.0f)
 {
-    // ??????????? direction ?????? ??? directional light
     if (lightType == LightType::DIRECTIONAL) {
         direction = glm::normalize(directionOrDummy);
-    } else {
-        direction = glm::vec3(0.0f); // Ambient ?? ????? direction
+    }
+    else {
+        direction = glm::vec3(0.0f);
     }
 }
 
@@ -82,37 +82,17 @@ void Light::setIntensity(float newIntensity) {
 }
 
 void Light::setUniformsArray(Shader* shader, int index) const {
-    if (type == LightType::AMBIENT) {
-        shader->setUniform("ambientLight", color * intensity);
-        return;
-    }
-
     std::string prefix = "lights[" + std::to_string(index) + "]";
 
-    shader->setUniform(prefix + ".position", glm::vec4(position, 1.0f));
-    shader->setUniform(prefix + ".diffuse", glm::vec4(color, 1.0f));
-    shader->setUniform(prefix + ".specular", glm::vec4(color, 1.0f)); // ????????? specular
-    shader->setUniform(prefix + ".intensity", intensity);
-
-    // Set light type and specific parameters
-    if (type == LightType::SPOT) {
-        shader->setUniform(prefix + ".type", 1);
-        shader->setUniform(prefix + ".direction", glm::vec4(direction, 0.0f));
-        shader->setUniform(prefix + ".cutOff", cutoff);
-        shader->setUniform(prefix + ".outerCutOff", outerCutoff);
-        shader->setUniform(prefix + ".constant", constantFactor);
-        shader->setUniform(prefix + ".linear", linearFactor);
-        shader->setUniform(prefix + ".quadratic", quadraticFactor);
-    }
-    else if (type == LightType::DIRECTIONAL) {
-        shader->setUniform(prefix + ".type", 2);
-        shader->setUniform(prefix + ".direction", glm::vec4(direction, 0.0f));
-        // Directional light ?? ????? attenuation ?????????
-    }
-    else { // Point light
-        shader->setUniform(prefix + ".type", 0);
-        shader->setUniform(prefix + ".constant", constantFactor);
-        shader->setUniform(prefix + ".linear", linearFactor);
-        shader->setUniform(prefix + ".quadratic", quadraticFactor);
-    }
+    // ?????????? ?????? ? ??????????? ?????? ? ???????
+    shader->setUniform(prefix + ".position", position);           // vec3
+    shader->setUniform(prefix + ".direction", direction);         // vec3
+    shader->setUniform(prefix + ".color", color);                 // vec3
+    shader->setUniform(prefix + ".intensity", intensity);         // float
+    shader->setUniform(prefix + ".constantFactor", constantFactor);
+    shader->setUniform(prefix + ".linearFactor", linearFactor);
+    shader->setUniform(prefix + ".quadraticFactor", quadraticFactor);
+    shader->setUniform(prefix + ".cutoff", cutoff);
+    shader->setUniform(prefix + ".outerCutoff", outerCutoff);
+    shader->setUniform(prefix + ".type", static_cast<int>(type)); // int
 }

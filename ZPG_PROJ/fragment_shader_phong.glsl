@@ -1,49 +1,113 @@
-#version 330 core
+#version 330
+
+#define MAX_LIGHTS 6
+
+struct Light {
+    vec3 position;
+    vec3 direction;
+    vec3 color;
+    float intensity;
+    float constantFactor;
+    float linearFactor;
+    float quadraticFactor;
+    float cutoff;
+    float outerCutoff;
+    int type;
+};
+uniform Light lights[MAX_LIGHTS];
+uniform int numberOfLights;
+
+struct Material {
+    vec3 ambient;
+    vec3 diffuse;
+    vec3 specular;
+    float shininess;
+};
+uniform Material material;
 
 in vec3 FragPos;
 in vec3 Normal;
 
-#define MAX_LIGHTS 4
-
-struct Light {
-    vec4 position;
-    vec4 diffuse;
-    vec4 specular;
-    float intensity;
-};
-
-uniform Light lights[MAX_LIGHTS];
-uniform int numberOfLights;
-uniform vec3 objectColor;
 uniform vec3 viewPos;
 
-out vec4 fragColor;
+out vec4 FragColor;
 
-void main()
-{
-    vec3 norm = normalize(Normal);
-    vec3 viewDir = normalize(viewPos - FragPos);
-    
-    vec3 ambient = vec3(0.1);
-    vec3 totalDiffuse = vec3(0.0);
-    vec3 totalSpecular = vec3(0.0);
-    
-    for (int i = 0; i < numberOfLights && i < MAX_LIGHTS; ++i) {
-        vec3 lightPos = lights[i].position.xyz;
-        vec3 lightColor = lights[i].diffuse.xyz;
-        vec3 specularColor = lights[i].specular.xyz;
-        float lightIntensity = lights[i].intensity;
+
+
+float calculateAttenuation(float distance, float constant, float linear, float quadratic) {
+    return 1.0 / (constant + linear * distance + quadratic * (distance * distance));
+}
+
+vec3 calculateAmbient(vec3 lightColor) {
+    return material.ambient * lightColor;
+}
+
+vec3 calculateDiffuse(vec3 lightColor, vec3 lightDir, vec3 normal, float attenuation) {
+    float diff = max(dot(normal, lightDir), 0.0);
+    return diff * lightColor * material.diffuse * attenuation;
+}
+
+vec3 calculateSpecular(vec3 lightColor, vec3 lightDir, vec3 viewDir, vec3 normal, float attenuation) {
+    vec3 reflectDir = reflect(-lightDir, normal);
+    float spec = pow(max(dot(viewDir, reflectDir), 0.0), material.shininess);
+    return spec * lightColor * material.specular * attenuation;
+}
+
+vec3 calculateLightContribution(Light light, vec3 normal, vec3 fragPos, vec3 viewDir) {
+    vec3 lightDir;
+    float attenuation = 1.0;
+    vec3 lightColor = light.color * light.intensity;
+
+    // Type 0: Point Light
+    if (light.type == 0) {
+        lightDir = normalize(light.position - fragPos);
+        float distance = length(light.position - fragPos);
+        attenuation = calculateAttenuation(distance, light.constantFactor, light.linearFactor, light.quadraticFactor);
         
-        vec3 lightDir = normalize(lightPos - FragPos);
-        
-        float diff = max(dot(norm, lightDir), 0.0);
-        totalDiffuse += diff * lightColor * lightIntensity;
-        
-        vec3 reflectDir = reflect(-lightDir, norm);
-        float spec = pow(max(dot(viewDir, reflectDir), 0.0), 32);
-        totalSpecular += spec * specularColor;
+        vec3 diffuse = calculateDiffuse(lightColor, lightDir, normal, attenuation);
+        vec3 specular = calculateSpecular(lightColor, lightDir, viewDir, normal, attenuation);
+        return diffuse + specular;
     }
-    
-    vec3 result = (ambient + totalDiffuse + totalSpecular) * objectColor;
-    fragColor = vec4(result, 1.0);
+    // Type 1: Directional Light
+    else if (light.type == 1) {
+        lightDir = normalize(-light.direction);
+        
+        vec3 diffuse = calculateDiffuse(lightColor, lightDir, normal, 1.0);
+        vec3 specular = calculateSpecular(lightColor, lightDir, viewDir, normal, 1.0);
+        return diffuse + specular;
+    }
+    // Type 2: Spot Light
+    else if (light.type == 2) {
+        lightDir = normalize(light.position - fragPos);
+        float distance = length(light.position - fragPos);
+        attenuation = calculateAttenuation(distance, light.constantFactor, light.linearFactor, light.quadraticFactor);
+
+        // Spot light cone calculation
+        float theta = dot(lightDir, normalize(-light.direction));
+        float epsilon = light.cutoff - light.outerCutoff;
+        float spotEffect = clamp((theta - light.outerCutoff) / epsilon, 0.0, 1.0);
+        attenuation *= spotEffect;
+        
+        vec3 diffuse = calculateDiffuse(lightColor, lightDir, normal, attenuation);
+        vec3 specular = calculateSpecular(lightColor, lightDir, viewDir, normal, attenuation);
+        return diffuse + specular;
+    }
+    // Type 3: Ambient Light
+    else if (light.type == 3) {
+        return calculateAmbient(lightColor);
+    }
+
+    return vec3(0.0);
+}
+
+void main() {
+    vec3 normal = normalize(Normal);
+    vec3 viewDir = normalize(viewPos - FragPos);
+    vec3 result = vec3(0.0);
+
+    for (int i = 0; i < numberOfLights; i++) {
+        result += calculateLightContribution(lights[i], normal, FragPos, viewDir);
+    }
+
+    FragColor = vec4(result, 1.0);
 }
