@@ -12,4 +12,3 @@ public:
         M = glm::translate(M, offset);
     }
 };
-

@@ -9,4 +9,3 @@ struct BaseTransform
     virtual void apply(glm::mat4& M) const = 0;
     virtual void update(float deltaTime) {}
 };
-

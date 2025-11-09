@@ -53,7 +53,6 @@ vec3 calculateLightContribution(Light light, vec3 normal, vec3 fragPos, vec3 mat
     float attenuation = 1.0;
     vec3 lightColor = light.color * light.intensity;
 
-    // Point light (type 0)
     if (light.type == 0) {
         lightDir = normalize(light.position - fragPos);
         float distance = length(light.position - fragPos);
@@ -61,13 +60,11 @@ vec3 calculateLightContribution(Light light, vec3 normal, vec3 fragPos, vec3 mat
         
         return calculateDiffuse(lightColor, lightDir, normal, attenuation, materialDiffuse);
     }
-    // Directional light (type 1)
     else if (light.type == 1) {
         lightDir = normalize(-light.direction);
         
         return calculateDiffuse(lightColor, lightDir, normal, 1.0, materialDiffuse);
     }
-    // Spot light (type 2)
     else if (light.type == 2) {
         lightDir = normalize(light.position - fragPos);
         float distance = length(light.position - fragPos);
@@ -80,7 +77,6 @@ vec3 calculateLightContribution(Light light, vec3 normal, vec3 fragPos, vec3 mat
         
         return calculateDiffuse(lightColor, lightDir, normal, attenuation, materialDiffuse);
     }
-    // Ambient light (type 3)
     else if (light.type == 3) {
         return calculateAmbient(lightColor, material.ambient);
     }
@@ -93,7 +89,6 @@ void main() {
     
     vec3 materialDiffuse = material.diffuse;
     
-    // ????????? ???????
     if (material.hasTexture == 1) {
         vec4 texColor = texture(material.diffuseTexture, TexCoords);
         materialDiffuse *= texColor.rgb;
@@ -101,7 +96,6 @@ void main() {
     
     vec3 result = vec3(0.0);
 
-    // ????????? ????? ???? ?????????? ?????
     for (int i = 0; i < numberOfLights && i < MAX_LIGHTS; i++) {
         result += calculateLightContribution(lights[i], normal, FragPos, materialDiffuse);
     }

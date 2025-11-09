@@ -1,7 +1,7 @@
 #include "Model.h"
 #include <stdexcept>
 #include <vector>
-#include <iostream>  // ????????
+#include <iostream>
 
 #define TINYOBJLOADER_IMPLEMENTATION
 #include "tiny_obj_loader.h"
@@ -87,7 +87,6 @@ std::vector<Material*> Model::loadMaterials(const char* name)
         Texture* texture = nullptr;
 
         if (!mat.diffuse_texname.empty()) {
-            // ? ??????? ?????? ??? ?????
             std::string textureName = mat.diffuse_texname;
             size_t lastSlash = textureName.find_last_of("/\\");
             if (lastSlash != std::string::npos) {
@@ -131,34 +130,23 @@ std::vector<SubMesh> Model::loadWithMaterials(const char* name, std::vector<Mate
     std::string warn, err;
 
     if (!tinyobj::LoadObj(&attrib, &shapes, &materials, &err, inputfile.c_str(), "assets/", true)) {
-        std::cerr << "ERROR loading OBJ: " << err << std::endl;
         return {};
     }
-
-    std::cout << "\n=== Loading model: " << name << " ===" << std::endl;
-    std::cout << "Found " << materials.size() << " materials" << std::endl;
 
     for (size_t i = 0; i < materials.size(); i++) {
         const auto& mat = materials[i];
         Texture* texture = nullptr;
         
-        std::cout << "\nMaterial " << i << ": " << mat.name << std::endl;
-        
         if (!mat.diffuse_texname.empty()) {
-            // ? ??????? ?????? ??? ????? ?? ????
             std::string textureName = mat.diffuse_texname;
             
-            // ????? ????????? ???? ??? ???????? ????
             size_t lastSlash = textureName.find_last_of("/\\");
             if (lastSlash != std::string::npos) {
                 textureName = textureName.substr(lastSlash + 1);
             }
             
             std::string texPath = "assets/" + textureName;
-            std::cout << "  Loading texture: " << textureName << " from " << texPath << std::endl;
             texture = new Texture(texPath.c_str());
-        } else {
-            std::cout << "  No texture (using colors only)" << std::endl;
         }
 
         glm::vec3 diffuse(mat.diffuse[0], mat.diffuse[1], mat.diffuse[2]);
@@ -221,8 +209,6 @@ std::vector<SubMesh> Model::loadWithMaterials(const char* name, std::vector<Mate
         
         int vertexCount = static_cast<int>(vertices.size() / 8);
         
-        std::cout << "  SubMesh for material " << materialIndex << ": " << vertexCount << " vertices" << std::endl;
-        
         SubMesh submesh;
         submesh.vao = new VertexArray(vertices.data(), vertexCount, VertexArray::POSITION_NORMAL_UV);
         submesh.materialIndex = materialIndex;
@@ -231,8 +217,6 @@ std::vector<SubMesh> Model::loadWithMaterials(const char* name, std::vector<Mate
         
         submeshes.push_back(submesh);
     }
-
-    std::cout << "Created " << submeshes.size() << " submeshes\n" << std::endl;
 
     return submeshes;
 }

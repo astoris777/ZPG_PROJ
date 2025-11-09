@@ -21,7 +21,6 @@ void SceneManager::createScenes()
     Scene* airplaneScene = SceneBuilder::createAirplaneScene(resourceManager);
     Scene* forestScene = SceneBuilder::createForestScene(resourceManager);
 
-    
     scenes.push_back(airplaneScene);
     scenes.push_back(forestScene);
 

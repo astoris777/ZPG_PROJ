@@ -31,6 +31,4 @@ private:
     ResourceManager* resourceManager;
     Camera* camera;
     Window* window;
-
-    void setupLights();
 };

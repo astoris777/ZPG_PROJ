@@ -1,5 +1,4 @@
 #pragma once
-#pragma once
 #include <string>
 #include <glm/glm.hpp>
 #include <GL/glew.h>

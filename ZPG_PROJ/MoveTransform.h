@@ -94,14 +94,6 @@ public:
         elapsedTime += deltaTime;
     }
 
-    static void CircularMove(glm::mat4& M, const glm::vec3& center, float radius, float speed, float time)
-    {
-        float angle = speed * time;
-        float x = center.x + radius * cos(angle);
-        float z = center.z + radius * sin(angle);
-        M = glm::translate(M, glm::vec3(x, center.y, z));
-    }
-
 private:
     MoveTransform() = default;
 };

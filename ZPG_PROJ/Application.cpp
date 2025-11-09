@@ -61,7 +61,6 @@ void Application::processInput(float deltaTime)
         f3Pressed = false;
     }
 
- 
     if (window->isKeyPressed(GLFW_KEY_1))
     {
         sceneManager->switchScene(0);
@@ -86,7 +85,6 @@ void Application::processInput(float deltaTime)
 void Application::run()
 {
     float lastFrame = glfwGetTime();
-
 
     while (!window->shouldClose())
     {
