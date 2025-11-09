@@ -32,6 +32,39 @@ Scene* SceneBuilder::createForestScene(ResourceManager* resources)
 	scene->addMaterial(treeMaterial);
 	scene->addMaterial(bushMaterial);
 
+	// ✅ ТРАВА: Загружаем модель один раз
+	std::vector<Material*> grassMaterial;
+	std::vector<SubMesh> grassModel = Model::loadWithMaterials("Grass/HighPolyGrass.obj", grassMaterial);
+
+	// ✅ ТРАВА: Создаем сетку участков по всей площади леса
+	// Деревья: X [-10, 10], Z [-10, 10]
+	// Кусты: X [-7.5, 7.5], Z [-7.5, 7.5]
+	// Покроем от -12 до 12 по X и Z (немного больше леса)
+	int grassCount = 0;
+	for (float gridX = -12.0f; gridX <= 12.0f; gridX += 1.0f) {
+		for (float gridZ = -12.0f; gridZ <= 12.0f; gridZ += 1.0f) {
+			RenderableObject* grass = new RenderableObject(
+				resources->getConstantShader(),
+				grassModel,
+				grassMaterial
+			);
+
+			grass->transform.add(new ScaleTransform(glm::vec3(1.0f, 0.1f, 1.0f)));
+			grass->transform.add(new TranslateTransform(glm::vec3(gridX, -0.1f, gridZ)));
+			
+			scene->addObject(grass);
+			grassCount++;
+		}
+	}
+
+	//std::cout << "Created " << grassCount << " grass patches" << std::endl;
+
+	// Добавляем материалы травы один раз
+	for (auto* mat : grassMaterial) {
+		scene->addMaterial(mat);
+	}
+
+	// ДЕРЕВЬЯ
 	for (int i = 0; i < treeCount; i++)
 	{
 		float treeX = static_cast<float>(rand()) / static_cast<float>(RAND_MAX) * 20.0f - 10.0f;
@@ -52,6 +85,7 @@ Scene* SceneBuilder::createForestScene(ResourceManager* resources)
 		scene->addObject(tree);
 	}
 
+	// КУСТЫ
 	for (int i = 0; i < bushCount; i++)
 	{
 		float bushX = static_cast<float>(rand()) / static_cast<float>(RAND_MAX) * 15.0f - 7.5f;
@@ -72,6 +106,7 @@ Scene* SceneBuilder::createForestScene(ResourceManager* resources)
 		scene->addObject(bush);
 	}
 
+	// FIONA
 	std::vector<Material*> fionaMaterials;
 	std::vector<SubMesh>fionaModel = Model::loadWithMaterials("fiona.obj", fionaMaterials);
 
@@ -87,7 +122,7 @@ Scene* SceneBuilder::createForestScene(ResourceManager* resources)
 		scene->addMaterial(mat);
 	}
 
-	
+	// SHREK
 	std::vector<Material*> shrekMaterials;
 	std::vector<SubMesh>shrekModel = Model::loadWithMaterials("shrek.obj", shrekMaterials);
 	RenderableObject* shrek = new RenderableObject(
@@ -102,8 +137,7 @@ Scene* SceneBuilder::createForestScene(ResourceManager* resources)
 		scene->addMaterial(mat);
 	}
 
-
-
+	// ОСВЕЩЕНИЕ
 	Light* ambientLight = Light::createAmbient(
 		glm::vec3(0.3f, 0.3f, 0.25f),
 		0.4f
