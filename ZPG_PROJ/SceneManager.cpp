@@ -20,12 +20,9 @@ void SceneManager::createScenes()
 {
     Scene* airplaneScene = SceneBuilder::createAirplaneScene(resourceManager);
     Scene* forestScene = SceneBuilder::createForestScene(resourceManager);
-    Scene* sampleScene = SceneBuilder::createSampleScene(resourceManager);
-    Scene* fionaScene = SceneBuilder::createFionaScene(resourceManager);
+
     
     scenes.push_back(airplaneScene);
-    scenes.push_back(fionaScene);
-    scenes.push_back(sampleScene);
     scenes.push_back(forestScene);
 
     activeScene = 0;

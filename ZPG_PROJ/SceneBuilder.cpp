@@ -60,7 +60,7 @@ Scene* SceneBuilder::createForestScene(ResourceManager* resources)
 		float randomRotation = static_cast<float>(rand() % 360);
 
 		RenderableObject* bush = new RenderableObject(
-			resources->getPhongShader(),
+			resources->getConstantShader(),
 			resources->getBushModel()
 		);
 
@@ -71,6 +71,38 @@ Scene* SceneBuilder::createForestScene(ResourceManager* resources)
 
 		scene->addObject(bush);
 	}
+
+	std::vector<Material*> fionaMaterials;
+	std::vector<SubMesh>fionaModel = Model::loadWithMaterials("fiona.obj", fionaMaterials);
+
+	RenderableObject* fiona = new RenderableObject(
+		resources->getPhongShader(),
+		fionaModel,
+		fionaMaterials
+	);
+
+	fiona->transform.add(new TranslateTransform(glm::vec3(0.0f, 0.0f, -5.0f)));
+	scene->addObject(fiona);
+	for (auto* mat : fionaMaterials) {
+		scene->addMaterial(mat);
+	}
+
+	
+	std::vector<Material*> shrekMaterials;
+	std::vector<SubMesh>shrekModel = Model::loadWithMaterials("shrek.obj", shrekMaterials);
+	RenderableObject* shrek = new RenderableObject(
+		resources->getPhongShader(),
+		shrekModel,
+		shrekMaterials
+	);
+
+	shrek->transform.add(new TranslateTransform(glm::vec3(2.0f, 0.0f, -5.0f)));
+	scene->addObject(shrek);
+	for (auto* mat : shrekMaterials) {
+		scene->addMaterial(mat);
+	}
+
+
 
 	Light* ambientLight = Light::createAmbient(
 		glm::vec3(0.3f, 0.3f, 0.25f),
@@ -89,112 +121,8 @@ Scene* SceneBuilder::createForestScene(ResourceManager* resources)
 }
 
 
-Scene* SceneBuilder::createSampleScene(ResourceManager* resources)
-{
-	Scene* scene = new Scene();
-
-	VertexArray* f1model = Model::loadFromFile("formula1.obj");
-	RenderableObject* f1car = new RenderableObject(
-		resources->getPhongShader(),
-		f1model
-	);
-
-	f1car->transform.add(new TranslateTransform(glm::vec3(0.0f, 0.0f, 0.0f)));
-	f1car->transform.add(new ScaleTransform(glm::vec3(0.5f)));
-	scene->addObject(f1car);
-
-	Material* carMaterial = new Material(
-		glm::vec3(0.3f, 0.3f, 0.3f),
-		glm::vec3(0.8f, 0.0f, 0.0f),
-		glm::vec3(1.0f, 1.0f, 1.0f),
-		64.0f
-	);
-	f1car->setMaterial(carMaterial);
-	scene->addMaterial(carMaterial);
-
-	Light* ambientLight = Light::createAmbient(
-		glm::vec3(1.0f, 1.0f, 1.0f),
-		0.3f
-	);
-	scene->addLight(ambientLight);
-
-	Light* directionalLight = Light::createDirectional(
-		glm::vec3(-0.3f, -1.0f, -0.5f),
-		glm::vec3(1.0f, 1.0f, 1.0f),
-		0.8f
-	);
-	scene->addLight(directionalLight);
-
-	Light* pointLight = Light::createPoint(
-		glm::vec3(3.0f, 3.0f, 3.0f),
-		glm::vec3(1.0f, 1.0f, 1.0f),
-		1.0f,
-		1.0f,
-		0.09f,
-		0.032f
-	);
-	scene->addLight(pointLight);
-
-	return scene;
-}
 
 
-Scene* SceneBuilder::createFionaScene(ResourceManager* resources)
-{
-	Scene* scene = new Scene();
-
-	VertexArray* fionaModel = Model::loadFromFile("fiona.obj");
-	std::vector<Material*> fionaMaterials = Model::loadMaterials("fiona.obj");
-
-	RenderableObject* fiona = new RenderableObject(
-		resources->getPhongShader(),
-		fionaModel
-	);
-
-	fiona->transform.add(new TranslateTransform(glm::vec3(0.0f, 0.0f, 0.0f)));
-	fiona->transform.add(new ScaleTransform(glm::vec3(1.0f)));
-
-	if (!fionaMaterials.empty()) {
-		fiona->setMaterial(fionaMaterials[0]);
-		scene->addMaterial(fionaMaterials[0]);
-	}
-	else {
-		Texture* fionaTexture = new Texture("assets/fiona.png");
-		Material* fionaMaterial = new Material(
-			glm::vec3(0.5f, 0.5f, 0.5f),
-			glm::vec3(1.0f, 1.0f, 1.0f),
-			glm::vec3(0.5f, 0.5f, 0.5f),
-			32.0f,
-			fionaTexture
-		);
-		fiona->setMaterial(fionaMaterial);
-		scene->addMaterial(fionaMaterial);
-	}
-
-	scene->addObject(fiona);
-
-	Light* ambientLight = Light::createAmbient(
-		glm::vec3(0.6f, 0.6f, 0.6f),
-		0.6f
-	);
-	scene->addLight(ambientLight);
-
-	Light* directionalLight = Light::createDirectional(
-		glm::vec3(-0.2f, -1.0f, -0.3f),
-		glm::vec3(1.0f, 1.0f, 1.0f),
-		0.9f
-	);
-	scene->addLight(directionalLight);
-
-	Light* frontLight = Light::createPoint(
-		glm::vec3(0.0f, 2.0f, 5.0f),
-		glm::vec3(1.0f, 1.0f, 1.0f),
-		1.2f
-	);
-	scene->addLight(frontLight);
-
-	return scene;
-}
 
 Scene* SceneBuilder::createAirplaneScene(ResourceManager* resources)
 {
