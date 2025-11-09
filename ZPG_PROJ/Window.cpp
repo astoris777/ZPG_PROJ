@@ -1,5 +1,4 @@
 #include "Window.h"
-#include <iostream>
 
 Window::Window(int width, int height, const char* title)
     : currentWidth(width), currentHeight(height)
@@ -70,7 +69,6 @@ bool Window::isKeyPressed(int key)
 
 void Window::errorCallback(int error, const char* description)
 {
-    std::cerr << description << std::endl;
 }
 
 void Window::mouseButtonCallback(GLFWwindow* winPtr, int button, int action, int mods)

@@ -2,7 +2,6 @@
 #include "ResourceManager.h"
 #include "SceneBuilder.h"
 #include "Window.h"
-#include <iostream>
 
 SceneManager::SceneManager(ResourceManager* resourceManager, Camera* camera, Window* window)
     : activeScene(0), currentFOV(45.0f), resourceManager(resourceManager), camera(camera), window(window)
@@ -19,14 +18,15 @@ SceneManager::~SceneManager()
 
 void SceneManager::createScenes()
 {
+    Scene* airplaneScene = SceneBuilder::createAirplaneScene(resourceManager);
     Scene* forestScene = SceneBuilder::createForestScene(resourceManager);
-	Scene* sampleScene = SceneBuilder::createSampleScene(resourceManager); 
-	Scene* fionaScene = SceneBuilder::createFionaScene(resourceManager);
+    Scene* sampleScene = SceneBuilder::createSampleScene(resourceManager);
+    Scene* fionaScene = SceneBuilder::createFionaScene(resourceManager);
     
-	scenes.push_back(fionaScene);
-	scenes.push_back(sampleScene);
+    scenes.push_back(airplaneScene);
+    scenes.push_back(fionaScene);
+    scenes.push_back(sampleScene);
     scenes.push_back(forestScene);
-
 
     activeScene = 0;
 }
@@ -47,11 +47,6 @@ void SceneManager::render()
     glm::vec3 cameraPos = camera->getPosition();
 
     scenes[activeScene]->draw(projection, view, cameraPos);
-    
-    static float lastFOV = -1.0f;
-    if (lastFOV != currentFOV) {
-        lastFOV = currentFOV;
-    }
 }
 
 void SceneManager::switchScene(int sceneIndex)

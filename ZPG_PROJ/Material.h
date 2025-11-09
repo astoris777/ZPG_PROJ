@@ -10,7 +10,7 @@ public:
     glm::vec3 diffuse;
     glm::vec3 specular;
     float shininess;
-    Texture* texture;  // ? ???????? ????????
+    Texture* texture;
 
     Material(const glm::vec3& amb = glm::vec3(1.0f), const glm::vec3& diff = glm::vec3(1.0f),
         const glm::vec3& spec = glm::vec3(1.0f), float shin = 32.0f, Texture* tex = nullptr);

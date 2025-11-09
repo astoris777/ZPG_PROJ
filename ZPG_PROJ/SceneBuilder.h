@@ -7,7 +7,7 @@
 class SceneBuilder {
 public:
     static Scene* createForestScene(ResourceManager* resources);
-	static Scene* createSampleScene(ResourceManager* resources);	
-	static Scene* createFionaScene(ResourceManager* resources);
-	static Scene* createAirplaneScene(ResourceManager* resources);
+    static Scene* createSampleScene(ResourceManager* resources);
+    static Scene* createFionaScene(ResourceManager* resources);
+    static Scene* createAirplaneScene(ResourceManager* resources);
 };

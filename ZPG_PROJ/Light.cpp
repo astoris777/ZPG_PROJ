@@ -1,7 +1,6 @@
 #include "Light.h"
 #include "Shader.h"
 
-// Point light constructor
 Light::Light(LightType type, const glm::vec3& position, const glm::vec3& color,
     float intensity, float constant, float linear, float quadratic)
     : type(type), position(position), color(color), intensity(intensity),
@@ -13,7 +12,6 @@ Light::Light(LightType type, const glm::vec3& position, const glm::vec3& color,
     }
 }
 
-// Spot light constructor
 Light::Light(LightType type, const glm::vec3& position, const glm::vec3& direction,
     const glm::vec3& color, float intensity, float constant, float linear,
     float quadratic, float cutoff, float outerCutoff)
@@ -27,7 +25,6 @@ Light::Light(LightType type, const glm::vec3& position, const glm::vec3& directi
     }
 }
 
-// Private constructor for directional and ambient
 Light::Light(const glm::vec3& directionOrDummy, float intensity, LightType lightType, const glm::vec3& color)
     : type(lightType), color(color), intensity(intensity),
     position(0.0f), constantFactor(1.0f), linearFactor(0.0f), quadraticFactor(0.0f),
@@ -41,7 +38,6 @@ Light::Light(const glm::vec3& directionOrDummy, float intensity, LightType light
     }
 }
 
-// Static factory methods
 Light* Light::createPoint(const glm::vec3& position, const glm::vec3& color,
     float intensity, float constant, float linear, float quadratic)
 {
@@ -64,7 +60,6 @@ Light* Light::createAmbient(const glm::vec3& color, float intensity)
     return new Light(glm::vec3(0.0f), intensity, LightType::AMBIENT, color);
 }
 
-// Setters
 void Light::setPosition(const glm::vec3& newPosition) {
     position = newPosition;
 }
@@ -84,15 +79,14 @@ void Light::setIntensity(float newIntensity) {
 void Light::setUniformsArray(Shader* shader, int index) const {
     std::string prefix = "lights[" + std::to_string(index) + "]";
 
-    // ?????????? ?????? ? ??????????? ?????? ? ???????
-    shader->setUniform(prefix + ".position", position);           // vec3
-    shader->setUniform(prefix + ".direction", direction);         // vec3
-    shader->setUniform(prefix + ".color", color);                 // vec3
-    shader->setUniform(prefix + ".intensity", intensity);         // float
+    shader->setUniform(prefix + ".position", position);
+    shader->setUniform(prefix + ".direction", direction);
+    shader->setUniform(prefix + ".color", color);
+    shader->setUniform(prefix + ".intensity", intensity);
     shader->setUniform(prefix + ".constantFactor", constantFactor);
     shader->setUniform(prefix + ".linearFactor", linearFactor);
     shader->setUniform(prefix + ".quadraticFactor", quadraticFactor);
     shader->setUniform(prefix + ".cutoff", cutoff);
     shader->setUniform(prefix + ".outerCutoff", outerCutoff);
-    shader->setUniform(prefix + ".type", static_cast<int>(type)); // int
+    shader->setUniform(prefix + ".type", static_cast<int>(type));
 }

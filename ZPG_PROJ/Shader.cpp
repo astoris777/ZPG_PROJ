@@ -1,7 +1,6 @@
 #include "Shader.h"
 #include <fstream>
 #include <sstream>
-#include <iostream>
 #include <glm/gtc/type_ptr.hpp>
 
 Shader::Shader(const std::string& vertexPath, const std::string& fragmentPath)
@@ -10,8 +9,6 @@ Shader::Shader(const std::string& vertexPath, const std::string& fragmentPath)
     std::string fragmentCode = loadShaderSource(fragmentPath);
     const char* vShaderSource = vertexCode.c_str();
     const char* fShaderSource = fragmentCode.c_str();
-
-    std::cout << "Loading shaders: " << vertexPath << " and " << fragmentPath << std::endl;
 
     GLuint vertex = glCreateShader(GL_VERTEX_SHADER);
     glShaderSource(vertex, 1, &vShaderSource, nullptr);
@@ -28,7 +25,6 @@ Shader::Shader(const std::string& vertexPath, const std::string& fragmentPath)
     glAttachShader(programID, fragment);
     glLinkProgram(programID);
     checkCompileErrors(programID, "PROGRAM");
-
 
     glDeleteShader(vertex);
     glDeleteShader(fragment);
@@ -49,7 +45,6 @@ std::string Shader::loadShaderSource(const std::string& filePath)
     std::ifstream file(filePath);
     if (!file.is_open())
     {
-        std::cerr << "Could not open file" << filePath << std::endl;
         return "";
     }
     std::stringstream stream;
@@ -67,7 +62,6 @@ void Shader::checkCompileErrors(GLuint shader, const std::string& type)
         if (!success)
         {
             glGetShaderInfoLog(shader, 1024, nullptr, infoLog);
-            std::cerr << "FAILED TO COMPILE " << type << ": " << infoLog << std::endl;
         }
     }
     else
@@ -76,7 +70,6 @@ void Shader::checkCompileErrors(GLuint shader, const std::string& type)
         if (!success)
         {
             glGetProgramInfoLog(shader, 1024, nullptr, infoLog);
-            std::cerr << "LINK ERROR " << infoLog << std::endl;
         }
     }
 }

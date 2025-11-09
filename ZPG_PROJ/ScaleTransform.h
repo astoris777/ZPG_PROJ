@@ -20,11 +20,11 @@ public:
     {
         factors += speed * deltaTime;
 
-        if (factors.x < 0.1f)
-            factors.x = 0.1f;
-        if (factors.y < 0.1f)
-            factors.y = 0.1f;
-        if (factors.z < 0.1f)
-            factors.z = 0.1f;
+        if (factors.x < 0.01f)
+            factors.x = 0.01f;
+        if (factors.y < 0.01f)
+            factors.y = 0.01f;
+        if (factors.z < 0.01f)
+            factors.z = 0.01f;
     }
 };

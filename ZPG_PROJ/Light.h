@@ -36,20 +36,17 @@ public:
 
     static Light* createAmbient(const glm::vec3& color = glm::vec3(0.1f), float intensity = 1.0f);
 
-    // Getters
     glm::vec3 getPosition() const { return position; }
     glm::vec3 getDirection() const { return direction; }
     glm::vec3 getColor() const { return color; }
     float getIntensity() const { return intensity; }
     LightType getType() const { return type; }
 
-    // Setters
     void setPosition(const glm::vec3& newPosition);
     void setDirection(const glm::vec3& newDirection);
     void setColor(const glm::vec3& newColor);
     void setIntensity(float newIntensity);
 
-    // ???????? ????? ??? ????????? uniforms
     void setUniformsArray(Shader* shader, int index) const;
 
 private:
@@ -59,15 +56,12 @@ private:
     glm::vec3 color;
     float intensity;
 
-    // Attenuation ??? point/spot light
     float constantFactor;
     float linearFactor;
     float quadraticFactor;
 
-    // Spot light ?????????
     float cutoff;
     float outerCutoff;
 
-    // Private constructor ??? directional ? ambient
     Light(const glm::vec3& direction, float intensity, LightType lightType, const glm::vec3& color);
 };

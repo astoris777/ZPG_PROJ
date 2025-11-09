@@ -11,9 +11,12 @@ Texture::Texture(const char* filePath)
     unsigned char* data = stbi_load(filePath, &width, &height, &channels, 4);
 
     if (!data) {
-        std::cerr << "Failed to load texture: " << filePath << std::endl;
+        std::cerr << "    ? FAILED: " << filePath << std::endl;
+        std::cerr << "       Error: " << stbi_failure_reason() << std::endl;
         return;
     }
+
+    std::cout << "    ? Success: " << width << "x" << height << " px" << std::endl;
 
     glGenTextures(1, &textureID);
     glBindTexture(GL_TEXTURE_2D, textureID);
@@ -32,7 +35,9 @@ Texture::Texture(const char* filePath)
 
 Texture::~Texture()
 {
-    glDeleteTextures(1, &textureID);
+    if (textureID != 0) {
+        glDeleteTextures(1, &textureID);
+    }
 }
 
 void Texture::bind(unsigned int slot) const

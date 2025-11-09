@@ -33,5 +33,5 @@ public:
     {
         glm::mat4 M = getModelMatrix();
         return glm::vec3(M[3]);
-	}
+    }
 };

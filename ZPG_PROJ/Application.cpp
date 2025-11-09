@@ -1,6 +1,5 @@
 #include "Application.h"
 #include <GLFW/glfw3.h>
-#include <iostream>
 
 Application::Application()
     : window(nullptr), sceneManager(nullptr), resourceManager(nullptr)

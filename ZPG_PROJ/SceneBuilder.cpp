@@ -1,4 +1,4 @@
-#include "SceneBuilder.h"
+﻿#include "SceneBuilder.h"
 #include "Transform.h"
 #include "TranslateTransform.h"
 #include "MoveTransform.h"
@@ -6,7 +6,6 @@
 #include "RotateTransform.h"
 #include <cstdlib>
 #include <ctime>
-#include <iostream>
 #include "Model.h"
 
 Scene* SceneBuilder::createForestScene(ResourceManager* resources)
@@ -153,11 +152,11 @@ Scene* SceneBuilder::createFionaScene(ResourceManager* resources)
 	);
 
 	fiona->transform.add(new TranslateTransform(glm::vec3(0.0f, 0.0f, 0.0f)));
+	fiona->transform.add(new ScaleTransform(glm::vec3(1.0f)));
 
 	if (!fionaMaterials.empty()) {
 		fiona->setMaterial(fionaMaterials[0]);
 		scene->addMaterial(fionaMaterials[0]);
-		std::cout << "? Applied material from MTL file" << std::endl;
 	}
 	else {
 		Texture* fionaTexture = new Texture("assets/fiona.png");
@@ -201,10 +200,41 @@ Scene* SceneBuilder::createAirplaneScene(ResourceManager* resources)
 {
 	Scene* scene = new Scene();
 
-	VertexArray* airplaneModel = Model::loadFromFile("11803_Airplane_v1_l1.obj");
-	std::vector<Material*> airplaneMaterials = Model::loadMaterials("11803_Airplane_v1_l1.obj");
+	std::vector<Material*> airplaneMaterials;
+	std::vector<SubMesh> airplaneSubmeshes = Model::loadWithMaterials("11803_Airplane_v1_l1.obj", airplaneMaterials);
+
+	RenderableObject* airplane = new RenderableObject(
+		resources->getConstantShader(),  // ← Изменено с getPhongShader()
+		airplaneSubmeshes,
+		airplaneMaterials
+	);
+
+	airplane->transform.add(new ScaleTransform(glm::vec3(0.01f)));
+	airplane->transform.add(new TranslateTransform(glm::vec3(0.0f, 0.0f, -50.0f)));
+	airplane->transform.add(new RotateTransform(-90.0f, glm::vec3(1.0f, 0.0f, 0.0f)));
+
+	scene->addObject(airplane);
+
+	for (auto* mat : airplaneMaterials) {
+		scene->addMaterial(mat);
+	}
 
 
+	std::vector<Material*> helicopterMaterials;
+	std::vector<SubMesh> helicopterSubmeshes = Model::loadWithMaterials("Seahawk.obj", helicopterMaterials);
+
+	RenderableObject* helicopter = new RenderableObject(
+		resources->getConstantShader(),  // ← Изменено с getPhongShader()
+		helicopterSubmeshes,
+		helicopterMaterials
+	);
+
+	helicopter->transform.add(new ScaleTransform(glm::vec3(0.1f)));
+	helicopter->transform.add(new TranslateTransform(glm::vec3(10.0f, -20.0f, -200.0f)));
+	scene->addObject(helicopter);
+	for (auto* mat : helicopterMaterials) {
+		scene->addMaterial(mat);
+	}
 
 
 	return scene;

@@ -1,7 +1,7 @@
 #include "Model.h"
-#include <iostream>
 #include <stdexcept>
 #include <vector>
+#include <iostream>  // ????????
 
 #define TINYOBJLOADER_IMPLEMENTATION
 #include "tiny_obj_loader.h"
@@ -18,12 +18,8 @@ VertexArray* Model::loadFromFile(const char* name)
     std::string warn, err;
 
     if (!tinyobj::LoadObj(&attrib, &shapes, &materials, &err, inputfile.c_str(), "assets/", true)) {
-        if (!warn.empty()) std::cout << "Warn: " << warn << std::endl;
-        if (!err.empty()) std::cerr << "Err: " << err << std::endl;
         throw std::runtime_error("Failed to load OBJ file!");
     }
-
-    if (!warn.empty()) std::cout << "Warn: " << warn << std::endl;
 
     size_t totalIndices = 0;
     for (const auto& shape : shapes) {
@@ -81,58 +77,162 @@ std::vector<Material*> Model::loadMaterials(const char* name)
     std::vector<tinyobj::material_t> materials;
     std::string warn, err;
 
-    std::cout << "=== Loading materials from " << inputfile << " ===" << std::endl;
-
     if (!tinyobj::LoadObj(&attrib, &shapes, &materials, &err, inputfile.c_str(), "assets/", true)) {
-        std::cerr << "? Failed to load OBJ materials: " << err << std::endl;
         return {};
-    }
-
-    if (!warn.empty()) {
-        std::cout << "?? Warning: " << warn << std::endl;
     }
 
     std::vector<Material*> loadedMaterials;
 
-    std::cout << "Found " << materials.size() << " material(s)" << std::endl;
-
     for (const auto& mat : materials) {
         Texture* texture = nullptr;
 
-        std::cout << "  Material: " << mat.name << std::endl;
-        std::cout << "    Ka: " << mat.ambient[0] << ", " << mat.ambient[1] << ", " << mat.ambient[2] << std::endl;
-        std::cout << "    Kd: " << mat.diffuse[0] << ", " << mat.diffuse[1] << ", " << mat.diffuse[2] << std::endl;
-
         if (!mat.diffuse_texname.empty()) {
-            std::string texPath = "assets/" + mat.diffuse_texname;
-            std::cout << "    Texture: " << texPath << std::endl;
+            // ? ??????? ?????? ??? ?????
+            std::string textureName = mat.diffuse_texname;
+            size_t lastSlash = textureName.find_last_of("/\\");
+            if (lastSlash != std::string::npos) {
+                textureName = textureName.substr(lastSlash + 1);
+            }
+            
+            std::string texPath = "assets/" + textureName;
             texture = new Texture(texPath.c_str());
         }
 
-        // ? ????: ???? Kd = (0,0,0) ?? ???? ????????, ????????? Kd = (1,1,1)
         glm::vec3 diffuse(mat.diffuse[0], mat.diffuse[1], mat.diffuse[2]);
 
         if (texture != nullptr) {
             float diffuseSum = diffuse.r + diffuse.g + diffuse.b;
-            if (diffuseSum < 0.01f) {  // ??????????? ??????
-                std::cout << "    ?? Kd is black but texture exists. Using white Kd." << std::endl;
+            if (diffuseSum < 0.01f) {
                 diffuse = glm::vec3(1.0f, 1.0f, 1.0f);
             }
         }
 
         Material* material = new Material(
             glm::vec3(mat.ambient[0], mat.ambient[1], mat.ambient[2]),
-            diffuse,  // ? ?????????? ???????????? ????????
+            diffuse,
             glm::vec3(mat.specular[0], mat.specular[1], mat.specular[2]),
             mat.shininess,
             texture
         );
 
-        std::cout << "  ? Created material with Kd=("
-            << diffuse.r << "," << diffuse.g << "," << diffuse.b << ")" << std::endl;
-
         loadedMaterials.push_back(material);
     }
 
     return loadedMaterials;
+}
+
+std::vector<SubMesh> Model::loadWithMaterials(const char* name, std::vector<Material*>& outMaterials)
+{
+    const std::string inputfile = std::string("assets/") + name;
+
+    tinyobj::attrib_t attrib;
+    std::vector<tinyobj::shape_t> shapes;
+    std::vector<tinyobj::material_t> materials;
+    std::string warn, err;
+
+    if (!tinyobj::LoadObj(&attrib, &shapes, &materials, &err, inputfile.c_str(), "assets/", true)) {
+        std::cerr << "ERROR loading OBJ: " << err << std::endl;
+        return {};
+    }
+
+    std::cout << "\n=== Loading model: " << name << " ===" << std::endl;
+    std::cout << "Found " << materials.size() << " materials" << std::endl;
+
+    for (size_t i = 0; i < materials.size(); i++) {
+        const auto& mat = materials[i];
+        Texture* texture = nullptr;
+        
+        std::cout << "\nMaterial " << i << ": " << mat.name << std::endl;
+        
+        if (!mat.diffuse_texname.empty()) {
+            // ? ??????? ?????? ??? ????? ?? ????
+            std::string textureName = mat.diffuse_texname;
+            
+            // ????? ????????? ???? ??? ???????? ????
+            size_t lastSlash = textureName.find_last_of("/\\");
+            if (lastSlash != std::string::npos) {
+                textureName = textureName.substr(lastSlash + 1);
+            }
+            
+            std::string texPath = "assets/" + textureName;
+            std::cout << "  Loading texture: " << textureName << " from " << texPath << std::endl;
+            texture = new Texture(texPath.c_str());
+        } else {
+            std::cout << "  No texture (using colors only)" << std::endl;
+        }
+
+        glm::vec3 diffuse(mat.diffuse[0], mat.diffuse[1], mat.diffuse[2]);
+        if (texture != nullptr && (diffuse.r + diffuse.g + diffuse.b) < 0.01f) {
+            diffuse = glm::vec3(1.0f);
+        }
+
+        Material* material = new Material(
+            glm::vec3(mat.ambient[0], mat.ambient[1], mat.ambient[2]),
+            diffuse,
+            glm::vec3(mat.specular[0], mat.specular[1], mat.specular[2]),
+            mat.shininess,
+            texture
+        );
+        
+        outMaterials.push_back(material);
+    }
+
+    std::map<int, std::vector<float>> verticesByMaterial;
+    
+    for (const auto& shape : shapes) {
+        size_t index_offset = 0;
+        for (size_t f = 0; f < shape.mesh.num_face_vertices.size(); f++) {
+            int fv = shape.mesh.num_face_vertices[f];
+            int materialId = shape.mesh.material_ids[f];
+            
+            for (size_t v = 0; v < fv; v++) {
+                tinyobj::index_t idx = shape.mesh.indices[index_offset + v];
+                
+                verticesByMaterial[materialId].push_back(attrib.vertices[3 * idx.vertex_index + 0]);
+                verticesByMaterial[materialId].push_back(attrib.vertices[3 * idx.vertex_index + 1]);
+                verticesByMaterial[materialId].push_back(attrib.vertices[3 * idx.vertex_index + 2]);
+                
+                if (idx.normal_index >= 0) {
+                    verticesByMaterial[materialId].push_back(attrib.normals[3 * idx.normal_index + 0]);
+                    verticesByMaterial[materialId].push_back(attrib.normals[3 * idx.normal_index + 1]);
+                    verticesByMaterial[materialId].push_back(attrib.normals[3 * idx.normal_index + 2]);
+                } else {
+                    verticesByMaterial[materialId].push_back(0.0f);
+                    verticesByMaterial[materialId].push_back(0.0f);
+                    verticesByMaterial[materialId].push_back(0.0f);
+                }
+                
+                if (idx.texcoord_index >= 0) {
+                    verticesByMaterial[materialId].push_back(attrib.texcoords[2 * idx.texcoord_index + 0]);
+                    verticesByMaterial[materialId].push_back(attrib.texcoords[2 * idx.texcoord_index + 1]);
+                } else {
+                    verticesByMaterial[materialId].push_back(0.0f);
+                    verticesByMaterial[materialId].push_back(0.0f);
+                }
+            }
+            index_offset += fv;
+        }
+    }
+
+    std::vector<SubMesh> submeshes;
+    for (const auto& pair : verticesByMaterial) {
+        int materialIndex = pair.first;
+        const std::vector<float>& vertices = pair.second;
+        
+        int vertexCount = static_cast<int>(vertices.size() / 8);
+        
+        std::cout << "  SubMesh for material " << materialIndex << ": " << vertexCount << " vertices" << std::endl;
+        
+        SubMesh submesh;
+        submesh.vao = new VertexArray(vertices.data(), vertexCount, VertexArray::POSITION_NORMAL_UV);
+        submesh.materialIndex = materialIndex;
+        submesh.vertexCount = vertexCount;
+        submesh.startIndex = 0;
+        
+        submeshes.push_back(submesh);
+    }
+
+    std::cout << "Created " << submeshes.size() << " submeshes\n" << std::endl;
+
+    return submeshes;
 }
