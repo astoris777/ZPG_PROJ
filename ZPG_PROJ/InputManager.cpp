@@ -1,12 +1,11 @@
 #include "InputManager.h"
 #include "Camera.h"
 #include "SceneManager.h"
-#include <GL/glew.h>
 #include <glm/gtc/matrix_transform.hpp>
 #include <stdio.h>
 
 InputManager::InputManager(GLFWwindow* window, Camera* camera)
-    : window(window), camera(camera), sceneManager(nullptr), rightMousePressed(false), lastX(0.0), lastY(0.0)
+    : window(window), camera(camera), sceneManager(nullptr), rightMousePressed(false), lastX(0.0), lastY(0.0), deleteKeyPressed(false)
 {
 }
 
@@ -47,6 +46,27 @@ void InputManager::handleMouseButton(int button, int action)
         double xpos, ypos;
         glfwGetCursorPos(window, &xpos, &ypos);
         handleLeftClick(xpos, ypos);
+        
+        if (glfwGetKey(window, GLFW_KEY_DELETE) == GLFW_PRESS) {
+            if (sceneManager) {
+                sceneManager->deleteSelectedObject();
+                printf("Object deleted!\n");
+            }
+        }
+    }
+}
+
+void InputManager::checkDeleteKey()
+{
+    if (glfwGetKey(window, GLFW_KEY_DELETE) == GLFW_PRESS && !deleteKeyPressed) {
+        deleteKeyPressed = true;
+        if (sceneManager) {
+            sceneManager->deleteSelectedObject();
+            printf("Object deleted!\n");
+        }
+    }
+    else if (glfwGetKey(window, GLFW_KEY_DELETE) == GLFW_RELEASE) {
+        deleteKeyPressed = false;
     }
 }
 

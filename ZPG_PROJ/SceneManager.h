@@ -24,6 +24,7 @@ public:
     float getCurrentFOV() const { return currentFOV; }
     
     void setSelectedObject(unsigned int objectID);
+    void deleteSelectedObject();
     Scene* getActiveScene() const;
 
 private:
@@ -34,4 +35,5 @@ private:
     ResourceManager* resourceManager;
     Camera* camera;
     Window* window;
+    unsigned int selectedObjectID = 0;
 };

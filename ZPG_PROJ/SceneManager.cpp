@@ -49,11 +49,14 @@ void SceneManager::switchScene(int sceneIndex)
 {
     if (sceneIndex >= 0 && sceneIndex < scenes.size()) {
         activeScene = sceneIndex;
+        selectedObjectID = 0;
     }
 }
 
 void SceneManager::setSelectedObject(unsigned int objectID)
 {
+    selectedObjectID = objectID;
+    
     if (activeScene >= 0 && activeScene < scenes.size()) {
         RenderableObject* obj = scenes[activeScene]->getObjectByID(objectID);
         if (obj) {
@@ -69,6 +72,14 @@ void SceneManager::setSelectedObject(unsigned int objectID)
                 scenes[activeScene]->setSelected(index);
             }
         }
+    }
+}
+
+void SceneManager::deleteSelectedObject()
+{
+    if (selectedObjectID > 0 && activeScene >= 0 && activeScene < scenes.size()) {
+        scenes[activeScene]->removeObjectByID(selectedObjectID);
+        selectedObjectID = 0;
     }
 }
 

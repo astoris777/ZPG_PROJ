@@ -101,3 +101,27 @@ RenderableObject* Scene::getObjectByID(unsigned int id) const
     }
     return nullptr;
 }
+
+void Scene::removeObjectByID(unsigned int id)
+{
+    for (auto it = objects.begin(); it != objects.end(); ++it) {
+        if ((*it)->getID() == id) {
+            
+            if (selectedObject == *it) {
+                selectedObject = nullptr;
+            }
+            
+            for (auto bindIt = objectLightBindings.begin(); bindIt != objectLightBindings.end();) {
+                if (bindIt->object == *it) {
+                    bindIt = objectLightBindings.erase(bindIt);
+                } else {
+                    ++bindIt;
+                }
+            }
+            
+            delete *it;
+            objects.erase(it);
+            return;
+        }
+    }
+}

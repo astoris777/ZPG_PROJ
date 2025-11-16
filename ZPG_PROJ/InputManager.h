@@ -12,6 +12,7 @@ public:
     void updateMousePosition(double xpos, double ypos);
     void handleMouseButton(int button, int action);
     void setSceneManager(SceneManager* sm);
+    void checkDeleteKey();
 
 private:
     GLFWwindow* window;
@@ -19,6 +20,7 @@ private:
     SceneManager* sceneManager;
     bool rightMousePressed;
     double lastX, lastY;
+    bool deleteKeyPressed;
     
     void handleLeftClick(double xpos, double ypos);
 };

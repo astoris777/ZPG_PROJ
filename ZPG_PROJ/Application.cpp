@@ -40,6 +40,8 @@ void Application::processInput(float deltaTime)
     if (window->isKeyPressed(GLFW_KEY_D))
         window->camera->moveRight(cameraSpeed);
 
+    window->inputManager->checkDeleteKey();
+
     static bool f1Pressed = false, f2Pressed = false, f3Pressed = false;
 
     if (window->isKeyPressed(GLFW_KEY_F1) && !f1Pressed) {

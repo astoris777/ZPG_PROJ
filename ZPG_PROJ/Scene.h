@@ -28,6 +28,7 @@ public:
     RenderableObject* getSelected() const;
     RenderableObject* getObjectByID(unsigned int id) const;
     const std::vector<RenderableObject*>& getObjects() const { return objects; }
+    void removeObjectByID(unsigned int id);
 
 private:
     std::vector<RenderableObject*> objects;
