@@ -21,9 +21,9 @@ public:
 
     GLFWwindow* window;
     Camera* camera;
+    InputManager* inputManager;
 
 private:
-    InputManager* inputManager;
     int currentWidth, currentHeight;
 
     static void errorCallback(int error, const char* description);

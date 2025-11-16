@@ -22,6 +22,9 @@ public:
     void setFOV90() { currentFOV = 90.0f; }
     void setFOV130() { currentFOV = 130.0f; }
     float getCurrentFOV() const { return currentFOV; }
+    
+    void setSelectedObject(unsigned int objectID);
+    Scene* getActiveScene() const;
 
 private:
     std::vector<Scene*> scenes;

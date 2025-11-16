@@ -24,10 +24,16 @@ public:
     void addLight(Light* light);
     void addMaterial(Material* material);
     void bindObjectToLight(RenderableObject* obj, Light* light, const glm::vec3& offset = glm::vec3(0.0f));
+    void setSelected(int index);
+    RenderableObject* getSelected() const;
+    RenderableObject* getObjectByID(unsigned int id) const;
+    const std::vector<RenderableObject*>& getObjects() const { return objects; }
 
 private:
     std::vector<RenderableObject*> objects;
     std::vector<Light*> lights;
     std::vector<Material*> materials;
     std::vector<ObjectLightBinding> objectLightBindings;
+    unsigned int nextObjectID = 1;
+    RenderableObject* selectedObject = nullptr;
 };

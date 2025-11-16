@@ -51,3 +51,31 @@ void SceneManager::switchScene(int sceneIndex)
         activeScene = sceneIndex;
     }
 }
+
+void SceneManager::setSelectedObject(unsigned int objectID)
+{
+    if (activeScene >= 0 && activeScene < scenes.size()) {
+        RenderableObject* obj = scenes[activeScene]->getObjectByID(objectID);
+        if (obj) {
+            const auto& objects = scenes[activeScene]->getObjects();
+            int index = -1;
+            for (size_t i = 0; i < objects.size(); ++i) {
+                if (objects[i]->getID() == objectID) {
+                    index = static_cast<int>(i);
+                    break;
+                }
+            }
+            if (index >= 0) {
+                scenes[activeScene]->setSelected(index);
+            }
+        }
+    }
+}
+
+Scene* SceneManager::getActiveScene() const
+{
+    if (activeScene >= 0 && activeScene < scenes.size()) {
+        return scenes[activeScene];
+    }
+    return nullptr;
+}

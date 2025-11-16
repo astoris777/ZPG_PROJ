@@ -23,6 +23,8 @@ void Application::initialization(int width, int height)
     resourceManager->createModels();
     resourceManager->attachShadersToCamera(window->camera);
     sceneManager->createScenes();
+    
+    window->inputManager->setSceneManager(sceneManager);
 }
 
 void Application::processInput(float deltaTime)

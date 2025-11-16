@@ -32,30 +32,35 @@ Scene* SceneBuilder::createForestScene(ResourceManager* resources)
 	scene->addMaterial(treeMaterial);
 	scene->addMaterial(bushMaterial);
 
-	std::vector<Material*> grassMaterial;
-	std::vector<SubMesh> grassModel = Model::loadWithMaterials("Grass/HighPolyGrass.obj", grassMaterial);
-	for (float gridX = -12.0f; gridX <= 12.0f; gridX += 1.0f) {
-		for (float gridZ = -12.0f; gridZ <= 12.0f; gridZ += 1.0f) {
-			RenderableObject* grass = new RenderableObject(
-				resources->getConstantShader(),
-				grassModel,
-				grassMaterial
-			);
+	static float planeVertices[] = {
+		-0.5f, 0.0f, -0.5f,  0.0f, 1.0f, 0.0f,   0.0f, 0.0f,
+		 0.5f, 0.0f, -0.5f,  0.0f, 1.0f, 0.0f,   1.0f, 0.0f,
+		 0.5f, 0.0f,  0.5f,  0.0f, 1.0f, 0.0f,   1.0f, 1.0f,
+		-0.5f, 0.0f, -0.5f,  0.0f, 1.0f, 0.0f,   0.0f, 0.0f,
+		 0.5f, 0.0f,  0.5f,  0.0f, 1.0f, 0.0f,   1.0f, 1.0f,
+		-0.5f, 0.0f,  0.5f,  0.0f, 1.0f, 0.0f,   0.0f, 1.0f
+	};
 
-			grass->transform.add(new ScaleTransform(glm::vec3(1.0f, 0.1f, 1.0f)));
-			grass->transform.add(new TranslateTransform(glm::vec3(gridX, -0.1f, gridZ)));
-			
-			scene->addObject(grass);
-		
-		}
-	}
+	VertexArray* planeModel = new VertexArray(planeVertices, 6, VertexArray::POSITION_NORMAL_UV);
 
+	Texture* grassTexture = new Texture("assets/grass.png");
+	Material* grassMaterial = new Material(
+		glm::vec3(1.0f, 1.0f, 1.0f),  
+		glm::vec3(1.0f, 1.0f, 1.0f),  
+		glm::vec3(0.0f, 0.0f, 0.0f),  
+		1.0f,                          
+		grassTexture                   
+	);
+	scene->addMaterial(grassMaterial);
 
+	RenderableObject* grass = new RenderableObject(
+		resources->getConstantShader(),
+		planeModel
+	);
+	grass->transform.add(new ScaleTransform(glm::vec3(20.0f, 1.0f, 20.0f)));
+	grass->setMaterial(grassMaterial);
+	scene->addObject(grass);
 
-	
-	for (auto* mat : grassMaterial) {
-		scene->addMaterial(mat);
-	}
 
 	
 	for (int i = 0; i < treeCount; i++)
