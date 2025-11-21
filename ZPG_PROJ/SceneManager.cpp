@@ -18,9 +18,11 @@ SceneManager::~SceneManager()
 
 void SceneManager::createScenes()
 {
+	Scene* solarSystemScene = SceneBuilder::createSolarSystemScene(resourceManager);
     Scene* airplaneScene = SceneBuilder::createAirplaneScene(resourceManager);
     Scene* forestScene = SceneBuilder::createForestScene(resourceManager);
 
+	scenes.push_back(solarSystemScene);
     scenes.push_back(airplaneScene);
     scenes.push_back(forestScene);
 

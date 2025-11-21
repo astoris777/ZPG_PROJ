@@ -59,7 +59,9 @@ vec3 calculateLightContribution(Light light, vec3 normal, vec3 fragPos, vec3 vie
     float attenuation = 1.0;
     vec3 lightColor = light.color * light.intensity;
 
+    // 0 = POINT, 1 = SPOT, 2 = DIRECTIONAL, 3 = AMBIENT  (????????????? LightType ? C++)
     if (light.type == 0) {
+        // POINT
         lightDir = normalize(light.position - fragPos);
         float distance = length(light.position - fragPos);
         attenuation = calculateAttenuation(distance, light.constantFactor, light.linearFactor, light.quadraticFactor);
@@ -69,13 +71,7 @@ vec3 calculateLightContribution(Light light, vec3 normal, vec3 fragPos, vec3 vie
         return diffuse + specular;
     }
     else if (light.type == 1) {
-        lightDir = normalize(-light.direction);
-        
-        vec3 diffuse = calculateDiffuse(lightColor, lightDir, normal, 1.0, materialDiffuse);
-        vec3 specular = calculateSpecular(lightColor, lightDir, viewDir, normal, 1.0);
-        return diffuse + specular;
-    }
-    else if (light.type == 2) {
+        // SPOT
         lightDir = normalize(light.position - fragPos);
         float distance = length(light.position - fragPos);
         attenuation = calculateAttenuation(distance, light.constantFactor, light.linearFactor, light.quadraticFactor);
@@ -89,7 +85,16 @@ vec3 calculateLightContribution(Light light, vec3 normal, vec3 fragPos, vec3 vie
         vec3 specular = calculateSpecular(lightColor, lightDir, viewDir, normal, attenuation);
         return diffuse + specular;
     }
+    else if (light.type == 2) {
+        // DIRECTIONAL
+        lightDir = normalize(-light.direction);
+        
+        vec3 diffuse = calculateDiffuse(lightColor, lightDir, normal, 1.0, materialDiffuse);
+        vec3 specular = calculateSpecular(lightColor, lightDir, viewDir, normal, 1.0);
+        return diffuse + specular;
+    }
     else if (light.type == 3) {
+        // AMBIENT
         return calculateAmbient(lightColor, material.ambient);
     }
 

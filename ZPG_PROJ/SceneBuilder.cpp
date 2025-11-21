@@ -8,6 +8,71 @@
 #include <ctime>
 #include "Model.h"
 
+Scene* SceneBuilder::createSolarSystemScene(ResourceManager* resources)
+{
+	float sunScale = 5.0f;
+	Scene* scene = new Scene();
+
+	Texture* sunTexture = new Texture("assets/SolarSystem/sun.jpg");
+
+	Material* sunMaterial = new Material(
+		glm::vec3(1.0f, 1.0f, 0.0f),
+		glm::vec3(1.0f, 1.0f, 0.0f),
+		glm::vec3(0.5f, 0.5f, 0.5f),
+		1.0f,
+		sunTexture
+	);
+	scene->addMaterial(sunMaterial);
+
+	VertexArray* sphereModel = Model::loadFromFile("assets/SolarSystem/sphere.obj");
+
+	RenderableObject* sun = new RenderableObject(
+		resources->getConstantShader(),
+		sphereModel
+	);	
+
+	sun->transform.add(new ScaleTransform(glm::vec3(sunScale)));
+	sun->setMaterial(sunMaterial);
+	scene->addObject(sun);
+
+	RenderableObject* mercury = new RenderableObject(
+		resources->getLambertShader(),
+		sphereModel
+	);
+	Texture* mercuryTexture = new Texture("assets/SolarSystem/mercury.jpg");
+
+	Material* mercuryMaterial = new Material(
+		glm::vec3(0.5f, 0.5f, 0.5f),
+		glm::vec3(0.5f, 0.5f, 0.5f),
+		glm::vec3(0.3f, 0.3f, 0.3f),
+		32.0f,
+		mercuryTexture
+	);
+
+	scene->addMaterial(mercuryMaterial);
+	mercury->transform.add(new RotateTransform(0.0f, glm::vec3(0.0f, 1.0f, 0.0f), 50.f));
+	mercury->transform.add(MoveTransform::createCircular(glm::vec3(0.0f), 8.0f, 2.0f));
+	mercury->transform.add(new ScaleTransform(glm::vec3(sunScale / 5)));
+	mercury->setMaterial(mercuryMaterial);
+	scene->addObject(mercury);
+
+
+
+	Light* sunLight = Light::createPoint(
+		glm::vec3(0.0f, 0.0f, 0.0f),                 // позиция (в мировых координатах)
+		glm::vec3(1.0f, 0.95f, 0.8f),               // цвет света (тёплый)
+		5.0f,                                       // интенсивность
+		1.0f,                                       // constant
+		0.022f,                                     // linear (уменьшить для медленного затухания)
+		0.0019f                                     // quadratic (уменьшить для большого радиуса освещения)
+	);
+	scene->addLight(sunLight);
+
+
+	return scene;
+}
+
+
 Scene* SceneBuilder::createForestScene(ResourceManager* resources)
 {
 	Scene* scene = new Scene();
@@ -191,3 +256,4 @@ Scene* SceneBuilder::createAirplaneScene(ResourceManager* resources)
 
 	return scene;
 }
+

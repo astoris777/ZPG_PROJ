@@ -1,16 +1,19 @@
+
 #include "Model.h"
 #include <stdexcept>
 #include <vector>
 #include <iostream>
+#include <map>
 
 #define TINYOBJLOADER_IMPLEMENTATION
 #include "tiny_obj_loader.h"
 
 #include <GL/glew.h>
+#include <glm/glm.hpp>
 
-VertexArray* Model::loadFromFile(const char* name)
+VertexArray * Model::loadFromFile(const char* name)
 {
-    const std::string inputfile = std::string("assets/") + name;
+    const std::string inputfile = name;
 
     tinyobj::attrib_t attrib;
     std::vector<tinyobj::shape_t> shapes;
@@ -46,6 +49,7 @@ VertexArray* Model::loadFromFile(const char* name)
                 vertices.push_back(attrib.normals[nidx + 2]);
             }
             else {
+                // placeholder, will be computed later if needed
                 vertices.push_back(0.0f);
                 vertices.push_back(0.0f);
                 vertices.push_back(0.0f);
@@ -64,6 +68,52 @@ VertexArray* Model::loadFromFile(const char* name)
     }
 
     const int vertexCount = static_cast<int>(totalIndices);
+
+    // If the OBJ had no normals, compute per-vertex normals from triangles
+    if (!hasNormals) {
+        const int stride = 8; // pos(3) + normal(3) + uv(2)
+        std::vector<glm::vec3> accumNormals(vertexCount, glm::vec3(0.0f));
+
+        // assume triangulated mesh (tinyobj loader with triangulate=true)
+        for (int i = 0; i + 2 < vertexCount; i += 3) {
+            // positions
+            int base0 = (i + 0) * stride;
+            int base1 = (i + 1) * stride;
+            int base2 = (i + 2) * stride;
+
+            glm::vec3 p0(vertices[base0 + 0], vertices[base0 + 1], vertices[base0 + 2]);
+            glm::vec3 p1(vertices[base1 + 0], vertices[base1 + 1], vertices[base1 + 2]);
+            glm::vec3 p2(vertices[base2 + 0], vertices[base2 + 1], vertices[base2 + 2]);
+
+            glm::vec3 e1 = p1 - p0;
+            glm::vec3 e2 = p2 - p0;
+            glm::vec3 faceNormal = glm::cross(e1, e2);
+
+            // avoid zero-length face normal
+            if (glm::length(faceNormal) > 1e-6f) {
+                faceNormal = glm::normalize(faceNormal);
+                accumNormals[i + 0] += faceNormal;
+                accumNormals[i + 1] += faceNormal;
+                accumNormals[i + 2] += faceNormal;
+            }
+        }
+
+        // normalize and write back
+        for (int i = 0; i < vertexCount; ++i) {
+            glm::vec3 n = accumNormals[i];
+            if (glm::length(n) < 1e-6f) {
+                // fallback normal
+                n = glm::vec3(0.0f, 0.0f, 1.0f);
+            }
+            else {
+                n = glm::normalize(n);
+            }
+            int base = i * stride + 3;
+            vertices[base + 0] = n.x;
+            vertices[base + 1] = n.y;
+            vertices[base + 2] = n.z;
+        }
+    }
 
     return new VertexArray(vertices.data(), vertexCount, VertexArray::POSITION_NORMAL_UV);
 }
@@ -92,7 +142,7 @@ std::vector<Material*> Model::loadMaterials(const char* name)
             if (lastSlash != std::string::npos) {
                 textureName = textureName.substr(lastSlash + 1);
             }
-            
+
             std::string texPath = "assets/" + textureName;
             texture = new Texture(texPath.c_str());
         }
@@ -136,15 +186,15 @@ std::vector<SubMesh> Model::loadWithMaterials(const char* name, std::vector<Mate
     for (size_t i = 0; i < materials.size(); i++) {
         const auto& mat = materials[i];
         Texture* texture = nullptr;
-        
+
         if (!mat.diffuse_texname.empty()) {
             std::string textureName = mat.diffuse_texname;
-            
+
             size_t lastSlash = textureName.find_last_of("/\\");
             if (lastSlash != std::string::npos) {
                 textureName = textureName.substr(lastSlash + 1);
             }
-            
+
             std::string texPath = "assets/" + textureName;
             texture = new Texture(texPath.c_str());
         }
@@ -161,39 +211,41 @@ std::vector<SubMesh> Model::loadWithMaterials(const char* name, std::vector<Mate
             mat.shininess,
             texture
         );
-        
+
         outMaterials.push_back(material);
     }
 
     std::map<int, std::vector<float>> verticesByMaterial;
-    
+
     for (const auto& shape : shapes) {
         size_t index_offset = 0;
         for (size_t f = 0; f < shape.mesh.num_face_vertices.size(); f++) {
             int fv = shape.mesh.num_face_vertices[f];
             int materialId = shape.mesh.material_ids[f];
-            
+
             for (size_t v = 0; v < fv; v++) {
                 tinyobj::index_t idx = shape.mesh.indices[index_offset + v];
-                
+
                 verticesByMaterial[materialId].push_back(attrib.vertices[3 * idx.vertex_index + 0]);
                 verticesByMaterial[materialId].push_back(attrib.vertices[3 * idx.vertex_index + 1]);
                 verticesByMaterial[materialId].push_back(attrib.vertices[3 * idx.vertex_index + 2]);
-                
+
                 if (idx.normal_index >= 0) {
                     verticesByMaterial[materialId].push_back(attrib.normals[3 * idx.normal_index + 0]);
                     verticesByMaterial[materialId].push_back(attrib.normals[3 * idx.normal_index + 1]);
                     verticesByMaterial[materialId].push_back(attrib.normals[3 * idx.normal_index + 2]);
-                } else {
+                }
+                else {
                     verticesByMaterial[materialId].push_back(0.0f);
                     verticesByMaterial[materialId].push_back(0.0f);
                     verticesByMaterial[materialId].push_back(0.0f);
                 }
-                
+
                 if (idx.texcoord_index >= 0) {
                     verticesByMaterial[materialId].push_back(attrib.texcoords[2 * idx.texcoord_index + 0]);
                     verticesByMaterial[materialId].push_back(attrib.texcoords[2 * idx.texcoord_index + 1]);
-                } else {
+                }
+                else {
                     verticesByMaterial[materialId].push_back(0.0f);
                     verticesByMaterial[materialId].push_back(0.0f);
                 }
@@ -206,15 +258,15 @@ std::vector<SubMesh> Model::loadWithMaterials(const char* name, std::vector<Mate
     for (const auto& pair : verticesByMaterial) {
         int materialIndex = pair.first;
         const std::vector<float>& vertices = pair.second;
-        
+
         int vertexCount = static_cast<int>(vertices.size() / 8);
-        
+
         SubMesh submesh;
         submesh.vao = new VertexArray(vertices.data(), vertexCount, VertexArray::POSITION_NORMAL_UV);
         submesh.materialIndex = materialIndex;
         submesh.vertexCount = vertexCount;
         submesh.startIndex = 0;
-        
+
         submeshes.push_back(submesh);
     }
 

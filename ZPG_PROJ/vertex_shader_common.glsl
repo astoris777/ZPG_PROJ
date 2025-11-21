@@ -8,7 +8,7 @@ uniform mat4 modelMatrix;
 uniform mat4 viewMatrix;
 uniform mat4 projectionMatrix;
 
-uniform float w = 500.0;
+uniform float w = 1.0;
 
 out vec3 FragPos;
 out vec3 Normal;
