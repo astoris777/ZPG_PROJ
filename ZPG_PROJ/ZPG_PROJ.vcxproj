@@ -23,6 +23,7 @@
     <ClInclude Include="BaseTransform.h" />
     <ClInclude Include="bushes.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="CustomTransform.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="Light.h" />
     <ClInclude Include="Material.h" />

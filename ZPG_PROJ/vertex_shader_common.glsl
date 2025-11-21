@@ -8,14 +8,17 @@ uniform mat4 modelMatrix;
 uniform mat4 viewMatrix;
 uniform mat4 projectionMatrix;
 
+uniform float w = 500.0;
+
 out vec3 FragPos;
 out vec3 Normal;
 out vec2 TexCoords;
 
 void main() {
-    FragPos = vec3(modelMatrix * vec4(aPos, 1.0));
+    vec4 worldPos = modelMatrix * vec4(aPos, w);
+    FragPos = vec3(worldPos) / worldPos.w;  
     Normal = mat3(transpose(inverse(modelMatrix))) * aNormal;
     TexCoords = aTexCoords;
     
-    gl_Position = projectionMatrix * viewMatrix * vec4(FragPos, 1.0);
+    gl_Position = projectionMatrix * viewMatrix * worldPos;
 }
