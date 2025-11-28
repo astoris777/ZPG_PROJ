@@ -1,3 +1,13 @@
+/**
+ *
+ * @file Transform.h
+ * @brief Defines the Transform class that manages a collection of BaseTransform objects to build a model matrix.
+ *
+ * @author Stanislav Mukha
+ * @login MUK0009
+ *
+ */
+
 #pragma once
 #include <vector>
 #include "BaseTransform.h"

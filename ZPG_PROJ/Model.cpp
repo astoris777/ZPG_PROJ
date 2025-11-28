@@ -49,7 +49,7 @@ VertexArray * Model::loadFromFile(const char* name)
                 vertices.push_back(attrib.normals[nidx + 2]);
             }
             else {
-                // placeholder, will be computed later if needed
+               
                 vertices.push_back(0.0f);
                 vertices.push_back(0.0f);
                 vertices.push_back(0.0f);
@@ -69,14 +69,14 @@ VertexArray * Model::loadFromFile(const char* name)
 
     const int vertexCount = static_cast<int>(totalIndices);
 
-    // If the OBJ had no normals, compute per-vertex normals from triangles
+   
     if (!hasNormals) {
-        const int stride = 8; // pos(3) + normal(3) + uv(2)
+        const int stride = 8; 
         std::vector<glm::vec3> accumNormals(vertexCount, glm::vec3(0.0f));
 
-        // assume triangulated mesh (tinyobj loader with triangulate=true)
+       
         for (int i = 0; i + 2 < vertexCount; i += 3) {
-            // positions
+            
             int base0 = (i + 0) * stride;
             int base1 = (i + 1) * stride;
             int base2 = (i + 2) * stride;
@@ -89,7 +89,7 @@ VertexArray * Model::loadFromFile(const char* name)
             glm::vec3 e2 = p2 - p0;
             glm::vec3 faceNormal = glm::cross(e1, e2);
 
-            // avoid zero-length face normal
+            
             if (glm::length(faceNormal) > 1e-6f) {
                 faceNormal = glm::normalize(faceNormal);
                 accumNormals[i + 0] += faceNormal;
@@ -98,11 +98,11 @@ VertexArray * Model::loadFromFile(const char* name)
             }
         }
 
-        // normalize and write back
+        
         for (int i = 0; i < vertexCount; ++i) {
             glm::vec3 n = accumNormals[i];
             if (glm::length(n) < 1e-6f) {
-                // fallback normal
+             
                 n = glm::vec3(0.0f, 0.0f, 1.0f);
             }
             else {

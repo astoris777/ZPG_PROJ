@@ -29,6 +29,9 @@ public:
     RenderableObject* getObjectByID(unsigned int id) const;
     const std::vector<RenderableObject*>& getObjects() const { return objects; }
     void removeObjectByID(unsigned int id);
+    
+    int getScore() const { return score; }
+    void resetScore() { score = 0; }
 
 private:
     std::vector<RenderableObject*> objects;
@@ -37,4 +40,5 @@ private:
     std::vector<ObjectLightBinding> objectLightBindings;
     unsigned int nextObjectID = 1;
     RenderableObject* selectedObject = nullptr;
+    int score = 0; 
 };

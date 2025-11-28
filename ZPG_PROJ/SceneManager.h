@@ -1,39 +1,37 @@
 #pragma once
-#include <vector>
 #include "Scene.h"
+#include "ResourceManager.h"
 #include "Camera.h"
-#include "Light.h"
-
-class ResourceManager;
-class Window;
+#include "Window.h"
+#include "GameManager.h"
+#include <vector>
 
 class SceneManager
 {
 public:
-    SceneManager(ResourceManager* resourceManager, Camera* camera, Window* window);
+    SceneManager(ResourceManager* rm, Camera* cam, Window* win);
     ~SceneManager();
 
     void createScenes();
+    void switchScene(int index);
     void update(float deltaTime);
     void render();
-    void switchScene(int sceneIndex);
-    
-    void setFOV45() { currentFOV = 45.0f; }
-    void setFOV90() { currentFOV = 90.0f; }
-    void setFOV130() { currentFOV = 130.0f; }
-    float getCurrentFOV() const { return currentFOV; }
-    
-    void setSelectedObject(unsigned int objectID);
+    void setSelectedObject(unsigned int stencilID);
     void deleteSelectedObject();
-    Scene* getActiveScene() const;
+    void setFOV45();
+    void setFOV90();
+    void setFOV130();
+    float getCurrentFOV() const;
+    void startGame();
+    void restartGame();
 
 private:
     std::vector<Scene*> scenes;
-    std::vector<Light*> lights;
-    int activeScene;
-    float currentFOV; 
+    Scene* currentScene;
     ResourceManager* resourceManager;
     Camera* camera;
     Window* window;
-    unsigned int selectedObjectID = 0;
+    GameManager* gameManager;
+    bool gameManagerActive;
+    float currentFOV;
 };

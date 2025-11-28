@@ -76,6 +76,8 @@ StyleCopReport.xml
 *.ilk
 *.meta
 *.obj
+# Allow 3D model files in assets
+!ZPG_PROJ/assets/**/*.obj
 *.iobj
 *.pch
 *.pdb

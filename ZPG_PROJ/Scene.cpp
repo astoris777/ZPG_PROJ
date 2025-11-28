@@ -1,7 +1,9 @@
 #include "Scene.h"
+#include <iostream>
 
 Scene::Scene()
 {
+    score = 0;
 }
 
 Scene::~Scene()
@@ -121,6 +123,7 @@ void Scene::removeObjectByID(unsigned int id)
             
             delete *it;
             objects.erase(it);
+            
             return;
         }
     }

@@ -1,14 +1,15 @@
+#pragma once
 #include "Transform.h"
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <cmath>
+#include <vector>
 
 enum class MoveType {
     CIRCULAR,
     LINEAR,
     SINUSOIDAL,
-    FIGURE_EIGHT,
-    ELLIPTICAL
+    BEZIER
 };
 
 class MoveTransform : public BaseTransform
@@ -20,11 +21,14 @@ private:
     glm::vec3 endPos;
     glm::vec3 amplitude;
     float radius;
-    float radiusX;
-    float radiusZ;
     float speed;
     float frequency;
     float elapsedTime = 0.0f;
+    std::vector<glm::vec3> controlPoints;
+    float t = 0.0f;
+    bool loopBezier = true;
+    float delta = 0.01f;
+
 
 public:
     static MoveTransform* createCircular(const glm::vec3& center = glm::vec3(0.0f), float radius = 3.0f, float speed = 2.0f)
@@ -57,6 +61,18 @@ public:
         return transform;
     }
 
+    static MoveTransform* createBezier(const std::vector<glm::vec3>& controlPoints, float speed = 1.0f, bool loop = true)
+{
+    MoveTransform* transform = new MoveTransform();
+    transform->moveType = MoveType::BEZIER;
+    transform->controlPoints = controlPoints;
+    transform->speed = speed;
+    transform->loopBezier = loop;
+    transform->t = 0.5f;
+    transform->delta = 0.01f;
+    return transform;
+}
+
     void apply(glm::mat4& M) const override
     {
         switch (moveType)
@@ -86,12 +102,56 @@ public:
             M = glm::translate(M, center + offset);
             break;
         }
+
+        case MoveType::BEZIER:
+        {
+            glm::mat4 A = glm::mat4(
+                glm::vec4(-1.0f, 3.0f, -3.0f, 1.0f),
+                glm::vec4(3.0f, -6.0f, 3.0f, 0.0f),
+                glm::vec4(-3.0f, 3.0f, 0.0f, 0.0f),
+                glm::vec4(1.0f, 0.0f, 0.0f, 0.0f)
+            );
+
+            glm::mat4x3 B = glm::mat4x3(
+                glm::vec3(controlPoints[0]),
+                glm::vec3(controlPoints[1]),
+                glm::vec3(controlPoints[2]),
+                glm::vec3(controlPoints[3])
+            );
+
+           glm::vec4 p = glm::vec4(
+                t * t * t, 
+                t * t, 
+                t, 
+                1.0f
+            );
+
+            glm::vec3 point = p * A * glm::transpose(B);
+
+            M = glm::translate(M, point);
+
+            break;
+        }
+            
+
+        default:
+            break;
         }
     }
 
     void update(float deltaTime) override
-    {
+    {   
         elapsedTime += deltaTime;
+
+        if(moveType == MoveType::BEZIER)
+        {
+            if (t > 1.0f || t <= 0.0f)
+            {
+                delta *= -1.0f;
+            }
+            
+            t += delta * speed;
+        }
     }
 
 private:

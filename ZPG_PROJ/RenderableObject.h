@@ -16,7 +16,6 @@ public:
     void draw(const glm::mat4& projection, const glm::mat4& view);
     void setMaterial(Material* mat);
     
-    // ?????? ??? ?????? ? ID ???????
     void setID(unsigned int id) { objectID = id; }
     unsigned int getID() const { return objectID; }
 

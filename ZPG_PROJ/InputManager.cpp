@@ -46,13 +46,6 @@ void InputManager::handleMouseButton(int button, int action)
         double xpos, ypos;
         glfwGetCursorPos(window, &xpos, &ypos);
         handleLeftClick(xpos, ypos);
-        
-        if (glfwGetKey(window, GLFW_KEY_DELETE) == GLFW_PRESS) {
-            if (sceneManager) {
-                sceneManager->deleteSelectedObject();
-                printf("Object deleted!\n");
-            }
-        }
     }
 }
 
@@ -93,6 +86,7 @@ void InputManager::handleLeftClick(double xpos, double ypos)
 
     if (index > 0) {
         sceneManager->setSelectedObject(index);
+        sceneManager->deleteSelectedObject();
     }
 
     glm::vec3 screenX = glm::vec3(x, newy, depth);

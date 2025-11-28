@@ -7,6 +7,8 @@
 #include <cstdlib>
 #include <ctime>
 #include "Model.h"
+#include <iostream>
+#include "CustomTransform.h"
 
 Scene* SceneBuilder::createSolarSystemScene(ResourceManager* resources)
 {
@@ -24,14 +26,15 @@ Scene* SceneBuilder::createSolarSystemScene(ResourceManager* resources)
 	);
 	scene->addMaterial(sunMaterial);
 
-	VertexArray* sphereModel = Model::loadFromFile("assets/SolarSystem/sphere.obj");
+	VertexArray* sphereModel = Model::loadFromFile("assets/SolarSystem/Sphere.obj");
 
 	RenderableObject* sun = new RenderableObject(
 		resources->getConstantShader(),
 		sphereModel
-	);	
+	);
 
 	sun->transform.add(new ScaleTransform(glm::vec3(sunScale)));
+	sun->transform.add(new RotateTransform(0.0f, glm::vec3(0.0f, 1.0f, 0.0f), 1.5f));
 	sun->setMaterial(sunMaterial);
 	scene->addObject(sun);
 
@@ -50,24 +53,90 @@ Scene* SceneBuilder::createSolarSystemScene(ResourceManager* resources)
 	);
 
 	scene->addMaterial(mercuryMaterial);
-	mercury->transform.add(new RotateTransform(0.0f, glm::vec3(0.0f, 1.0f, 0.0f), 50.f));
-	mercury->transform.add(MoveTransform::createCircular(glm::vec3(0.0f), 8.0f, 2.0f));
-	mercury->transform.add(new ScaleTransform(glm::vec3(sunScale / 5)));
+	mercury->transform.add(MoveTransform::createCircular(glm::vec3(0.0f), 10.0f, 0.4f));
+	mercury->transform.add(new ScaleTransform(glm::vec3(sunScale / 7.0f)));
+	mercury->transform.add(new RotateTransform(0.0f, glm::vec3(0.0f, 1.0f, 0.0f), 0.8f));
 	mercury->setMaterial(mercuryMaterial);
 	scene->addObject(mercury);
 
+	Texture* earthTexture = new Texture("assets/SolarSystem/earth.jpg");
+	Material* earthMaterial = new Material(
+		glm::vec3(0.2f, 0.3f, 0.8f),
+		glm::vec3(0.2f, 0.3f, 0.8f),
+		glm::vec3(0.5f, 0.5f, 0.5f),
+		32.0f,
+		earthTexture
+	);
 
+	scene->addMaterial(earthMaterial);
+	RenderableObject* earth = new RenderableObject(
+		resources->getPhongShader(),
+		sphereModel
+	);
+
+
+	earth->transform.add(MoveTransform::createCircular(glm::vec3(0.0f), 12.0f, 0.1f));
+	earth->transform.add(new ScaleTransform(glm::vec3(sunScale / 3)));
+	earth->transform.add(new RotateTransform(0.0f, glm::vec3(0.0f, 1.0f, 0.0f), 50.f));
+	earth->setMaterial(earthMaterial);
+
+	scene->addObject(earth);
+
+	Texture* moonTexture = new Texture("assets/SolarSystem/moon.jpg");
+	Material* moonMaterial = new Material(
+		glm::vec3(0.6f, 0.6f, 0.6f),
+		glm::vec3(0.6f, 0.6f, 0.6f),
+		glm::vec3(0.3f, 0.3f, 0.3f),
+		16.0f,
+		moonTexture
+	);
+
+	scene->addMaterial(moonMaterial);
+	RenderableObject* moon = new RenderableObject(
+		resources->getPhongShader(),
+		sphereModel
+	);
+
+
+	moon->transform.add(MoveTransform::createCircular(glm::vec3(0.0f), 12.0f, 0.1f));
+	moon->transform.add(MoveTransform::createCircular(glm::vec3(0.0f), 4.0f, 2.0f));
+	moon->transform.add(new ScaleTransform(glm::vec3(sunScale / 12)));
+	moon->transform.add(new RotateTransform(0.0f, glm::vec3(0.0f, 1.0f, 0.0f), 50.f));
+
+
+	moon->setMaterial(moonMaterial);
+	scene->addObject(moon);
+
+	Texture* marsTexture = new Texture("assets/SolarSystem/mars.jpg");
+	Material* marsMaterial = new Material(
+		glm::vec3(0.8f, 0.4f, 0.3f),
+		glm::vec3(0.8f, 0.4f, 0.3f),
+		glm::vec3(0.3f, 0.3f, 0.3f),
+		32.0f,
+		marsTexture
+	);
+	scene->addMaterial(marsMaterial);	
+
+	RenderableObject* mars = new RenderableObject(
+		resources->getPhongShader(),
+		sphereModel
+	);
+
+	mars->transform.add(MoveTransform::createCircular(glm::vec3(0.0f), 38.0f, 0.053f));
+	mars->transform.add(new ScaleTransform(glm::vec3(sunScale / 4.5f)));
+	mars->transform.add(new RotateTransform(0.0f, glm::vec3(0.0f, 1.0f, 0.0f), 48.0f));
+	mars->setMaterial(marsMaterial);
+	scene->addObject(mars);
 
 	Light* sunLight = Light::createPoint(
-		glm::vec3(0.0f, 0.0f, 0.0f),                 // позиция (в мировых координатах)
-		glm::vec3(1.0f, 0.95f, 0.8f),               // цвет света (тёплый)
-		5.0f,                                       // интенсивность
-		1.0f,                                       // constant
-		0.022f,                                     // linear (уменьшить для медленного затухания)
-		0.0019f                                     // quadratic (уменьшить для большого радиуса освещения)
+		glm::vec3(0.0f, 0.0f, 0.0f),                 
+		glm::vec3(1.0f, 0.95f, 0.8f),               
+		5.0f,                                    
+		1.0f,                                    
+		0.022f,                                   
+		0.0019f                                    
 	);
 	scene->addLight(sunLight);
-
 
 	return scene;
 }
@@ -110,11 +179,11 @@ Scene* SceneBuilder::createForestScene(ResourceManager* resources)
 
 	Texture* grassTexture = new Texture("assets/grass.png");
 	Material* grassMaterial = new Material(
-		glm::vec3(1.0f, 1.0f, 1.0f),  
-		glm::vec3(1.0f, 1.0f, 1.0f),  
-		glm::vec3(0.0f, 0.0f, 0.0f),  
-		1.0f,                          
-		grassTexture                   
+		glm::vec3(1.0f, 1.0f, 1.0f),
+		glm::vec3(1.0f, 1.0f, 1.0f),
+		glm::vec3(0.0f, 0.0f, 0.0f),
+		1.0f,
+		grassTexture
 	);
 	scene->addMaterial(grassMaterial);
 
@@ -127,7 +196,7 @@ Scene* SceneBuilder::createForestScene(ResourceManager* resources)
 	scene->addObject(grass);
 
 
-	
+
 	for (int i = 0; i < treeCount; i++)
 	{
 		float treeX = static_cast<float>(rand()) / static_cast<float>(RAND_MAX) * 20.0f - 10.0f;
@@ -178,6 +247,7 @@ Scene* SceneBuilder::createForestScene(ResourceManager* resources)
 	);
 
 	fiona->transform.add(new TranslateTransform(glm::vec3(0.0f, 0.0f, -5.0f)));
+	fiona->transform.add(new CustomTransform(15.0f));
 	scene->addObject(fiona);
 	for (auto* mat : fionaMaterials) {
 		scene->addMaterial(mat);
@@ -236,7 +306,6 @@ Scene* SceneBuilder::createAirplaneScene(ResourceManager* resources)
 		scene->addMaterial(mat);
 	}
 
-
 	std::vector<Material*> helicopterMaterials;
 	std::vector<SubMesh> helicopterSubmeshes = Model::loadWithMaterials("Seahawk.obj", helicopterMaterials);
 
@@ -253,7 +322,62 @@ Scene* SceneBuilder::createAirplaneScene(ResourceManager* resources)
 		scene->addMaterial(mat);
 	}
 
-
 	return scene;
 }
 
+Scene* SceneBuilder::createWhackAMoleScene(ResourceManager* resources)
+{
+	float WIDTH = 20.0f;
+	float HEIGHT = 20.0f;
+
+	Scene* scene = new Scene();
+	scene->resetScore();
+
+	static float planeVertices[] = {
+		-0.5f, 0.0f, -0.5f,  0.0f, 1.0f, 0.0f,   0.0f, 0.0f,
+		 0.5f, 0.0f, -0.5f,  0.0f, 1.0f, 0.0f,   1.0f, 0.0f,
+		 0.5f, 0.0f,  0.5f,  0.0f, 1.0f, 0.0f,   1.0f, 1.0f,
+		-0.5f, 0.0f, -0.5f,  0.0f, 1.0f, 0.0f,   0.0f, 0.0f,
+		 0.5f, 0.0f,  0.5f,  0.0f, 1.0f, 0.0f,   1.0f, 1.0f,
+		-0.5f, 0.0f,  0.5f,  0.0f, 1.0f, 0.0f,   0.0f, 1.0f
+	};
+
+	VertexArray* planeModel = new VertexArray(planeVertices, 6, VertexArray::POSITION_NORMAL_UV);
+
+	Texture* grassTexture = new Texture("assets/grass.png");
+	Material* grassMaterial = new Material(
+		glm::vec3(1.0f, 1.0f, 1.0f),
+		glm::vec3(1.0f, 1.0f, 1.0f),
+		glm::vec3(0.0f, 0.0f, 0.0f),
+		1.0f,
+		grassTexture
+	);
+	scene->addMaterial(grassMaterial);
+
+	RenderableObject* grass = new RenderableObject(
+		resources->getConstantShader(),
+		planeModel
+	);
+	grass->transform.add(new ScaleTransform(glm::vec3(WIDTH, 1.0f, HEIGHT)));
+	grass->setMaterial(grassMaterial);
+	scene->addObject(grass);
+
+	Light* ambientLight = Light::createAmbient(
+		glm::vec3(0.3f, 0.3f, 0.25f),
+		0.5f
+	);
+	scene->addLight(ambientLight);
+
+	Light* sunLight = Light::createDirectional(
+		glm::vec3(-0.3f, -1.0f, -0.4f),
+		glm::vec3(1.0f, 0.95f, 0.8f),
+		0.9f
+	);
+	scene->addLight(sunLight);
+
+	std::cout << std::endl;
+	std::cout << "Whack-A-Mole scene loaded!" << std::endl;
+	std::cout << "Press 'G' to start the game!" << std::endl;
+
+	return scene;
+}

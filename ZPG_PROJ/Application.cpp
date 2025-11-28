@@ -43,6 +43,8 @@ void Application::processInput(float deltaTime)
     window->inputManager->checkDeleteKey();
 
     static bool f1Pressed = false, f2Pressed = false, f3Pressed = false;
+    static bool gPressed = false, rPressed = false;
+    static bool key1Pressed = false, key2Pressed = false, key3Pressed = false, key4Pressed = false;
 
     if (window->isKeyPressed(GLFW_KEY_F1) && !f1Pressed) {
         sceneManager->setFOV45();
@@ -65,21 +67,50 @@ void Application::processInput(float deltaTime)
         f3Pressed = false;
     }
 
-    if (window->isKeyPressed(GLFW_KEY_1))
+    if (window->isKeyPressed(GLFW_KEY_G) && !gPressed) {
+        sceneManager->startGame();
+        gPressed = true;
+    } else if (!window->isKeyPressed(GLFW_KEY_G)) {
+        gPressed = false;
+    }
+
+    if (window->isKeyPressed(GLFW_KEY_R) && !rPressed) {
+        sceneManager->restartGame();
+        rPressed = true;
+    } else if (!window->isKeyPressed(GLFW_KEY_R)) {
+        rPressed = false;
+    }
+
+    if (window->isKeyPressed(GLFW_KEY_1) && !key1Pressed)
     {
         sceneManager->switchScene(0);
+        key1Pressed = true;
+    } else if (!window->isKeyPressed(GLFW_KEY_1)) {
+        key1Pressed = false;
     }
-    if (window->isKeyPressed(GLFW_KEY_2))
+
+    if (window->isKeyPressed(GLFW_KEY_2) && !key2Pressed)
     {
         sceneManager->switchScene(1);
+        key2Pressed = true;
+    } else if (!window->isKeyPressed(GLFW_KEY_2)) {
+        key2Pressed = false;
     }
-    if (window->isKeyPressed(GLFW_KEY_3))
+
+    if (window->isKeyPressed(GLFW_KEY_3) && !key3Pressed)
     {
         sceneManager->switchScene(2);
+        key3Pressed = true;
+    } else if (!window->isKeyPressed(GLFW_KEY_3)) {
+        key3Pressed = false;
     }
-    if (window->isKeyPressed(GLFW_KEY_4))
+
+    if (window->isKeyPressed(GLFW_KEY_4) && !key4Pressed)
     {
         sceneManager->switchScene(3);
+        key4Pressed = true;
+    } else if (!window->isKeyPressed(GLFW_KEY_4)) {
+        key4Pressed = false;
     }
 
     if (window->isKeyPressed(GLFW_KEY_ESCAPE))
