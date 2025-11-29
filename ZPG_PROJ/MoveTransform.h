@@ -5,11 +5,13 @@
 #include <cmath>
 #include <vector>
 
-enum class MoveType {
+enum class MoveType
+{
     CIRCULAR,
     LINEAR,
     SINUSOIDAL,
-    BEZIER
+    BEZIER,
+    BEZIER_SPLINE
 };
 
 class MoveTransform : public BaseTransform
@@ -29,11 +31,10 @@ private:
     bool loopBezier = true;
     float delta = 0.01f;
 
-
 public:
-    static MoveTransform* createCircular(const glm::vec3& center = glm::vec3(0.0f), float radius = 3.0f, float speed = 2.0f)
+    static MoveTransform *createCircular(const glm::vec3 &center = glm::vec3(0.0f), float radius = 3.0f, float speed = 2.0f)
     {
-        MoveTransform* transform = new MoveTransform();
+        MoveTransform *transform = new MoveTransform();
         transform->moveType = MoveType::CIRCULAR;
         transform->center = center;
         transform->radius = radius;
@@ -41,9 +42,9 @@ public:
         return transform;
     }
 
-    static MoveTransform* createLinear(const glm::vec3& start, const glm::vec3& end, float speed = 1.0f)
+    static MoveTransform *createLinear(const glm::vec3 &start, const glm::vec3 &end, float speed = 1.0f)
     {
-        MoveTransform* transform = new MoveTransform();
+        MoveTransform *transform = new MoveTransform();
         transform->moveType = MoveType::LINEAR;
         transform->startPos = start;
         transform->endPos = end;
@@ -51,9 +52,9 @@ public:
         return transform;
     }
 
-    static MoveTransform* createSinusoidal(const glm::vec3& basePos, const glm::vec3& amplitude, float frequency = 1.0f)
+    static MoveTransform *createSinusoidal(const glm::vec3 &basePos, const glm::vec3 &amplitude, float frequency = 1.0f)
     {
-        MoveTransform* transform = new MoveTransform();
+        MoveTransform *transform = new MoveTransform();
         transform->moveType = MoveType::SINUSOIDAL;
         transform->center = basePos;
         transform->amplitude = amplitude;
@@ -61,19 +62,31 @@ public:
         return transform;
     }
 
-    static MoveTransform* createBezier(const std::vector<glm::vec3>& controlPoints, float speed = 1.0f, bool loop = true)
-{
-    MoveTransform* transform = new MoveTransform();
-    transform->moveType = MoveType::BEZIER;
-    transform->controlPoints = controlPoints;
-    transform->speed = speed;
-    transform->loopBezier = loop;
-    transform->t = 0.5f;
-    transform->delta = 0.01f;
-    return transform;
-}
+    static MoveTransform *createBezier(const std::vector<glm::vec3> &controlPoints, float speed = 1.0f, bool loop = true)
+    {
+        MoveTransform *transform = new MoveTransform();
+        transform->moveType = MoveType::BEZIER;
+        transform->controlPoints = controlPoints;
+        transform->speed = speed;
+        transform->loopBezier = loop;
+        transform->t = 0.0f;
+        transform->delta = 0.01f;
+        return transform;
+    }
 
-    void apply(glm::mat4& M) const override
+    static MoveTransform *createBezierSpline(const std::vector<glm::vec3> &controlPoints, float speed = 1.0f, bool loop = true)
+    {
+        MoveTransform *transform = new MoveTransform();
+        transform->moveType = MoveType::BEZIER_SPLINE;
+        transform->controlPoints = controlPoints;
+        transform->speed = speed;
+        transform->loopBezier = loop;
+        transform->t = 0.0f;
+        transform->delta = 0.01f;
+        return transform;
+    }
+
+    void apply(glm::mat4 &M) const override
     {
         switch (moveType)
         {
@@ -88,7 +101,8 @@ public:
         case MoveType::LINEAR:
         {
             float t = fmod(speed * elapsedTime, 2.0f);
-            if (t > 1.0f) t = 2.0f - t;
+            if (t > 1.0f)
+                t = 2.0f - t;
             glm::vec3 currentPos = glm::mix(startPos, endPos, t);
             M = glm::translate(M, currentPos);
             break;
@@ -105,26 +119,26 @@ public:
 
         case MoveType::BEZIER:
         {
+            if (controlPoints.size() < 4)
+                break;
+
             glm::mat4 A = glm::mat4(
                 glm::vec4(-1.0f, 3.0f, -3.0f, 1.0f),
                 glm::vec4(3.0f, -6.0f, 3.0f, 0.0f),
                 glm::vec4(-3.0f, 3.0f, 0.0f, 0.0f),
-                glm::vec4(1.0f, 0.0f, 0.0f, 0.0f)
-            );
+                glm::vec4(1.0f, 0.0f, 0.0f, 0.0f));
 
             glm::mat4x3 B = glm::mat4x3(
                 glm::vec3(controlPoints[0]),
                 glm::vec3(controlPoints[1]),
                 glm::vec3(controlPoints[2]),
-                glm::vec3(controlPoints[3])
-            );
+                glm::vec3(controlPoints[3]));
 
-           glm::vec4 p = glm::vec4(
-                t * t * t, 
-                t * t, 
-                t, 
-                1.0f
-            );
+            glm::vec4 p = glm::vec4(
+                t * t * t,
+                t * t,
+                t,
+                1.0f);
 
             glm::vec3 point = p * A * glm::transpose(B);
 
@@ -132,7 +146,50 @@ public:
 
             break;
         }
-            
+
+        case MoveType::BEZIER_SPLINE:
+        {
+            if (controlPoints.size() < 4)
+                break;
+
+            int numSegments = controlPoints.size() / 4;
+
+            float clampedT = glm::clamp(t, 0.0f, 1.0f);
+
+            float globalT = clampedT * numSegments;
+            int currentSegment = (int)globalT;
+
+            if (currentSegment >= numSegments)
+                currentSegment = numSegments - 1;
+
+            float localT = globalT - currentSegment;
+
+            int baseIndex = currentSegment * 4;
+            glm::vec3 p0 = controlPoints[baseIndex];
+            glm::vec3 p1 = controlPoints[baseIndex + 1];
+            glm::vec3 p2 = controlPoints[baseIndex + 2];
+            glm::vec3 p3 = controlPoints[baseIndex + 3];
+
+            glm::mat4 A = glm::mat4(
+                glm::vec4(-1.0f, 3.0f, -3.0f, 1.0f),
+                glm::vec4(3.0f, -6.0f, 3.0f, 0.0f),
+                glm::vec4(-3.0f, 3.0f, 0.0f, 0.0f),
+                glm::vec4(1.0f, 0.0f, 0.0f, 0.0f));
+
+            glm::mat4x3 B = glm::mat4x3(p0, p1, p2, p3);
+
+            glm::vec4 p = glm::vec4(
+                localT * localT * localT,
+                localT * localT,
+                localT,
+                1.0f);
+
+            glm::vec3 point = p * A * glm::transpose(B);
+
+            M = glm::translate(M, point);
+
+            break;
+        }
 
         default:
             break;
@@ -140,16 +197,16 @@ public:
     }
 
     void update(float deltaTime) override
-    {   
+    {
         elapsedTime += deltaTime;
 
-        if(moveType == MoveType::BEZIER)
+        if (moveType == MoveType::BEZIER || moveType == MoveType::BEZIER_SPLINE)
         {
             if (t > 1.0f || t <= 0.0f)
             {
                 delta *= -1.0f;
             }
-            
+
             t += delta * speed;
         }
     }

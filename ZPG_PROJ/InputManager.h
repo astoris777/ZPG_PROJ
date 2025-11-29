@@ -1,8 +1,10 @@
 #pragma once
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
+#include <vector>
+#include <glm/glm.hpp>
 
-class Camera;
+class Camera;   
 class SceneManager;
 
 class InputManager
@@ -14,7 +16,9 @@ public:
     void setSceneManager(SceneManager* sm);
     void checkDeleteKey();
 
-private:
+    std::vector<glm::vec3>& getControlPoints(); 
+    
+    private:
     GLFWwindow* window;
     Camera* camera;
     SceneManager* sceneManager;
@@ -23,4 +27,6 @@ private:
     bool deleteKeyPressed;
     
     void handleLeftClick(double xpos, double ypos);
+    
+    std::vector<glm::vec3> controlPoints;
 };

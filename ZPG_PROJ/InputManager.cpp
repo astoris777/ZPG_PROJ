@@ -3,6 +3,8 @@
 #include "SceneManager.h"
 #include <glm/gtc/matrix_transform.hpp>
 #include <stdio.h>
+#include <vector>
+
 
 InputManager::InputManager(GLFWwindow* window, Camera* camera)
     : window(window), camera(camera), sceneManager(nullptr), rightMousePressed(false), lastX(0.0), lastY(0.0), deleteKeyPressed(false)
@@ -97,4 +99,11 @@ void InputManager::handleLeftClick(double xpos, double ypos)
     glm::vec3 pos = glm::unProject(screenX, view, projection, viewPort);
 
     printf("unProject [%f,%f,%f]\n", pos.x, pos.y, pos.z);
+
+    controlPoints.push_back(pos);
+}
+
+std::vector<glm::vec3>& InputManager::getControlPoints()
+{
+    return controlPoints;
 }

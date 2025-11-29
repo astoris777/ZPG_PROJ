@@ -22,7 +22,6 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/InputManager.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/stdint-least.h /usr/include/GL/glu.h \
  /usr/include/GL/gl.h \
  /home/stanislav/zpgproj/ZPG_PROJ/libs/glfw-3.4.bin.WIN64/include/GLFW/glfw3.h \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Camera.h \
  /usr/include/c++/13/vector /usr/include/c++/13/bits/requires_hosted.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \
@@ -242,6 +241,7 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/InputManager.cpp.o: \
  /usr/include/glm/detail/type_half.hpp \
  /usr/include/glm/detail/type_half.inl /usr/include/glm/integer.hpp \
  /usr/include/glm/detail/func_integer.inl \
+ /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Camera.h \
  /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/ShaderObserver.h \
  /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/SceneManager.h \
  /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Scene.h \
