@@ -311,7 +311,6 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/SceneManager.cpp.o: \
  /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Window.h \
  /home/stanislav/zpgproj/ZPG_PROJ/libs/glfw-3.4.bin.WIN64/include/GLFW/glfw3.h \
  /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/InputManager.h \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/GameManager.h \
  /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/SceneBuilder.h \
  /usr/include/c++/13/iostream /usr/include/c++/13/ostream \
  /usr/include/c++/13/ios /usr/include/c++/13/bits/ios_base.h \

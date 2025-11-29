@@ -43,8 +43,7 @@ void Application::processInput(float deltaTime)
     window->inputManager->checkDeleteKey();
 
     static bool f1Pressed = false, f2Pressed = false, f3Pressed = false;
-    static bool gPressed = false, rPressed = false;
-    static bool key1Pressed = false, key2Pressed = false, key3Pressed = false, key4Pressed = false;
+    static bool key1Pressed = false, key2Pressed = false, key3Pressed = false;
 
     if (window->isKeyPressed(GLFW_KEY_F1) && !f1Pressed) {
         sceneManager->setFOV45();
@@ -65,20 +64,6 @@ void Application::processInput(float deltaTime)
         f3Pressed = true;
     } else if (!window->isKeyPressed(GLFW_KEY_F3)) {
         f3Pressed = false;
-    }
-
-    if (window->isKeyPressed(GLFW_KEY_G) && !gPressed) {
-        sceneManager->startGame();
-        gPressed = true;
-    } else if (!window->isKeyPressed(GLFW_KEY_G)) {
-        gPressed = false;
-    }
-
-    if (window->isKeyPressed(GLFW_KEY_R) && !rPressed) {
-        sceneManager->restartGame();
-        rPressed = true;
-    } else if (!window->isKeyPressed(GLFW_KEY_R)) {
-        rPressed = false;
     }
 
     if (window->isKeyPressed(GLFW_KEY_1) && !key1Pressed)
@@ -103,14 +88,6 @@ void Application::processInput(float deltaTime)
         key3Pressed = true;
     } else if (!window->isKeyPressed(GLFW_KEY_3)) {
         key3Pressed = false;
-    }
-
-    if (window->isKeyPressed(GLFW_KEY_4) && !key4Pressed)
-    {
-        sceneManager->switchScene(3);
-        key4Pressed = true;
-    } else if (!window->isKeyPressed(GLFW_KEY_4)) {
-        key4Pressed = false;
     }
 
     if (window->isKeyPressed(GLFW_KEY_ESCAPE))

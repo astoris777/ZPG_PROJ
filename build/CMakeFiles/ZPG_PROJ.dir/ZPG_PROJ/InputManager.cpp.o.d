@@ -310,5 +310,4 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/InputManager.cpp.o: \
  /usr/include/c++/13/typeinfo /usr/include/c++/13/bits/nested_exception.h \
  /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/ShaderProgram.h \
  /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/ResourceManager.h \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Window.h \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/GameManager.h
+ /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Window.h

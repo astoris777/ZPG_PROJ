@@ -111,24 +111,10 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Camera.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Camera.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Camera.cpp -o CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Camera.cpp.s
 
-CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/GameManager.cpp.o: CMakeFiles/ZPG_PROJ.dir/flags.make
-CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/GameManager.cpp.o: /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/GameManager.cpp
-CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/GameManager.cpp.o: CMakeFiles/ZPG_PROJ.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/stanislav/zpgproj/ZPG_PROJ/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/GameManager.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/GameManager.cpp.o -MF CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/GameManager.cpp.o.d -o CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/GameManager.cpp.o -c /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/GameManager.cpp
-
-CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/GameManager.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/GameManager.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/GameManager.cpp > CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/GameManager.cpp.i
-
-CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/GameManager.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/GameManager.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/GameManager.cpp -o CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/GameManager.cpp.s
-
 CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/InputManager.cpp.o: CMakeFiles/ZPG_PROJ.dir/flags.make
 CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/InputManager.cpp.o: /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/InputManager.cpp
 CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/InputManager.cpp.o: CMakeFiles/ZPG_PROJ.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/stanislav/zpgproj/ZPG_PROJ/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/InputManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/stanislav/zpgproj/ZPG_PROJ/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/InputManager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/InputManager.cpp.o -MF CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/InputManager.cpp.o.d -o CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/InputManager.cpp.o -c /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/InputManager.cpp
 
 CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/InputManager.cpp.i: cmake_force
@@ -142,7 +128,7 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/InputManager.cpp.s: cmake_force
 CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Light.cpp.o: CMakeFiles/ZPG_PROJ.dir/flags.make
 CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Light.cpp.o: /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Light.cpp
 CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Light.cpp.o: CMakeFiles/ZPG_PROJ.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/stanislav/zpgproj/ZPG_PROJ/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Light.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/stanislav/zpgproj/ZPG_PROJ/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Light.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Light.cpp.o -MF CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Light.cpp.o.d -o CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Light.cpp.o -c /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Light.cpp
 
 CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Light.cpp.i: cmake_force
@@ -156,7 +142,7 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Light.cpp.s: cmake_force
 CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Material.cpp.o: CMakeFiles/ZPG_PROJ.dir/flags.make
 CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Material.cpp.o: /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Material.cpp
 CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Material.cpp.o: CMakeFiles/ZPG_PROJ.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/stanislav/zpgproj/ZPG_PROJ/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Material.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/stanislav/zpgproj/ZPG_PROJ/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Material.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Material.cpp.o -MF CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Material.cpp.o.d -o CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Material.cpp.o -c /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Material.cpp
 
 CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Material.cpp.i: cmake_force
@@ -170,7 +156,7 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Material.cpp.s: cmake_force
 CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Model.cpp.o: CMakeFiles/ZPG_PROJ.dir/flags.make
 CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Model.cpp.o: /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Model.cpp
 CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Model.cpp.o: CMakeFiles/ZPG_PROJ.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/stanislav/zpgproj/ZPG_PROJ/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Model.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/stanislav/zpgproj/ZPG_PROJ/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Model.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Model.cpp.o -MF CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Model.cpp.o.d -o CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Model.cpp.o -c /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Model.cpp
 
 CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Model.cpp.i: cmake_force
@@ -184,7 +170,7 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Model.cpp.s: cmake_force
 CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/RenderableObject.cpp.o: CMakeFiles/ZPG_PROJ.dir/flags.make
 CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/RenderableObject.cpp.o: /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/RenderableObject.cpp
 CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/RenderableObject.cpp.o: CMakeFiles/ZPG_PROJ.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/stanislav/zpgproj/ZPG_PROJ/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/RenderableObject.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/stanislav/zpgproj/ZPG_PROJ/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/RenderableObject.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/RenderableObject.cpp.o -MF CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/RenderableObject.cpp.o.d -o CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/RenderableObject.cpp.o -c /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/RenderableObject.cpp
 
 CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/RenderableObject.cpp.i: cmake_force
@@ -198,7 +184,7 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/RenderableObject.cpp.s: cmake_force
 CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/ResourceManager.cpp.o: CMakeFiles/ZPG_PROJ.dir/flags.make
 CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/ResourceManager.cpp.o: /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/ResourceManager.cpp
 CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/ResourceManager.cpp.o: CMakeFiles/ZPG_PROJ.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/stanislav/zpgproj/ZPG_PROJ/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/ResourceManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/stanislav/zpgproj/ZPG_PROJ/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/ResourceManager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/ResourceManager.cpp.o -MF CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/ResourceManager.cpp.o.d -o CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/ResourceManager.cpp.o -c /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/ResourceManager.cpp
 
 CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/ResourceManager.cpp.i: cmake_force
@@ -212,7 +198,7 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/ResourceManager.cpp.s: cmake_force
 CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Scene.cpp.o: CMakeFiles/ZPG_PROJ.dir/flags.make
 CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Scene.cpp.o: /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Scene.cpp
 CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Scene.cpp.o: CMakeFiles/ZPG_PROJ.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/stanislav/zpgproj/ZPG_PROJ/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Scene.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/stanislav/zpgproj/ZPG_PROJ/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Scene.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Scene.cpp.o -MF CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Scene.cpp.o.d -o CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Scene.cpp.o -c /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Scene.cpp
 
 CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Scene.cpp.i: cmake_force
@@ -226,7 +212,7 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Scene.cpp.s: cmake_force
 CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/SceneBuilder.cpp.o: CMakeFiles/ZPG_PROJ.dir/flags.make
 CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/SceneBuilder.cpp.o: /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/SceneBuilder.cpp
 CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/SceneBuilder.cpp.o: CMakeFiles/ZPG_PROJ.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/stanislav/zpgproj/ZPG_PROJ/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/SceneBuilder.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/stanislav/zpgproj/ZPG_PROJ/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/SceneBuilder.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/SceneBuilder.cpp.o -MF CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/SceneBuilder.cpp.o.d -o CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/SceneBuilder.cpp.o -c /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/SceneBuilder.cpp
 
 CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/SceneBuilder.cpp.i: cmake_force
@@ -240,7 +226,7 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/SceneBuilder.cpp.s: cmake_force
 CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/SceneManager.cpp.o: CMakeFiles/ZPG_PROJ.dir/flags.make
 CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/SceneManager.cpp.o: /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/SceneManager.cpp
 CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/SceneManager.cpp.o: CMakeFiles/ZPG_PROJ.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/stanislav/zpgproj/ZPG_PROJ/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/SceneManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/stanislav/zpgproj/ZPG_PROJ/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/SceneManager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/SceneManager.cpp.o -MF CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/SceneManager.cpp.o.d -o CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/SceneManager.cpp.o -c /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/SceneManager.cpp
 
 CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/SceneManager.cpp.i: cmake_force
@@ -254,7 +240,7 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/SceneManager.cpp.s: cmake_force
 CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Shader.cpp.o: CMakeFiles/ZPG_PROJ.dir/flags.make
 CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Shader.cpp.o: /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Shader.cpp
 CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Shader.cpp.o: CMakeFiles/ZPG_PROJ.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/stanislav/zpgproj/ZPG_PROJ/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Shader.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/stanislav/zpgproj/ZPG_PROJ/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Shader.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Shader.cpp.o -MF CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Shader.cpp.o.d -o CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Shader.cpp.o -c /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Shader.cpp
 
 CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Shader.cpp.i: cmake_force
@@ -268,7 +254,7 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Shader.cpp.s: cmake_force
 CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Texture.cpp.o: CMakeFiles/ZPG_PROJ.dir/flags.make
 CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Texture.cpp.o: /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Texture.cpp
 CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Texture.cpp.o: CMakeFiles/ZPG_PROJ.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/stanislav/zpgproj/ZPG_PROJ/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Texture.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/stanislav/zpgproj/ZPG_PROJ/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Texture.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Texture.cpp.o -MF CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Texture.cpp.o.d -o CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Texture.cpp.o -c /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Texture.cpp
 
 CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Texture.cpp.i: cmake_force
@@ -282,7 +268,7 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Texture.cpp.s: cmake_force
 CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/VertexArray.cpp.o: CMakeFiles/ZPG_PROJ.dir/flags.make
 CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/VertexArray.cpp.o: /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/VertexArray.cpp
 CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/VertexArray.cpp.o: CMakeFiles/ZPG_PROJ.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/stanislav/zpgproj/ZPG_PROJ/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/VertexArray.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/stanislav/zpgproj/ZPG_PROJ/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/VertexArray.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/VertexArray.cpp.o -MF CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/VertexArray.cpp.o.d -o CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/VertexArray.cpp.o -c /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/VertexArray.cpp
 
 CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/VertexArray.cpp.i: cmake_force
@@ -296,7 +282,7 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/VertexArray.cpp.s: cmake_force
 CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Window.cpp.o: CMakeFiles/ZPG_PROJ.dir/flags.make
 CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Window.cpp.o: /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Window.cpp
 CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Window.cpp.o: CMakeFiles/ZPG_PROJ.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/stanislav/zpgproj/ZPG_PROJ/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Window.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/stanislav/zpgproj/ZPG_PROJ/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Window.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Window.cpp.o -MF CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Window.cpp.o.d -o CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Window.cpp.o -c /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Window.cpp
 
 CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Window.cpp.i: cmake_force
@@ -312,7 +298,6 @@ ZPG_PROJ_OBJECTS = \
 "CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/main.cpp.o" \
 "CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Application.cpp.o" \
 "CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Camera.cpp.o" \
-"CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/GameManager.cpp.o" \
 "CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/InputManager.cpp.o" \
 "CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Light.cpp.o" \
 "CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Material.cpp.o" \
@@ -333,7 +318,6 @@ ZPG_PROJ_EXTERNAL_OBJECTS =
 ZPG_PROJ: CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/main.cpp.o
 ZPG_PROJ: CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Application.cpp.o
 ZPG_PROJ: CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Camera.cpp.o
-ZPG_PROJ: CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/GameManager.cpp.o
 ZPG_PROJ: CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/InputManager.cpp.o
 ZPG_PROJ: CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Light.cpp.o
 ZPG_PROJ: CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Material.cpp.o
@@ -352,7 +336,7 @@ ZPG_PROJ: /usr/lib/x86_64-linux-gnu/libGL.so
 ZPG_PROJ: /usr/lib/x86_64-linux-gnu/libGLEW.so
 ZPG_PROJ: /usr/lib/x86_64-linux-gnu/libglfw.so.3.3
 ZPG_PROJ: CMakeFiles/ZPG_PROJ.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/stanislav/zpgproj/ZPG_PROJ/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Linking CXX executable ZPG_PROJ"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/stanislav/zpgproj/ZPG_PROJ/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Linking CXX executable ZPG_PROJ"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ZPG_PROJ.dir/link.txt --verbose=$(VERBOSE)
 	/usr/bin/cmake -E copy_directory /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/assets /home/stanislav/zpgproj/ZPG_PROJ/build/assets
 	/usr/bin/cmake -E copy /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/fragment_shader_blinn.glsl /home/stanislav/zpgproj/ZPG_PROJ/build

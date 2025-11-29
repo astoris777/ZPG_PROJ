@@ -3,7 +3,6 @@
 #include "ResourceManager.h"
 #include "Camera.h"
 #include "Window.h"
-#include "GameManager.h"
 #include <vector>
 
 class SceneManager
@@ -22,8 +21,6 @@ public:
     void setFOV90();
     void setFOV130();
     float getCurrentFOV() const;
-    void startGame();
-    void restartGame();
 
 private:
     std::vector<Scene*> scenes;
@@ -31,7 +28,5 @@ private:
     ResourceManager* resourceManager;
     Camera* camera;
     Window* window;
-    GameManager* gameManager;
-    bool gameManagerActive;
     float currentFOV;
 };

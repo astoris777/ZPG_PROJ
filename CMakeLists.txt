@@ -22,7 +22,6 @@ set(SOURCES
     ZPG_PROJ/main.cpp
     ZPG_PROJ/Application.cpp
     ZPG_PROJ/Camera.cpp
-    ZPG_PROJ/GameManager.cpp
     ZPG_PROJ/InputManager.cpp
     ZPG_PROJ/Light.cpp
     ZPG_PROJ/Material.cpp
@@ -44,7 +43,6 @@ set(HEADERS
     ZPG_PROJ/BaseTransform.h
     ZPG_PROJ/Camera.h
     ZPG_PROJ/CustomTransform.h
-    ZPG_PROJ/GameManager.h
     ZPG_PROJ/InputManager.h
     ZPG_PROJ/Light.h
     ZPG_PROJ/Material.h
@@ -118,3 +116,11 @@ foreach(SHADER ${SHADER_FILES})
         $<TARGET_FILE_DIR:${PROJECT_NAME}>
     )
 endforeach()
+
+# Add 'run' target
+add_custom_target(run
+    COMMAND ${PROJECT_NAME}
+    DEPENDS ${PROJECT_NAME}
+    WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
+    COMMENT "Running ${PROJECT_NAME}..."
+)
