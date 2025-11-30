@@ -2466,7 +2466,7 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/ResourceManager.cpp.o: /home/stanislav/zpgproj/
   /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/ShaderProgram.h \
   /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Texture.h \
   /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/VertexArray.h \
-  /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/bushes.h \
+  /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/assets/ForestScene/bushes.h \
   /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/plane.h \
   /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/sphere.h \
   /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/tree.h \
@@ -5705,8 +5705,6 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/main.cpp.o: /home/stanislav/zpgproj/ZPG_PROJ/ZP
 
 /usr/include/x86_64-linux-gnu/bits/locale.h:
 
-/home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/bushes.h:
-
 /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h:
 
 /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h:
@@ -5916,6 +5914,8 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/main.cpp.o: /home/stanislav/zpgproj/ZPG_PROJ/ZP
 /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h:
 
 /usr/include/c++/13/bits/string_view.tcc:
+
+/home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/assets/ForestScene/bushes.h:
 
 /usr/include/c++/13/cstdint:
 

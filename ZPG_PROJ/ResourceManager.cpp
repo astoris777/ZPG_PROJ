@@ -1,8 +1,6 @@
 #include "ResourceManager.h"
-#include "tree.h"
-#include "bushes.h"
-#include "triangle.h"
-#include "sphere.h"
+#include "assets/ForestScene/tree.h"
+#include "assets/ForestScene/bushes.h"
 #include "Camera.h"
 #include "plane.h"
 
@@ -38,45 +36,45 @@ ResourceManager::~ResourceManager()
 
 void ResourceManager::createShaders()
 {
-    shaders.push_back(new ShaderProgram("vertex_shader_common.glsl", "fragment_shader_lambert.glsl"));
-    shaders.push_back(new ShaderProgram("vertex_shader_common.glsl", "fragment_shader_phong.glsl"));
-    shaders.push_back(new ShaderProgram("vertex_shader_common.glsl", "fragment_shader_constant.glsl"));
-    shaders.push_back(new ShaderProgram("vertex_shader_common.glsl", "fragment_shader_blinn.glsl"));
+    shaders.push_back(new ShaderProgram("Shaders/vertex_shader_common.glsl", "Shaders/fragment_shader_lambert.glsl"));
+    shaders.push_back(new ShaderProgram("Shaders/vertex_shader_common.glsl", "Shaders/fragment_shader_phong.glsl"));
+    shaders.push_back(new ShaderProgram("Shaders/vertex_shader_common.glsl", "Shaders/fragment_shader_constant.glsl"));
+    shaders.push_back(new ShaderProgram("Shaders/vertex_shader_common.glsl", "Shaders/fragment_shader_blinn.glsl"));
 }
 
 void ResourceManager::createModels()
 {
     simpleModels.insert({"tree", new VertexArray(tree, treeVertexCount, VertexArray::POSITION_NORMAL)});
     simpleModels.insert({"bush", new VertexArray(bushes, bushVertexCount, VertexArray::POSITION_NORMAL)});
-    simpleModels.insert({"sphere", Model::loadFromFile("assets/SolarSystem/Sphere.obj")});
+    simpleModels.insert({"sphere", Model::loadFromFile("assets/SolarSystemScene/Sphere.obj")});
     simpleModels.insert({"plane", new VertexArray(planeVertices, 6, VertexArray::POSITION_NORMAL_UV)});
     
     std::vector<Material*> materials;
     
-    complexModelsGeometry["fiona"] = Model::loadWithMaterials("fiona.obj", materials);
+    complexModelsGeometry["fiona"] = Model::loadWithMaterials("ForestScene/fiona.obj", materials);
     complexModelsMaterials["fiona"] = materials;
     materials.clear();
     
-    complexModelsGeometry["shrek"] = Model::loadWithMaterials("shrek.obj", materials);
+    complexModelsGeometry["shrek"] = Model::loadWithMaterials("ForestScene/shrek.obj", materials);
     complexModelsMaterials["shrek"] = materials;
     materials.clear();
     
-    complexModelsGeometry["airplane"] = Model::loadWithMaterials("11803_Airplane_v1_l1.obj", materials);
+    complexModelsGeometry["airplane"] = Model::loadWithMaterials("AirplaneScene/11803_Airplane_v1_l1.obj", materials);
     complexModelsMaterials["airplane"] = materials;
     materials.clear();
     
-    complexModelsGeometry["helicopter"] = Model::loadWithMaterials("Seahawk.obj", materials);
+    complexModelsGeometry["helicopter"] = Model::loadWithMaterials("AirplaneScene/Seahawk.obj", materials);
     complexModelsMaterials["helicopter"] = materials;
 }
 
 void ResourceManager::createTextures()
 {
-    loadedTextures.insert({"earth", new Texture("assets/SolarSystem/earth.jpg")});
-    loadedTextures.insert({"moon", new Texture("assets/SolarSystem/moon.jpg")});
-    loadedTextures.insert({"mars", new Texture("assets/SolarSystem/mars.jpg")});
-    loadedTextures.insert({"mercury", new Texture("assets/SolarSystem/mercury.jpg")});  
-    loadedTextures.insert({"sun", new Texture("assets/SolarSystem/sun.jpg")});
-    loadedTextures.insert({"grass", new Texture("assets/grass.png")});
+    loadedTextures.insert({"earth", new Texture("assets/SolarSystemScene/earth.jpg")});
+    loadedTextures.insert({"moon", new Texture("assets/SolarSystemScene/moon.jpg")});
+    loadedTextures.insert({"mars", new Texture("assets/SolarSystemScene/mars.jpg")});
+    loadedTextures.insert({"mercury", new Texture("assets/SolarSystemScene/mercury.jpg")});  
+    loadedTextures.insert({"sun", new Texture("assets/SolarSystemScene/sun.jpg")});
+    loadedTextures.insert({"grass", new Texture("assets/ForestScene/grass.png")});
 }   
 
 Texture* ResourceManager::getTexture(const std::string &name)

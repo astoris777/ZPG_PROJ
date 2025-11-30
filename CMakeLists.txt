@@ -63,10 +63,8 @@ set(HEADERS
     ZPG_PROJ/TranslateTransform.h
     ZPG_PROJ/VertexArray.h
     ZPG_PROJ/Window.h
-    ZPG_PROJ/bushes.h
-    ZPG_PROJ/sphere.h
-    ZPG_PROJ/tree.h
-    ZPG_PROJ/triangle.h
+    ZPG_PROJ/assets/ForestScene/bushes.h
+    ZPG_PROJ/assets/ForestScene/tree.h
     ZPG_PROJ/stb_image.h
     ZPG_PROJ/tiny_obj_loader.h
 )
@@ -108,14 +106,12 @@ add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
 )
 
 # Copy shader files to build directory
-file(GLOB SHADER_FILES "ZPG_PROJ/*.glsl")
-foreach(SHADER ${SHADER_FILES})
-    add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E copy
-        ${SHADER}
-        $<TARGET_FILE_DIR:${PROJECT_NAME}>
-    )
-endforeach()
+file(GLOB SHADER_FILES "ZPG_PROJ/Shaders/*.glsl")
+add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+    ${CMAKE_SOURCE_DIR}/ZPG_PROJ/Shaders
+    $<TARGET_FILE_DIR:${PROJECT_NAME}>/Shaders
+)
 
 # Add 'run' target
 add_custom_target(run
