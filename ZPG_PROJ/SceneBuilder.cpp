@@ -15,7 +15,7 @@ Scene* SceneBuilder::createSolarSystemScene(ResourceManager* resources)
 	float sunScale = 5.0f;
 	Scene* scene = new Scene();
 
-	Texture* sunTexture = new Texture("assets/SolarSystem/sun.jpg");
+	Texture* sunTexture = resources->getTexture("sun");
 
 	Material* sunMaterial = new Material(
 		glm::vec3(1.0f, 1.0f, 0.0f),
@@ -42,7 +42,7 @@ Scene* SceneBuilder::createSolarSystemScene(ResourceManager* resources)
 		resources->getLambertShader(),
 		sphereModel
 	);
-	Texture* mercuryTexture = new Texture("assets/SolarSystem/mercury.jpg");
+	Texture* mercuryTexture = resources->getTexture("mercury");
 
 	Material* mercuryMaterial = new Material(
 		glm::vec3(0.5f, 0.5f, 0.5f),
@@ -59,7 +59,7 @@ Scene* SceneBuilder::createSolarSystemScene(ResourceManager* resources)
 	mercury->setMaterial(mercuryMaterial);
 	scene->addObject(mercury);
 
-	Texture* earthTexture = new Texture("assets/SolarSystem/earth.jpg");
+	Texture* earthTexture = resources->getTexture("earth");
 	Material* earthMaterial = new Material(
 		glm::vec3(0.2f, 0.3f, 0.8f),
 		glm::vec3(0.2f, 0.3f, 0.8f),
@@ -82,7 +82,7 @@ Scene* SceneBuilder::createSolarSystemScene(ResourceManager* resources)
 
 	scene->addObject(earth);
 
-	Texture* moonTexture = new Texture("assets/SolarSystem/moon.jpg");
+	Texture* moonTexture = resources->getTexture("moon");
 	Material* moonMaterial = new Material(
 		glm::vec3(0.6f, 0.6f, 0.6f),
 		glm::vec3(0.6f, 0.6f, 0.6f),
@@ -107,7 +107,7 @@ Scene* SceneBuilder::createSolarSystemScene(ResourceManager* resources)
 	moon->setMaterial(moonMaterial);
 	scene->addObject(moon);
 
-	Texture* marsTexture = new Texture("assets/SolarSystem/mars.jpg");
+	Texture* marsTexture = resources->getTexture("mars");
 	Material* marsMaterial = new Material(
 		glm::vec3(0.8f, 0.4f, 0.3f),
 		glm::vec3(0.8f, 0.4f, 0.3f),
@@ -169,7 +169,7 @@ Scene* SceneBuilder::createForestScene(ResourceManager* resources)
 
 	VertexArray* planeModel = resources->getPlaneModel();
 
-	Texture* grassTexture = new Texture("assets/grass.png");
+	Texture* grassTexture = resources->getTexture("grass");
 	Material* grassMaterial = new Material(
 		glm::vec3(1.0f, 1.0f, 1.0f),
 		glm::vec3(1.0f, 1.0f, 1.0f),

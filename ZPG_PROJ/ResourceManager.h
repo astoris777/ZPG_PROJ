@@ -32,13 +32,17 @@ public:
     void loadAirplaneModel(std::vector<Material*>& outMaterials, std::vector<SubMesh>& outModel);
     void loadHelicopterModel(std::vector<Material*>& outMaterials, std::vector<SubMesh>& outModel);
 
+    Texture* getTexture(const std::string& name);
+
     const std::vector<ShaderProgram*>& getAllShaders() const { return shaders; }
 
     void createModels();
+    void createTextures();
 
 private:
     std::vector<ShaderProgram*> shaders;
     std::unordered_map<std::string, VertexArray*> simpleModels;
     std::unordered_map<std::string, std::vector<SubMesh>> complexModelsGeometry;
     std::unordered_map<std::string, std::vector<Material*>> complexModelsMaterials;
+    std::unordered_map<std::string, Texture*> loadedTextures;
 };

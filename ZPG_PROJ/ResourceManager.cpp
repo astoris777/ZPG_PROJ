@@ -29,6 +29,11 @@ ResourceManager::~ResourceManager()
             delete material;
         }
     }
+
+    for (auto& pair : loadedTextures) {
+        delete pair.second;
+    }
+   
 }
 
 void ResourceManager::createShaders()
@@ -62,6 +67,25 @@ void ResourceManager::createModels()
     
     complexModelsGeometry["helicopter"] = Model::loadWithMaterials("Seahawk.obj", materials);
     complexModelsMaterials["helicopter"] = materials;
+}
+
+void ResourceManager::createTextures()
+{
+    loadedTextures.insert({"earth", new Texture("assets/SolarSystem/earth.jpg")});
+    loadedTextures.insert({"moon", new Texture("assets/SolarSystem/moon.jpg")});
+    loadedTextures.insert({"mars", new Texture("assets/SolarSystem/mars.jpg")});
+    loadedTextures.insert({"mercury", new Texture("assets/SolarSystem/mercury.jpg")});  
+    loadedTextures.insert({"sun", new Texture("assets/SolarSystem/sun.jpg")});
+    loadedTextures.insert({"grass", new Texture("assets/grass.png")});
+}   
+
+Texture* ResourceManager::getTexture(const std::string &name)
+{
+    auto it = loadedTextures.find(name);
+    if (it != loadedTextures.end()) {
+        return it->second;
+    }
+    return nullptr;
 }
 
 void ResourceManager::attachShadersToCamera(Camera *camera)
