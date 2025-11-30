@@ -39,8 +39,6 @@ public:
 private:
     std::vector<ShaderProgram*> shaders;
     std::unordered_map<std::string, VertexArray*> simpleModels;
-    std::unordered_map<std::string, std::vector<SubMesh>> cachedComplexModels;
-    
-    void loadComplexModel(const std::string& key, const char* filename, 
-                         std::vector<Material*>& outMaterials, std::vector<SubMesh>& outModel);
+    std::unordered_map<std::string, std::vector<SubMesh>> complexModelsGeometry;
+    std::unordered_map<std::string, std::vector<Material*>> complexModelsMaterials;
 };
