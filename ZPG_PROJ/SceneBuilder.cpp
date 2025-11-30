@@ -167,7 +167,7 @@ Scene* SceneBuilder::createForestScene(ResourceManager* resources)
 	scene->addMaterial(bushMaterial);
 
 
-	VertexArray* planeModel = resources->gePlaneModel();
+	VertexArray* planeModel = resources->getPlaneModel();
 
 	Texture* grassTexture = new Texture("assets/grass.png");
 	Material* grassMaterial = new Material(

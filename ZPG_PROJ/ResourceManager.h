@@ -4,6 +4,7 @@
 #include "VertexArray.h"
 #include "Material.h"
 #include "Model.h"
+#include <unordered_map>
 
 class Camera;
 
@@ -24,7 +25,7 @@ public:
     VertexArray* getTreeModel();
     VertexArray* getBushModel();
     VertexArray* getSphereModel();
-    VertexArray* gePlaneModel();
+    VertexArray* getPlaneModel();
     void loadFionaModel(std::vector<Material*>& outMaterials, std::vector<SubMesh>& outModel);
     void loadShrekModel(std::vector<Material*>& outMaterials, std::vector<SubMesh>& outModel);
 
@@ -33,7 +34,13 @@ public:
 
     const std::vector<ShaderProgram*>& getAllShaders() const { return shaders; }
 
+    void createModels();
+
 private:
     std::vector<ShaderProgram*> shaders;
-    std::vector<VertexArray*> models;
+    std::unordered_map<std::string, VertexArray*> simpleModels;
+    std::unordered_map<std::string, std::vector<SubMesh>> cachedComplexModels;
+    
+    void loadComplexModel(const std::string& key, const char* filename, 
+                         std::vector<Material*>& outMaterials, std::vector<SubMesh>& outModel);
 };

@@ -40,6 +40,7 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Application.cpp.o: /home/stanislav/zpgproj/ZPG_
   /usr/include/c++/13/bits/cpp_type_traits.h \
   /usr/include/c++/13/bits/cxxabi_forced.h \
   /usr/include/c++/13/bits/cxxabi_init_exception.h \
+  /usr/include/c++/13/bits/enable_special_members.h \
   /usr/include/c++/13/bits/erase_if.h \
   /usr/include/c++/13/bits/exception.h \
   /usr/include/c++/13/bits/exception_defines.h \
@@ -47,6 +48,8 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Application.cpp.o: /home/stanislav/zpgproj/ZPG_
   /usr/include/c++/13/bits/functexcept.h \
   /usr/include/c++/13/bits/functional_hash.h \
   /usr/include/c++/13/bits/hash_bytes.h \
+  /usr/include/c++/13/bits/hashtable.h \
+  /usr/include/c++/13/bits/hashtable_policy.h \
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/localefwd.h \
   /usr/include/c++/13/bits/memory_resource.h \
@@ -79,6 +82,7 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Application.cpp.o: /home/stanislav/zpgproj/ZPG_
   /usr/include/c++/13/bits/stl_vector.h \
   /usr/include/c++/13/bits/string_view.tcc \
   /usr/include/c++/13/bits/stringfwd.h \
+  /usr/include/c++/13/bits/unordered_map.h \
   /usr/include/c++/13/bits/uses_allocator.h \
   /usr/include/c++/13/bits/uses_allocator_args.h \
   /usr/include/c++/13/bits/utility.h \
@@ -127,6 +131,7 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Application.cpp.o: /home/stanislav/zpgproj/ZPG_
   /usr/include/c++/13/tuple \
   /usr/include/c++/13/type_traits \
   /usr/include/c++/13/typeinfo \
+  /usr/include/c++/13/unordered_map \
   /usr/include/c++/13/vector \
   /usr/include/ctype.h \
   /usr/include/endian.h \
@@ -711,6 +716,7 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/InputManager.cpp.o: /home/stanislav/zpgproj/ZPG
   /usr/include/c++/13/bits/cpp_type_traits.h \
   /usr/include/c++/13/bits/cxxabi_forced.h \
   /usr/include/c++/13/bits/cxxabi_init_exception.h \
+  /usr/include/c++/13/bits/enable_special_members.h \
   /usr/include/c++/13/bits/erase_if.h \
   /usr/include/c++/13/bits/exception.h \
   /usr/include/c++/13/bits/exception_defines.h \
@@ -718,6 +724,8 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/InputManager.cpp.o: /home/stanislav/zpgproj/ZPG
   /usr/include/c++/13/bits/functexcept.h \
   /usr/include/c++/13/bits/functional_hash.h \
   /usr/include/c++/13/bits/hash_bytes.h \
+  /usr/include/c++/13/bits/hashtable.h \
+  /usr/include/c++/13/bits/hashtable_policy.h \
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/localefwd.h \
   /usr/include/c++/13/bits/memory_resource.h \
@@ -750,6 +758,7 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/InputManager.cpp.o: /home/stanislav/zpgproj/ZPG
   /usr/include/c++/13/bits/stl_vector.h \
   /usr/include/c++/13/bits/string_view.tcc \
   /usr/include/c++/13/bits/stringfwd.h \
+  /usr/include/c++/13/bits/unordered_map.h \
   /usr/include/c++/13/bits/uses_allocator.h \
   /usr/include/c++/13/bits/uses_allocator_args.h \
   /usr/include/c++/13/bits/utility.h \
@@ -798,6 +807,7 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/InputManager.cpp.o: /home/stanislav/zpgproj/ZPG
   /usr/include/c++/13/tuple \
   /usr/include/c++/13/type_traits \
   /usr/include/c++/13/typeinfo \
+  /usr/include/c++/13/unordered_map \
   /usr/include/c++/13/vector \
   /usr/include/ctype.h \
   /usr/include/endian.h \
@@ -2457,6 +2467,7 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/ResourceManager.cpp.o: /home/stanislav/zpgproj/
   /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Texture.h \
   /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/VertexArray.h \
   /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/bushes.h \
+  /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/plane.h \
   /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/sphere.h \
   /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/tree.h \
   /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/triangle.h \
@@ -2479,6 +2490,7 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/ResourceManager.cpp.o: /home/stanislav/zpgproj/
   /usr/include/c++/13/bits/cpp_type_traits.h \
   /usr/include/c++/13/bits/cxxabi_forced.h \
   /usr/include/c++/13/bits/cxxabi_init_exception.h \
+  /usr/include/c++/13/bits/enable_special_members.h \
   /usr/include/c++/13/bits/erase_if.h \
   /usr/include/c++/13/bits/exception.h \
   /usr/include/c++/13/bits/exception_defines.h \
@@ -2486,6 +2498,8 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/ResourceManager.cpp.o: /home/stanislav/zpgproj/
   /usr/include/c++/13/bits/functexcept.h \
   /usr/include/c++/13/bits/functional_hash.h \
   /usr/include/c++/13/bits/hash_bytes.h \
+  /usr/include/c++/13/bits/hashtable.h \
+  /usr/include/c++/13/bits/hashtable_policy.h \
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/localefwd.h \
   /usr/include/c++/13/bits/memory_resource.h \
@@ -2518,6 +2532,7 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/ResourceManager.cpp.o: /home/stanislav/zpgproj/
   /usr/include/c++/13/bits/stl_vector.h \
   /usr/include/c++/13/bits/string_view.tcc \
   /usr/include/c++/13/bits/stringfwd.h \
+  /usr/include/c++/13/bits/unordered_map.h \
   /usr/include/c++/13/bits/uses_allocator.h \
   /usr/include/c++/13/bits/uses_allocator_args.h \
   /usr/include/c++/13/bits/utility.h \
@@ -2566,6 +2581,7 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/ResourceManager.cpp.o: /home/stanislav/zpgproj/
   /usr/include/c++/13/tuple \
   /usr/include/c++/13/type_traits \
   /usr/include/c++/13/typeinfo \
+  /usr/include/c++/13/unordered_map \
   /usr/include/c++/13/vector \
   /usr/include/ctype.h \
   /usr/include/endian.h \
@@ -3244,6 +3260,7 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/SceneBuilder.cpp.o: /home/stanislav/zpgproj/ZPG
   /usr/include/c++/13/bits/cpp_type_traits.h \
   /usr/include/c++/13/bits/cxxabi_forced.h \
   /usr/include/c++/13/bits/cxxabi_init_exception.h \
+  /usr/include/c++/13/bits/enable_special_members.h \
   /usr/include/c++/13/bits/erase_if.h \
   /usr/include/c++/13/bits/exception.h \
   /usr/include/c++/13/bits/exception_defines.h \
@@ -3251,6 +3268,8 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/SceneBuilder.cpp.o: /home/stanislav/zpgproj/ZPG
   /usr/include/c++/13/bits/functexcept.h \
   /usr/include/c++/13/bits/functional_hash.h \
   /usr/include/c++/13/bits/hash_bytes.h \
+  /usr/include/c++/13/bits/hashtable.h \
+  /usr/include/c++/13/bits/hashtable_policy.h \
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/ios_base.h \
   /usr/include/c++/13/bits/istream.tcc \
@@ -3292,6 +3311,7 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/SceneBuilder.cpp.o: /home/stanislav/zpgproj/ZPG
   /usr/include/c++/13/bits/streambuf_iterator.h \
   /usr/include/c++/13/bits/string_view.tcc \
   /usr/include/c++/13/bits/stringfwd.h \
+  /usr/include/c++/13/bits/unordered_map.h \
   /usr/include/c++/13/bits/uses_allocator.h \
   /usr/include/c++/13/bits/uses_allocator_args.h \
   /usr/include/c++/13/bits/utility.h \
@@ -3349,6 +3369,7 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/SceneBuilder.cpp.o: /home/stanislav/zpgproj/ZPG
   /usr/include/c++/13/tuple \
   /usr/include/c++/13/type_traits \
   /usr/include/c++/13/typeinfo \
+  /usr/include/c++/13/unordered_map \
   /usr/include/c++/13/vector \
   /usr/include/ctype.h \
   /usr/include/endian.h \
@@ -3655,6 +3676,7 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/SceneManager.cpp.o: /home/stanislav/zpgproj/ZPG
   /usr/include/c++/13/bits/cpp_type_traits.h \
   /usr/include/c++/13/bits/cxxabi_forced.h \
   /usr/include/c++/13/bits/cxxabi_init_exception.h \
+  /usr/include/c++/13/bits/enable_special_members.h \
   /usr/include/c++/13/bits/erase_if.h \
   /usr/include/c++/13/bits/exception.h \
   /usr/include/c++/13/bits/exception_defines.h \
@@ -3662,6 +3684,8 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/SceneManager.cpp.o: /home/stanislav/zpgproj/ZPG
   /usr/include/c++/13/bits/functexcept.h \
   /usr/include/c++/13/bits/functional_hash.h \
   /usr/include/c++/13/bits/hash_bytes.h \
+  /usr/include/c++/13/bits/hashtable.h \
+  /usr/include/c++/13/bits/hashtable_policy.h \
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/ios_base.h \
   /usr/include/c++/13/bits/istream.tcc \
@@ -3703,6 +3727,7 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/SceneManager.cpp.o: /home/stanislav/zpgproj/ZPG
   /usr/include/c++/13/bits/streambuf_iterator.h \
   /usr/include/c++/13/bits/string_view.tcc \
   /usr/include/c++/13/bits/stringfwd.h \
+  /usr/include/c++/13/bits/unordered_map.h \
   /usr/include/c++/13/bits/uses_allocator.h \
   /usr/include/c++/13/bits/uses_allocator_args.h \
   /usr/include/c++/13/bits/utility.h \
@@ -3759,6 +3784,7 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/SceneManager.cpp.o: /home/stanislav/zpgproj/ZPG
   /usr/include/c++/13/tuple \
   /usr/include/c++/13/type_traits \
   /usr/include/c++/13/typeinfo \
+  /usr/include/c++/13/unordered_map \
   /usr/include/c++/13/vector \
   /usr/include/ctype.h \
   /usr/include/endian.h \
@@ -5130,6 +5156,7 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/main.cpp.o: /home/stanislav/zpgproj/ZPG_PROJ/ZP
   /usr/include/c++/13/bits/cpp_type_traits.h \
   /usr/include/c++/13/bits/cxxabi_forced.h \
   /usr/include/c++/13/bits/cxxabi_init_exception.h \
+  /usr/include/c++/13/bits/enable_special_members.h \
   /usr/include/c++/13/bits/erase_if.h \
   /usr/include/c++/13/bits/exception.h \
   /usr/include/c++/13/bits/exception_defines.h \
@@ -5137,6 +5164,8 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/main.cpp.o: /home/stanislav/zpgproj/ZPG_PROJ/ZP
   /usr/include/c++/13/bits/functexcept.h \
   /usr/include/c++/13/bits/functional_hash.h \
   /usr/include/c++/13/bits/hash_bytes.h \
+  /usr/include/c++/13/bits/hashtable.h \
+  /usr/include/c++/13/bits/hashtable_policy.h \
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/localefwd.h \
   /usr/include/c++/13/bits/memory_resource.h \
@@ -5169,6 +5198,7 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/main.cpp.o: /home/stanislav/zpgproj/ZPG_PROJ/ZP
   /usr/include/c++/13/bits/stl_vector.h \
   /usr/include/c++/13/bits/string_view.tcc \
   /usr/include/c++/13/bits/stringfwd.h \
+  /usr/include/c++/13/bits/unordered_map.h \
   /usr/include/c++/13/bits/uses_allocator.h \
   /usr/include/c++/13/bits/uses_allocator_args.h \
   /usr/include/c++/13/bits/utility.h \
@@ -5217,6 +5247,7 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/main.cpp.o: /home/stanislav/zpgproj/ZPG_PROJ/ZP
   /usr/include/c++/13/tuple \
   /usr/include/c++/13/type_traits \
   /usr/include/c++/13/typeinfo \
+  /usr/include/c++/13/unordered_map \
   /usr/include/c++/13/vector \
   /usr/include/ctype.h \
   /usr/include/endian.h \
@@ -5722,10 +5753,6 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/main.cpp.o: /home/stanislav/zpgproj/ZPG_PROJ/ZP
 
 /usr/include/glm/mat3x2.hpp:
 
-/usr/include/x86_64-linux-gnu/bits/types/error_t.h:
-
-/usr/include/glm/mat2x4.hpp:
-
 /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/sphere.h:
 
 /usr/include/glm/mat2x3.hpp:
@@ -5734,13 +5761,17 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/main.cpp.o: /home/stanislav/zpgproj/ZPG_PROJ/ZP
 
 /usr/include/glm/integer.hpp:
 
-/usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h:
+/usr/include/x86_64-linux-gnu/bits/uintn-identity.h:
 
-/usr/include/c++/13/typeinfo:
+/usr/include/glm/gtc/constants.inl:
 
-/usr/include/c++/13/bits/cxxabi_init_exception.h:
+/usr/include/glm/gtc/constants.hpp:
 
-/usr/include/glm/detail/func_geometric.inl:
+/usr/include/glm/glm.hpp:
+
+/home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/tiny_obj_loader.h:
+
+/usr/include/glm/fwd.hpp:
 
 /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/CustomTransform.h:
 
@@ -5790,13 +5821,9 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/main.cpp.o: /home/stanislav/zpgproj/ZPG_PROJ/ZP
 
 /usr/include/c++/13/ext/aligned_buffer.h:
 
-/usr/include/glm/ext/matrix_projection.inl:
-
 /usr/include/c++/13/system_error:
 
 /usr/include/glm/ext/vector_int2.hpp:
-
-/usr/include/glm/gtc/constants.hpp:
 
 /usr/include/c++/13/cstdio:
 
@@ -5830,6 +5857,12 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/main.cpp.o: /home/stanislav/zpgproj/ZPG_PROJ/ZP
 
 /usr/include/c++/13/bits/stl_vector.h:
 
+/usr/include/c++/13/bits/unordered_map.h:
+
+/home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/ResourceManager.h:
+
+/usr/include/glm/ext/vector_uint4.hpp:
+
 /usr/include/c++/13/bits/new_allocator.h:
 
 /usr/include/c++/13/bits/stl_uninitialized.h:
@@ -5847,8 +5880,6 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/main.cpp.o: /home/stanislav/zpgproj/ZPG_PROJ/ZP
 /usr/include/c++/13/bits/stl_iterator_base_types.h:
 
 /usr/include/c++/13/bits/stl_bvector.h:
-
-/usr/include/c++/13/bits/allocator.h:
 
 /usr/include/c++/13/bits/fstream.tcc:
 
@@ -5890,15 +5921,31 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/main.cpp.o: /home/stanislav/zpgproj/ZPG_PROJ/ZP
 
 /usr/include/glm/ext/matrix_transform.hpp:
 
-/usr/include/glm/ext/vector_int3_sized.hpp:
+/usr/include/c++/13/stdexcept:
 
-/usr/include/assert.h:
+/usr/include/glm/ext/vector_uint2.hpp:
+
+/usr/include/linux/errno.h:
+
+/usr/include/c++/13/debug/debug.h:
+
+/usr/include/glm/ext/matrix_double4x2_precision.hpp:
+
+/usr/include/c++/13/bits/predefined_ops.h:
 
 /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Texture.h:
 
 /usr/include/c++/13/iosfwd:
 
-/usr/include/c++/13/bits/predefined_ops.h:
+/usr/include/glm/gtc/epsilon.hpp:
+
+/usr/include/stdc-predef.h:
+
+/usr/include/glm/ext/matrix_float2x2_precision.hpp:
+
+/usr/include/glm/ext/vector_int3_sized.hpp:
+
+/usr/include/assert.h:
 
 /usr/include/c++/13/bits/stl_construct.h:
 
@@ -5941,6 +5988,10 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/main.cpp.o: /home/stanislav/zpgproj/ZPG_PROJ/ZP
 /usr/include/c++/13/ext/numeric_traits.h:
 
 /usr/include/c++/13/bits/stl_iterator.h:
+
+/usr/include/glm/geometric.hpp:
+
+/usr/include/c++/13/bits/functexcept.h:
 
 /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Camera.h:
 
@@ -6032,10 +6083,6 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/main.cpp.o: /home/stanislav/zpgproj/ZPG_PROJ/ZP
 
 /usr/include/c++/13/bits/ptr_traits.h:
 
-/home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/ResourceManager.h:
-
-/usr/include/glm/ext/vector_uint4.hpp:
-
 /usr/include/glm/ext/quaternion_float_precision.hpp:
 
 /usr/include/glm/ext/vector_double3.hpp:
@@ -6090,6 +6137,8 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/main.cpp.o: /home/stanislav/zpgproj/ZPG_PROJ/ZP
 
 /usr/include/c++/13/bits/specfun.h:
 
+/usr/include/c++/13/bits/hashtable_policy.h:
+
 /usr/include/c++/13/bits/cxxabi_forced.h:
 
 /usr/include/c++/13/cstddef:
@@ -6114,6 +6163,14 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/main.cpp.o: /home/stanislav/zpgproj/ZPG_PROJ/ZP
 
 /usr/include/c++/13/bits/exception_defines.h:
 
+/usr/include/c++/13/bits/cxxabi_init_exception.h:
+
+/usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h:
+
+/usr/include/c++/13/typeinfo:
+
+/usr/include/glm/detail/func_geometric.inl:
+
 /usr/include/c++/13/bits/exception.h:
 
 /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/ShaderProgram.h:
@@ -6128,17 +6185,19 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/main.cpp.o: /home/stanislav/zpgproj/ZPG_PROJ/ZP
 
 /usr/include/GL/glu.h:
 
-/usr/include/c++/13/tuple:
-
-/usr/include/c++/13/cfloat:
-
-/usr/include/c++/13/bits/nested_exception.h:
-
 /usr/include/c++/13/bits/functional_hash.h:
 
 /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Model.h:
 
 /usr/include/errno.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/error_t.h:
+
+/usr/include/glm/mat2x4.hpp:
+
+/usr/include/c++/13/bits/hashtable.h:
+
+/usr/include/c++/13/bits/ostream_insert.h:
 
 /usr/include/c++/13/bits/invoke.h:
 
@@ -6152,17 +6211,17 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/main.cpp.o: /home/stanislav/zpgproj/ZPG_PROJ/ZP
 
 /usr/include/glm/detail/type_mat2x2.hpp:
 
-/usr/include/c++/13/bits/ostream_insert.h:
+/usr/include/c++/13/cfloat:
 
-/usr/include/c++/13/stdexcept:
+/usr/include/c++/13/bits/nested_exception.h:
 
-/usr/include/glm/ext/vector_uint2.hpp:
+/usr/include/c++/13/tuple:
 
-/usr/include/linux/errno.h:
+/usr/include/glm/ext/matrix_projection.inl:
 
-/usr/include/c++/13/debug/debug.h:
+/usr/include/c++/13/bits/allocator.h:
 
-/usr/include/glm/ext/matrix_double4x2_precision.hpp:
+/usr/include/c++/13/unordered_map:
 
 /usr/lib/gcc/x86_64-linux-gnu/13/include/float.h:
 
@@ -6334,9 +6393,9 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/main.cpp.o: /home/stanislav/zpgproj/ZPG_PROJ/ZP
 
 /usr/include/glm/ext/matrix_clip_space.hpp:
 
-/usr/include/c++/13/bits/memoryfwd.h:
-
 /usr/include/glm/detail/type_mat2x3.inl:
+
+/usr/include/c++/13/bits/memoryfwd.h:
 
 /usr/include/glm/detail/type_vec2.hpp:
 
@@ -6344,15 +6403,13 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/main.cpp.o: /home/stanislav/zpgproj/ZPG_PROJ/ZP
 
 /usr/include/glm/ext/matrix_double3x2_precision.hpp:
 
-/usr/include/c++/13/bits/functexcept.h:
-
-/usr/include/glm/geometric.hpp:
-
 /usr/include/glm/detail/type_vec3.hpp:
 
 /usr/include/glm/detail/type_vec3.inl:
 
 /usr/include/glm/ext/matrix_double2x3.hpp:
+
+/home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/plane.h:
 
 /usr/include/glm/ext/vector_int2_sized.hpp:
 
@@ -6370,6 +6427,8 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/main.cpp.o: /home/stanislav/zpgproj/ZPG_PROJ/ZP
 
 /usr/include/x86_64-linux-gnu/bits/posix2_lim.h:
 
+/usr/include/c++/13/bits/enable_special_members.h:
+
 /usr/include/glm/ext/scalar_constants.hpp:
 
 /usr/include/glm/gtc/type_ptr.inl:
@@ -6385,12 +6444,6 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/main.cpp.o: /home/stanislav/zpgproj/ZPG_PROJ/ZP
 /usr/include/glm/ext/matrix_double4x4_precision.hpp:
 
 /usr/include/glm/ext/matrix_float2x2.hpp:
-
-/usr/include/glm/gtc/epsilon.hpp:
-
-/usr/include/stdc-predef.h:
-
-/usr/include/glm/ext/matrix_float2x2_precision.hpp:
 
 /usr/include/glm/ext/matrix_float2x3.hpp:
 
@@ -6449,13 +6502,3 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/main.cpp.o: /home/stanislav/zpgproj/ZPG_PROJ/ZP
 /usr/include/glm/ext/vector_float3_precision.hpp:
 
 /usr/include/glm/ext/vector_uint3_sized.hpp:
-
-/home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/tiny_obj_loader.h:
-
-/usr/include/glm/fwd.hpp:
-
-/usr/include/glm/glm.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/uintn-identity.h:
-
-/usr/include/glm/gtc/constants.inl:

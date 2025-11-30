@@ -41,6 +41,7 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Application.cpp.o
  /usr/include/c++/13/bits/cpp_type_traits.h
  /usr/include/c++/13/bits/cxxabi_forced.h
  /usr/include/c++/13/bits/cxxabi_init_exception.h
+ /usr/include/c++/13/bits/enable_special_members.h
  /usr/include/c++/13/bits/erase_if.h
  /usr/include/c++/13/bits/exception.h
  /usr/include/c++/13/bits/exception_defines.h
@@ -48,6 +49,8 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Application.cpp.o
  /usr/include/c++/13/bits/functexcept.h
  /usr/include/c++/13/bits/functional_hash.h
  /usr/include/c++/13/bits/hash_bytes.h
+ /usr/include/c++/13/bits/hashtable.h
+ /usr/include/c++/13/bits/hashtable_policy.h
  /usr/include/c++/13/bits/invoke.h
  /usr/include/c++/13/bits/localefwd.h
  /usr/include/c++/13/bits/memory_resource.h
@@ -80,6 +83,7 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Application.cpp.o
  /usr/include/c++/13/bits/stl_vector.h
  /usr/include/c++/13/bits/string_view.tcc
  /usr/include/c++/13/bits/stringfwd.h
+ /usr/include/c++/13/bits/unordered_map.h
  /usr/include/c++/13/bits/uses_allocator.h
  /usr/include/c++/13/bits/uses_allocator_args.h
  /usr/include/c++/13/bits/utility.h
@@ -128,6 +132,7 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Application.cpp.o
  /usr/include/c++/13/tuple
  /usr/include/c++/13/type_traits
  /usr/include/c++/13/typeinfo
+ /usr/include/c++/13/unordered_map
  /usr/include/c++/13/vector
  /usr/include/ctype.h
  /usr/include/endian.h
@@ -714,6 +719,7 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/InputManager.cpp.o
  /usr/include/c++/13/bits/cpp_type_traits.h
  /usr/include/c++/13/bits/cxxabi_forced.h
  /usr/include/c++/13/bits/cxxabi_init_exception.h
+ /usr/include/c++/13/bits/enable_special_members.h
  /usr/include/c++/13/bits/erase_if.h
  /usr/include/c++/13/bits/exception.h
  /usr/include/c++/13/bits/exception_defines.h
@@ -721,6 +727,8 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/InputManager.cpp.o
  /usr/include/c++/13/bits/functexcept.h
  /usr/include/c++/13/bits/functional_hash.h
  /usr/include/c++/13/bits/hash_bytes.h
+ /usr/include/c++/13/bits/hashtable.h
+ /usr/include/c++/13/bits/hashtable_policy.h
  /usr/include/c++/13/bits/invoke.h
  /usr/include/c++/13/bits/localefwd.h
  /usr/include/c++/13/bits/memory_resource.h
@@ -753,6 +761,7 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/InputManager.cpp.o
  /usr/include/c++/13/bits/stl_vector.h
  /usr/include/c++/13/bits/string_view.tcc
  /usr/include/c++/13/bits/stringfwd.h
+ /usr/include/c++/13/bits/unordered_map.h
  /usr/include/c++/13/bits/uses_allocator.h
  /usr/include/c++/13/bits/uses_allocator_args.h
  /usr/include/c++/13/bits/utility.h
@@ -801,6 +810,7 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/InputManager.cpp.o
  /usr/include/c++/13/tuple
  /usr/include/c++/13/type_traits
  /usr/include/c++/13/typeinfo
+ /usr/include/c++/13/unordered_map
  /usr/include/c++/13/vector
  /usr/include/ctype.h
  /usr/include/endian.h
@@ -2465,6 +2475,7 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/ResourceManager.cpp.o
  /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Texture.h
  /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/VertexArray.h
  /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/bushes.h
+ /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/plane.h
  /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/sphere.h
  /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/tree.h
  /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/triangle.h
@@ -2487,6 +2498,7 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/ResourceManager.cpp.o
  /usr/include/c++/13/bits/cpp_type_traits.h
  /usr/include/c++/13/bits/cxxabi_forced.h
  /usr/include/c++/13/bits/cxxabi_init_exception.h
+ /usr/include/c++/13/bits/enable_special_members.h
  /usr/include/c++/13/bits/erase_if.h
  /usr/include/c++/13/bits/exception.h
  /usr/include/c++/13/bits/exception_defines.h
@@ -2494,6 +2506,8 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/ResourceManager.cpp.o
  /usr/include/c++/13/bits/functexcept.h
  /usr/include/c++/13/bits/functional_hash.h
  /usr/include/c++/13/bits/hash_bytes.h
+ /usr/include/c++/13/bits/hashtable.h
+ /usr/include/c++/13/bits/hashtable_policy.h
  /usr/include/c++/13/bits/invoke.h
  /usr/include/c++/13/bits/localefwd.h
  /usr/include/c++/13/bits/memory_resource.h
@@ -2526,6 +2540,7 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/ResourceManager.cpp.o
  /usr/include/c++/13/bits/stl_vector.h
  /usr/include/c++/13/bits/string_view.tcc
  /usr/include/c++/13/bits/stringfwd.h
+ /usr/include/c++/13/bits/unordered_map.h
  /usr/include/c++/13/bits/uses_allocator.h
  /usr/include/c++/13/bits/uses_allocator_args.h
  /usr/include/c++/13/bits/utility.h
@@ -2574,6 +2589,7 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/ResourceManager.cpp.o
  /usr/include/c++/13/tuple
  /usr/include/c++/13/type_traits
  /usr/include/c++/13/typeinfo
+ /usr/include/c++/13/unordered_map
  /usr/include/c++/13/vector
  /usr/include/ctype.h
  /usr/include/endian.h
@@ -3254,6 +3270,7 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/SceneBuilder.cpp.o
  /usr/include/c++/13/bits/cpp_type_traits.h
  /usr/include/c++/13/bits/cxxabi_forced.h
  /usr/include/c++/13/bits/cxxabi_init_exception.h
+ /usr/include/c++/13/bits/enable_special_members.h
  /usr/include/c++/13/bits/erase_if.h
  /usr/include/c++/13/bits/exception.h
  /usr/include/c++/13/bits/exception_defines.h
@@ -3261,6 +3278,8 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/SceneBuilder.cpp.o
  /usr/include/c++/13/bits/functexcept.h
  /usr/include/c++/13/bits/functional_hash.h
  /usr/include/c++/13/bits/hash_bytes.h
+ /usr/include/c++/13/bits/hashtable.h
+ /usr/include/c++/13/bits/hashtable_policy.h
  /usr/include/c++/13/bits/invoke.h
  /usr/include/c++/13/bits/ios_base.h
  /usr/include/c++/13/bits/istream.tcc
@@ -3302,6 +3321,7 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/SceneBuilder.cpp.o
  /usr/include/c++/13/bits/streambuf_iterator.h
  /usr/include/c++/13/bits/string_view.tcc
  /usr/include/c++/13/bits/stringfwd.h
+ /usr/include/c++/13/bits/unordered_map.h
  /usr/include/c++/13/bits/uses_allocator.h
  /usr/include/c++/13/bits/uses_allocator_args.h
  /usr/include/c++/13/bits/utility.h
@@ -3359,6 +3379,7 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/SceneBuilder.cpp.o
  /usr/include/c++/13/tuple
  /usr/include/c++/13/type_traits
  /usr/include/c++/13/typeinfo
+ /usr/include/c++/13/unordered_map
  /usr/include/c++/13/vector
  /usr/include/ctype.h
  /usr/include/endian.h
@@ -3666,6 +3687,7 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/SceneManager.cpp.o
  /usr/include/c++/13/bits/cpp_type_traits.h
  /usr/include/c++/13/bits/cxxabi_forced.h
  /usr/include/c++/13/bits/cxxabi_init_exception.h
+ /usr/include/c++/13/bits/enable_special_members.h
  /usr/include/c++/13/bits/erase_if.h
  /usr/include/c++/13/bits/exception.h
  /usr/include/c++/13/bits/exception_defines.h
@@ -3673,6 +3695,8 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/SceneManager.cpp.o
  /usr/include/c++/13/bits/functexcept.h
  /usr/include/c++/13/bits/functional_hash.h
  /usr/include/c++/13/bits/hash_bytes.h
+ /usr/include/c++/13/bits/hashtable.h
+ /usr/include/c++/13/bits/hashtable_policy.h
  /usr/include/c++/13/bits/invoke.h
  /usr/include/c++/13/bits/ios_base.h
  /usr/include/c++/13/bits/istream.tcc
@@ -3714,6 +3738,7 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/SceneManager.cpp.o
  /usr/include/c++/13/bits/streambuf_iterator.h
  /usr/include/c++/13/bits/string_view.tcc
  /usr/include/c++/13/bits/stringfwd.h
+ /usr/include/c++/13/bits/unordered_map.h
  /usr/include/c++/13/bits/uses_allocator.h
  /usr/include/c++/13/bits/uses_allocator_args.h
  /usr/include/c++/13/bits/utility.h
@@ -3770,6 +3795,7 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/SceneManager.cpp.o
  /usr/include/c++/13/tuple
  /usr/include/c++/13/type_traits
  /usr/include/c++/13/typeinfo
+ /usr/include/c++/13/unordered_map
  /usr/include/c++/13/vector
  /usr/include/ctype.h
  /usr/include/endian.h
@@ -5146,6 +5172,7 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/main.cpp.o
  /usr/include/c++/13/bits/cpp_type_traits.h
  /usr/include/c++/13/bits/cxxabi_forced.h
  /usr/include/c++/13/bits/cxxabi_init_exception.h
+ /usr/include/c++/13/bits/enable_special_members.h
  /usr/include/c++/13/bits/erase_if.h
  /usr/include/c++/13/bits/exception.h
  /usr/include/c++/13/bits/exception_defines.h
@@ -5153,6 +5180,8 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/main.cpp.o
  /usr/include/c++/13/bits/functexcept.h
  /usr/include/c++/13/bits/functional_hash.h
  /usr/include/c++/13/bits/hash_bytes.h
+ /usr/include/c++/13/bits/hashtable.h
+ /usr/include/c++/13/bits/hashtable_policy.h
  /usr/include/c++/13/bits/invoke.h
  /usr/include/c++/13/bits/localefwd.h
  /usr/include/c++/13/bits/memory_resource.h
@@ -5185,6 +5214,7 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/main.cpp.o
  /usr/include/c++/13/bits/stl_vector.h
  /usr/include/c++/13/bits/string_view.tcc
  /usr/include/c++/13/bits/stringfwd.h
+ /usr/include/c++/13/bits/unordered_map.h
  /usr/include/c++/13/bits/uses_allocator.h
  /usr/include/c++/13/bits/uses_allocator_args.h
  /usr/include/c++/13/bits/utility.h
@@ -5233,6 +5263,7 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/main.cpp.o
  /usr/include/c++/13/tuple
  /usr/include/c++/13/type_traits
  /usr/include/c++/13/typeinfo
+ /usr/include/c++/13/unordered_map
  /usr/include/c++/13/vector
  /usr/include/ctype.h
  /usr/include/endian.h
