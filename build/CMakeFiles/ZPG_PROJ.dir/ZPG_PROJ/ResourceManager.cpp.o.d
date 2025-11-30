@@ -281,6 +281,15 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/ResourceManager.cpp.o: \
  /usr/include/c++/13/bits/cxxabi_init_exception.h \
  /usr/include/c++/13/typeinfo /usr/include/c++/13/bits/nested_exception.h \
  /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/VertexArray.h \
+ /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Material.h \
+ /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Texture.h \
+ /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Model.h \
+ /usr/include/c++/13/map /usr/include/c++/13/bits/stl_tree.h \
+ /usr/include/c++/13/ext/aligned_buffer.h \
+ /usr/include/c++/13/bits/node_handle.h \
+ /usr/include/c++/13/bits/stl_map.h \
+ /usr/include/c++/13/bits/stl_multimap.h \
+ /usr/include/c++/13/bits/erase_if.h \
  /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/tree.h \
  /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/bushes.h \
  /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/triangle.h \

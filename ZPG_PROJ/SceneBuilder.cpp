@@ -26,7 +26,7 @@ Scene* SceneBuilder::createSolarSystemScene(ResourceManager* resources)
 	);
 	scene->addMaterial(sunMaterial);
 
-	VertexArray* sphereModel = Model::loadFromFile("assets/SolarSystem/Sphere.obj");
+	VertexArray* sphereModel = resources->getSphereModel();
 
 	RenderableObject* sun = new RenderableObject(
 		resources->getConstantShader(),
@@ -166,16 +166,8 @@ Scene* SceneBuilder::createForestScene(ResourceManager* resources)
 	scene->addMaterial(treeMaterial);
 	scene->addMaterial(bushMaterial);
 
-	static float planeVertices[] = {
-		-0.5f, 0.0f, -0.5f,  0.0f, 1.0f, 0.0f,   0.0f, 0.0f,
-		 0.5f, 0.0f, -0.5f,  0.0f, 1.0f, 0.0f,   1.0f, 0.0f,
-		 0.5f, 0.0f,  0.5f,  0.0f, 1.0f, 0.0f,   1.0f, 1.0f,
-		-0.5f, 0.0f, -0.5f,  0.0f, 1.0f, 0.0f,   0.0f, 0.0f,
-		 0.5f, 0.0f,  0.5f,  0.0f, 1.0f, 0.0f,   1.0f, 1.0f,
-		-0.5f, 0.0f,  0.5f,  0.0f, 1.0f, 0.0f,   0.0f, 1.0f
-	};
 
-	VertexArray* planeModel = new VertexArray(planeVertices, 6, VertexArray::POSITION_NORMAL_UV);
+	VertexArray* planeModel = resources->gePlaneModel();
 
 	Texture* grassTexture = new Texture("assets/grass.png");
 	Material* grassMaterial = new Material(
@@ -238,7 +230,8 @@ Scene* SceneBuilder::createForestScene(ResourceManager* resources)
 	}
 
 	std::vector<Material*> fionaMaterials;
-	std::vector<SubMesh>fionaModel = Model::loadWithMaterials("fiona.obj", fionaMaterials);
+	std::vector<SubMesh>fionaModel;
+	resources->loadFionaModel(fionaMaterials, fionaModel);
 
 	RenderableObject* fiona = new RenderableObject(
 		resources->getPhongShader(),
@@ -254,7 +247,9 @@ Scene* SceneBuilder::createForestScene(ResourceManager* resources)
 	}
 
 	std::vector<Material*> shrekMaterials;
-	std::vector<SubMesh>shrekModel = Model::loadWithMaterials("shrek.obj", shrekMaterials);
+	std::vector<SubMesh>shrekModel;
+	resources->loadShrekModel(shrekMaterials, shrekModel);
+
 	RenderableObject* shrek = new RenderableObject(
 		resources->getPhongShader(),
 		shrekModel,
@@ -288,7 +283,8 @@ Scene* SceneBuilder::createAirplaneScene(ResourceManager* resources)
 	Scene* scene = new Scene();
 
 	std::vector<Material*> airplaneMaterials;
-	std::vector<SubMesh> airplaneSubmeshes = Model::loadWithMaterials("11803_Airplane_v1_l1.obj", airplaneMaterials);
+	std::vector<SubMesh> airplaneSubmeshes;
+	resources->loadAirplaneModel(airplaneMaterials, airplaneSubmeshes);
 
 	RenderableObject* airplane = new RenderableObject(
 		resources->getConstantShader(),
@@ -307,7 +303,8 @@ Scene* SceneBuilder::createAirplaneScene(ResourceManager* resources)
 	}
 
 	std::vector<Material*> helicopterMaterials;
-	std::vector<SubMesh> helicopterSubmeshes = Model::loadWithMaterials("Seahawk.obj", helicopterMaterials);
+	std::vector<SubMesh> helicopterSubmeshes;
+	resources->loadHelicopterModel(helicopterMaterials, helicopterSubmeshes);
 
 	RenderableObject* helicopter = new RenderableObject(
 		resources->getConstantShader(),
@@ -321,6 +318,13 @@ Scene* SceneBuilder::createAirplaneScene(ResourceManager* resources)
 	for (auto* mat : helicopterMaterials) {
 		scene->addMaterial(mat);
 	}
+
+	return scene;
+}
+
+Scene* SceneBuilder::createFormulaOneScene(ResourceManager* resources)
+{
+	Scene* scene = new Scene();
 
 	return scene;
 }

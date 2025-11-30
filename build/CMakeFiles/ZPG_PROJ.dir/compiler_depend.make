@@ -2448,10 +2448,13 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/RenderableObject.cpp.o: /home/stanislav/zpgproj
 CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/ResourceManager.cpp.o: /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/ResourceManager.cpp \
   /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Camera.h \
   /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Light.h \
+  /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Material.h \
+  /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Model.h \
   /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/ResourceManager.h \
   /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Shader.h \
   /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/ShaderObserver.h \
   /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/ShaderProgram.h \
+  /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Texture.h \
   /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/VertexArray.h \
   /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/bushes.h \
   /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/sphere.h \
@@ -2476,6 +2479,7 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/ResourceManager.cpp.o: /home/stanislav/zpgproj/
   /usr/include/c++/13/bits/cpp_type_traits.h \
   /usr/include/c++/13/bits/cxxabi_forced.h \
   /usr/include/c++/13/bits/cxxabi_init_exception.h \
+  /usr/include/c++/13/bits/erase_if.h \
   /usr/include/c++/13/bits/exception.h \
   /usr/include/c++/13/bits/exception_defines.h \
   /usr/include/c++/13/bits/exception_ptr.h \
@@ -2489,6 +2493,7 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/ResourceManager.cpp.o: /home/stanislav/zpgproj/
   /usr/include/c++/13/bits/move.h \
   /usr/include/c++/13/bits/nested_exception.h \
   /usr/include/c++/13/bits/new_allocator.h \
+  /usr/include/c++/13/bits/node_handle.h \
   /usr/include/c++/13/bits/ostream_insert.h \
   /usr/include/c++/13/bits/postypes.h \
   /usr/include/c++/13/bits/predefined_ops.h \
@@ -2505,7 +2510,10 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/ResourceManager.cpp.o: /home/stanislav/zpgproj/
   /usr/include/c++/13/bits/stl_iterator.h \
   /usr/include/c++/13/bits/stl_iterator_base_funcs.h \
   /usr/include/c++/13/bits/stl_iterator_base_types.h \
+  /usr/include/c++/13/bits/stl_map.h \
+  /usr/include/c++/13/bits/stl_multimap.h \
   /usr/include/c++/13/bits/stl_pair.h \
+  /usr/include/c++/13/bits/stl_tree.h \
   /usr/include/c++/13/bits/stl_uninitialized.h \
   /usr/include/c++/13/bits/stl_vector.h \
   /usr/include/c++/13/bits/string_view.tcc \
@@ -2529,6 +2537,7 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/ResourceManager.cpp.o: /home/stanislav/zpgproj/
   /usr/include/c++/13/debug/assertions.h \
   /usr/include/c++/13/debug/debug.h \
   /usr/include/c++/13/exception \
+  /usr/include/c++/13/ext/aligned_buffer.h \
   /usr/include/c++/13/ext/alloc_traits.h \
   /usr/include/c++/13/ext/numeric_traits.h \
   /usr/include/c++/13/ext/string_conversions.h \
@@ -2536,6 +2545,7 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/ResourceManager.cpp.o: /home/stanislav/zpgproj/
   /usr/include/c++/13/initializer_list \
   /usr/include/c++/13/iosfwd \
   /usr/include/c++/13/limits \
+  /usr/include/c++/13/map \
   /usr/include/c++/13/new \
   /usr/include/c++/13/pstl/pstl_config.h \
   /usr/include/c++/13/stdexcept \

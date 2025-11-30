@@ -20,7 +20,6 @@ void Application::initialization(int width, int height)
     sceneManager = new SceneManager(resourceManager, window->camera, window);
 
     resourceManager->createShaders();
-    resourceManager->createModels();
     resourceManager->attachShadersToCamera(window->camera);
     sceneManager->createScenes();
     

@@ -18,10 +18,10 @@ SceneManager::~SceneManager()
 
 void SceneManager::createScenes()
 {
-    scenes.push_back(SceneBuilder::createFormulaOneScene(resourceManager));
     scenes.push_back(SceneBuilder::createSolarSystemScene(resourceManager));
     scenes.push_back(SceneBuilder::createForestScene(resourceManager));
     scenes.push_back(SceneBuilder::createAirplaneScene(resourceManager));
+    scenes.push_back(SceneBuilder::createFormulaOneScene(resourceManager));
     
 
     if (!scenes.empty())
