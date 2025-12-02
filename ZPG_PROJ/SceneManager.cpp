@@ -27,6 +27,14 @@ void SceneManager::createScenes()
     if (!scenes.empty())
     {
         currentScene = scenes[0];
+        
+        if (camera && currentScene) {
+            const CameraSettings& settings = currentScene->getCameraSettings();
+            camera->setPosition(settings.position);
+            camera->lookAt(settings.target);
+            camera->setSensitivity(settings.sensitivity);
+            camera->setMoveSpeed(settings.moveSpeed);
+        }
     }
 }
 
@@ -35,6 +43,14 @@ void SceneManager::switchScene(int index)
     if (index >= 0 && index < scenes.size())
     {
         currentScene = scenes[index];
+        
+        if (camera && currentScene) {
+            const CameraSettings& settings = currentScene->getCameraSettings();
+            camera->setPosition(settings.position);
+            camera->lookAt(settings.target);
+            camera->setSensitivity(settings.sensitivity);
+            camera->setMoveSpeed(settings.moveSpeed);
+        }
     }
 }
 

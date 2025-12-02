@@ -2475,10 +2475,8 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/ResourceManager.cpp.o
  /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Texture.h
  /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/VertexArray.h
  /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/assets/ForestScene/bushes.h
+ /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/assets/ForestScene/tree.h
  /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/plane.h
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/sphere.h
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/tree.h
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/triangle.h
  /home/stanislav/zpgproj/ZPG_PROJ/libs/glew-2.1.0/include/GL/glew.h
  /usr/include/GL/gl.h
  /usr/include/GL/glu.h

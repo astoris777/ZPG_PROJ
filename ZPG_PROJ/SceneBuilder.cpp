@@ -9,11 +9,21 @@
 #include "Model.h"
 #include <iostream>
 #include "CustomTransform.h"
+#include "Camera.h"
 
 Scene* SceneBuilder::createSolarSystemScene(ResourceManager* resources)
 {
-	float sunScale = 5.0f;
 	Scene* scene = new Scene();
+	
+	CameraSettings camSettings;
+	camSettings.moveSpeed = 100.0f;
+	camSettings.position = glm::vec3(0.0f, 20.0f, 50.0f);
+	camSettings.target = glm::vec3(0.0f, 0.0f, 0.0f);
+	scene->setCameraSettings(camSettings);
+
+
+	float sunScale = 5.0f;
+	
 
 	Texture* sunTexture = resources->getTexture("sun");
 

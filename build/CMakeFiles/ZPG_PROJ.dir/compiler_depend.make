@@ -2467,10 +2467,8 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/ResourceManager.cpp.o: /home/stanislav/zpgproj/
   /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Texture.h \
   /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/VertexArray.h \
   /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/assets/ForestScene/bushes.h \
+  /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/assets/ForestScene/tree.h \
   /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/plane.h \
-  /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/sphere.h \
-  /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/tree.h \
-  /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/triangle.h \
   /home/stanislav/zpgproj/ZPG_PROJ/libs/glew-2.1.0/include/GL/glew.h \
   /usr/include/GL/gl.h \
   /usr/include/GL/glu.h \
@@ -5751,8 +5749,6 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/main.cpp.o: /home/stanislav/zpgproj/ZPG_PROJ/ZP
 
 /usr/include/glm/mat3x2.hpp:
 
-/home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/sphere.h:
-
 /usr/include/glm/mat2x3.hpp:
 
 /usr/include/glm/mat2x2.hpp:
@@ -5950,6 +5946,8 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/main.cpp.o: /home/stanislav/zpgproj/ZPG_PROJ/ZP
 /usr/include/c++/13/bits/stl_construct.h:
 
 /usr/include/c++/13/bits/alloc_traits.h:
+
+/home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/assets/ForestScene/tree.h:
 
 /usr/include/c++/13/bits/concept_check.h:
 
@@ -6295,8 +6293,6 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/main.cpp.o: /home/stanislav/zpgproj/ZPG_PROJ/ZP
 
 /usr/include/glm/detail/qualifier.hpp:
 
-/home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/triangle.h:
-
 /usr/include/glm/detail/type_half.hpp:
 
 /usr/include/c++/13/cstring:
@@ -6364,8 +6360,6 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/main.cpp.o: /home/stanislav/zpgproj/ZPG_PROJ/ZP
 /usr/include/glm/detail/type_mat4x4.hpp:
 
 /usr/include/glm/ext/vector_int4_sized.hpp:
-
-/home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/tree.h:
 
 /usr/include/c++/13/tr1/hypergeometric.tcc:
 
