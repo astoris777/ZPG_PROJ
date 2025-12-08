@@ -23,6 +23,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/SceneManager.cpp.o.d"
   "CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Shader.cpp.o"
   "CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Shader.cpp.o.d"
+  "CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Skybox.cpp.o"
+  "CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Skybox.cpp.o.d"
   "CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Texture.cpp.o"
   "CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Texture.cpp.o.d"
   "CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/VertexArray.cpp.o"

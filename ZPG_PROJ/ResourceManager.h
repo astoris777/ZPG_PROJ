@@ -26,11 +26,15 @@ public:
     VertexArray* getBushModel();
     VertexArray* getSphereModel();
     VertexArray* getPlaneModel();
+    VertexArray* getLoginModel();
+
     void loadFionaModel(std::vector<Material*>& outMaterials, std::vector<SubMesh>& outModel);
     void loadShrekModel(std::vector<Material*>& outMaterials, std::vector<SubMesh>& outModel);
 
     void loadAirplaneModel(std::vector<Material*>& outMaterials, std::vector<SubMesh>& outModel);
     void loadHelicopterModel(std::vector<Material*>& outMaterials, std::vector<SubMesh>& outModel);
+
+    
 
     Texture* getTexture(const std::string& name);
 

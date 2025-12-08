@@ -20,6 +20,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/SceneBuilder.cpp" "CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/SceneBuilder.cpp.o" "gcc" "CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/SceneBuilder.cpp.o.d"
   "/home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/SceneManager.cpp" "CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/SceneManager.cpp.o" "gcc" "CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/SceneManager.cpp.o.d"
   "/home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Shader.cpp" "CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Shader.cpp.o" "gcc" "CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Shader.cpp.o.d"
+  "/home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Skybox.cpp" "CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Skybox.cpp.o" "gcc" "CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Skybox.cpp.o.d"
   "/home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Texture.cpp" "CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Texture.cpp.o" "gcc" "CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Texture.cpp.o.d"
   "/home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/VertexArray.cpp" "CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/VertexArray.cpp.o" "gcc" "CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/VertexArray.cpp.o.d"
   "/home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Window.cpp" "CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Window.cpp.o" "gcc" "CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Window.cpp.o.d"

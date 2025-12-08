@@ -12,4 +12,5 @@ public:
     static Scene* createAirplaneScene(ResourceManager* resources);
     static Scene* createSolarSystemScene(ResourceManager* resources);
     static Scene* createFormulaOneScene(ResourceManager* resources);
+    static Scene* createSpheresScene(ResourceManager* resources);
 };

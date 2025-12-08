@@ -430,6 +430,30 @@ ZPG_PROJ/Shader.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ZPG_PROJ.dir/build.make CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Shader.cpp.s
 .PHONY : ZPG_PROJ/Shader.cpp.s
 
+ZPG_PROJ/Skybox.o: ZPG_PROJ/Skybox.cpp.o
+.PHONY : ZPG_PROJ/Skybox.o
+
+# target to build an object file
+ZPG_PROJ/Skybox.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ZPG_PROJ.dir/build.make CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Skybox.cpp.o
+.PHONY : ZPG_PROJ/Skybox.cpp.o
+
+ZPG_PROJ/Skybox.i: ZPG_PROJ/Skybox.cpp.i
+.PHONY : ZPG_PROJ/Skybox.i
+
+# target to preprocess a source file
+ZPG_PROJ/Skybox.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ZPG_PROJ.dir/build.make CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Skybox.cpp.i
+.PHONY : ZPG_PROJ/Skybox.cpp.i
+
+ZPG_PROJ/Skybox.s: ZPG_PROJ/Skybox.cpp.s
+.PHONY : ZPG_PROJ/Skybox.s
+
+# target to generate assembly for a file
+ZPG_PROJ/Skybox.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ZPG_PROJ.dir/build.make CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Skybox.cpp.s
+.PHONY : ZPG_PROJ/Skybox.cpp.s
+
 ZPG_PROJ/Texture.o: ZPG_PROJ/Texture.cpp.o
 .PHONY : ZPG_PROJ/Texture.o
 
@@ -572,6 +596,9 @@ help:
 	@echo "... ZPG_PROJ/Shader.o"
 	@echo "... ZPG_PROJ/Shader.i"
 	@echo "... ZPG_PROJ/Shader.s"
+	@echo "... ZPG_PROJ/Skybox.o"
+	@echo "... ZPG_PROJ/Skybox.i"
+	@echo "... ZPG_PROJ/Skybox.s"
 	@echo "... ZPG_PROJ/Texture.o"
 	@echo "... ZPG_PROJ/Texture.i"
 	@echo "... ZPG_PROJ/Texture.s"

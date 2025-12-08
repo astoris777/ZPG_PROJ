@@ -29,6 +29,33 @@ Texture::Texture(const char* filePath)
     glBindTexture(GL_TEXTURE_2D, 0);
 }
 
+Texture::Texture(const char* filePath, bool flipVertically)
+    : textureID(0), width(0), height(0), channels(0)
+{
+    stbi_set_flip_vertically_on_load(flipVertically);
+
+    unsigned char* data = stbi_load(filePath, &width, &height, &channels, 4);
+
+    if (!data) {
+        std::cerr << "Failed to load texture: " << filePath << std::endl;
+        return;
+    }
+
+    std::cout << "Loaded texture: " << filePath << " (" << width << "x" << height << ")" << std::endl;
+
+    glGenTextures(1, &textureID);
+    glBindTexture(GL_TEXTURE_2D, textureID);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
+    glGenerateMipmap(GL_TEXTURE_2D);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+    stbi_image_free(data);
+    glBindTexture(GL_TEXTURE_2D, 0);
+}
+
 Texture::~Texture()
 {
     if (textureID != 0) {

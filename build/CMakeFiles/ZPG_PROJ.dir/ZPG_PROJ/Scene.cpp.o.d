@@ -306,6 +306,7 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Scene.cpp.o: \
  /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/ShaderProgram.h \
  /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/ShaderObserver.h \
  /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Camera.h \
+ /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Skybox.h \
  /usr/include/c++/13/iostream /usr/include/c++/13/ostream \
  /usr/include/c++/13/ios /usr/include/c++/13/bits/ios_base.h \
  /usr/include/c++/13/ext/atomicity.h \

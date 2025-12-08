@@ -293,6 +293,20 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Window.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Window.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Window.cpp -o CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Window.cpp.s
 
+CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Skybox.cpp.o: CMakeFiles/ZPG_PROJ.dir/flags.make
+CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Skybox.cpp.o: /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Skybox.cpp
+CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Skybox.cpp.o: CMakeFiles/ZPG_PROJ.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/stanislav/zpgproj/ZPG_PROJ/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Skybox.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Skybox.cpp.o -MF CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Skybox.cpp.o.d -o CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Skybox.cpp.o -c /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Skybox.cpp
+
+CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Skybox.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Skybox.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Skybox.cpp > CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Skybox.cpp.i
+
+CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Skybox.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Skybox.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Skybox.cpp -o CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Skybox.cpp.s
+
 # Object files for target ZPG_PROJ
 ZPG_PROJ_OBJECTS = \
 "CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/main.cpp.o" \
@@ -310,7 +324,8 @@ ZPG_PROJ_OBJECTS = \
 "CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Shader.cpp.o" \
 "CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Texture.cpp.o" \
 "CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/VertexArray.cpp.o" \
-"CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Window.cpp.o"
+"CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Window.cpp.o" \
+"CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Skybox.cpp.o"
 
 # External object files for target ZPG_PROJ
 ZPG_PROJ_EXTERNAL_OBJECTS =
@@ -331,12 +346,13 @@ ZPG_PROJ: CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Shader.cpp.o
 ZPG_PROJ: CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Texture.cpp.o
 ZPG_PROJ: CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/VertexArray.cpp.o
 ZPG_PROJ: CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Window.cpp.o
+ZPG_PROJ: CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Skybox.cpp.o
 ZPG_PROJ: CMakeFiles/ZPG_PROJ.dir/build.make
 ZPG_PROJ: /usr/lib/x86_64-linux-gnu/libGL.so
 ZPG_PROJ: /usr/lib/x86_64-linux-gnu/libGLEW.so
 ZPG_PROJ: /usr/lib/x86_64-linux-gnu/libglfw.so.3.3
 ZPG_PROJ: CMakeFiles/ZPG_PROJ.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/stanislav/zpgproj/ZPG_PROJ/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Linking CXX executable ZPG_PROJ"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/stanislav/zpgproj/ZPG_PROJ/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Linking CXX executable ZPG_PROJ"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ZPG_PROJ.dir/link.txt --verbose=$(VERBOSE)
 	/usr/bin/cmake -E copy_directory /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/assets /home/stanislav/zpgproj/ZPG_PROJ/build/assets
 	/usr/bin/cmake -E copy_directory /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Shaders /home/stanislav/zpgproj/ZPG_PROJ/build/Shaders

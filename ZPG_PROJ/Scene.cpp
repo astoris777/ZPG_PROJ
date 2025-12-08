@@ -56,6 +56,12 @@ void Scene::draw(const glm::mat4 &projection, const glm::mat4 &view, const glm::
     glEnable(GL_STENCIL_TEST);
     glStencilOp(GL_KEEP, GL_KEEP, GL_REPLACE);
 
+    if (skybox)
+    {
+        skybox->draw(view, projection);
+    }
+    
+
     for (auto obj : objects)
     {
         if (obj->shader)

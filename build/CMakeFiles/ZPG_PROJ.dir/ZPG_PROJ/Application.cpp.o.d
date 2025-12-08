@@ -311,6 +311,7 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Application.cpp.o: \
  /usr/include/c++/13/bits/cxxabi_init_exception.h \
  /usr/include/c++/13/typeinfo /usr/include/c++/13/bits/nested_exception.h \
  /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/ShaderProgram.h \
+ /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Skybox.h \
  /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/ResourceManager.h \
  /usr/include/c++/13/unordered_map \
  /usr/include/c++/13/bits/unordered_map.h \

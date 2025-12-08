@@ -5,6 +5,7 @@
 #include "ShaderProgram.h"
 #include "Camera.h"
 #include "Material.h"
+#include "Skybox.h"
 
 struct ObjectLightBinding
 {
@@ -46,6 +47,9 @@ public:
     void setCameraSettings(const CameraSettings& settings);
     const CameraSettings& getCameraSettings() const;
 
+    void setSkybox(Skybox* sb) { skybox = sb; }
+    Skybox* getSkybox() const { return skybox; }
+
 
     int getScore() const { return score; }
     void resetScore() { score = 0; }
@@ -58,5 +62,6 @@ private:
     unsigned int nextObjectID = 1;
     RenderableObject *selectedObject = nullptr;
     CameraSettings cameraSettings;
+    Skybox* skybox = nullptr;
     int score = 0;
 };

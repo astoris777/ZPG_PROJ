@@ -16,10 +16,22 @@ Scene* SceneBuilder::createSolarSystemScene(ResourceManager* resources)
 	Scene* scene = new Scene();
 	
 	CameraSettings camSettings;
-	camSettings.moveSpeed = 100.0f;
+	camSettings.moveSpeed = 10.0f;
 	camSettings.position = glm::vec3(0.0f, 20.0f, 50.0f);
 	camSettings.target = glm::vec3(0.0f, 0.0f, 0.0f);
 	scene->setCameraSettings(camSettings);
+
+	std::vector<Texture*> faces = {
+    resources->getTexture("stars_right"),
+    resources->getTexture("stars_right"),
+    resources->getTexture("stars_right"),
+    resources->getTexture("stars_right"),
+    resources->getTexture("stars_right"),
+    resources->getTexture("stars_right")
+};
+
+	Skybox* skybox = new Skybox(faces);
+	scene->setSkybox(skybox);
 
 
 	float sunScale = 5.0f;
@@ -335,6 +347,78 @@ Scene* SceneBuilder::createAirplaneScene(ResourceManager* resources)
 Scene* SceneBuilder::createFormulaOneScene(ResourceManager* resources)
 {
 	Scene* scene = new Scene();
+
+	return scene;
+}
+
+Scene* SceneBuilder::createSpheresScene(ResourceManager* resources)
+{
+	Scene* scene = new Scene();
+
+	CameraSettings camSettings;
+	camSettings.position = glm::vec3(0.0f, 0.0f, -10.0f);
+	camSettings.target = glm::vec3(0.0f, 0.0f, 0.0f);
+	camSettings.moveSpeed = 2.0f;
+	scene->setCameraSettings(camSettings);
+
+	VertexArray* sphereModel = resources->getSphereModel();
+	Material* sphereMaterial = new Material(glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.9f, 0.0f, 0.0f));
+	
+	RenderableObject* sphere1 = new RenderableObject(
+		resources->getPhongShader(),
+		sphereModel
+	);
+
+	sphere1->transform.add(new TranslateTransform(glm::vec3(-1.0f, 0.0f, 0.0f)));
+	sphere1->setMaterial(sphereMaterial);
+	scene->addObject(sphere1);
+	scene->addMaterial(sphereMaterial);
+
+	RenderableObject* sphere2 = new RenderableObject(
+		resources->getPhongShader(),
+		sphereModel
+	);
+	
+	sphere2->transform.add(new TranslateTransform(glm::vec3(1.0f, 0.0f, 0.0f)));
+	sphere2->setMaterial(sphereMaterial);
+	scene->addObject(sphere2);
+
+	RenderableObject* sphere3 = new RenderableObject(
+		resources->getPhongShader(),
+		sphereModel
+	);
+
+	sphere3->transform.add(new TranslateTransform(glm::vec3(0.0f, 1.0f, 0.0f)));
+	sphere3->setMaterial(sphereMaterial);
+	scene->addObject(sphere3);
+
+	RenderableObject* sphere4 = new RenderableObject(
+		resources->getPhongShader(),
+		sphereModel
+	);
+
+	sphere4->transform.add(new TranslateTransform(glm::vec3(0.0f, -1.0f, 0.0f)));
+	sphere4->setMaterial(sphereMaterial);
+	scene->addObject(sphere4);
+
+	VertexArray* loginModel = resources->getLoginModel();
+	RenderableObject* login = new RenderableObject(
+		resources->getConstantShader(),
+		loginModel
+	);
+
+	login->transform.add(new TranslateTransform(glm::vec3(0.0f, 0.0f, -5.0f)));
+	login->transform.add(new RotateTransform(90, glm::vec3(1.0f, 0.0f, 0.0f)));
+	login->transform.add(new RotateTransform(180, glm::vec3(0.0f, 0.0f, 1.0f)));
+
+
+
+	login->setMaterial(sphereMaterial);
+
+	scene->addObject(login);
+
+	Light* light = Light::createPoint(glm::vec3(0.0f, 0.0f, -10.0f), glm::vec3(1.0f), 10.0f, 0.5f, 0.5f, 0.5f);
+	scene->addLight(light);
 
 	return scene;
 }

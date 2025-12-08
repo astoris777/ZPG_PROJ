@@ -35,6 +35,7 @@ set(SOURCES
     ZPG_PROJ/Texture.cpp
     ZPG_PROJ/VertexArray.cpp
     ZPG_PROJ/Window.cpp
+    ZPG_PROJ/Skybox.cpp
 )
 
 # Header files
@@ -67,6 +68,7 @@ set(HEADERS
     ZPG_PROJ/assets/ForestScene/tree.h
     ZPG_PROJ/stb_image.h
     ZPG_PROJ/tiny_obj_loader.h
+    ZPG_PROJ/Skybox.h
 )
 
 # Create executable
