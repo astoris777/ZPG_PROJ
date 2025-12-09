@@ -19,13 +19,12 @@ SceneManager::~SceneManager()
 
 void SceneManager::createScenes()
 {
-    gameSceneIndex = 0;  // Игровая сцена - первая
+    gameSceneIndex = 0;  
     scenes.push_back(SceneBuilder::createGameScene(resourceManager));
     scenes.push_back(SceneBuilder::createSpheresScene(resourceManager));
     scenes.push_back(SceneBuilder::createForestScene(resourceManager, camera));
     scenes.push_back(SceneBuilder::createSolarSystemScene(resourceManager));
     scenes.push_back(SceneBuilder::createAirplaneScene(resourceManager));
-    scenes.push_back(SceneBuilder::createFormulaOneScene(resourceManager));
     
 
     if (!scenes.empty())

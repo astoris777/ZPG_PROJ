@@ -26,7 +26,7 @@ public:
     double lastX, lastY;
     bool deleteKeyPressed;
     bool f1Pressed, f2Pressed, f3Pressed;
-    bool key1Pressed, key2Pressed, key3Pressed;
+    bool key1Pressed, key2Pressed, key3Pressed, key4Pressed, key5Pressed;
     bool rPressed;
     
     void handleLeftClick(double xpos, double ypos);

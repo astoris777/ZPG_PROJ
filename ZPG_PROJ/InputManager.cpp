@@ -201,6 +201,28 @@ void InputManager::processInput(float deltaTime)
         key3Pressed = false;
     }
 
+    if(glfwGetKey(window, GLFW_KEY_4) == GLFW_PRESS && !key4Pressed)
+    {
+        if(sceneManager)
+            sceneManager->switchScene(3);
+        key4Pressed = true;
+    }
+    else if (glfwGetKey(window, GLFW_KEY_4) == GLFW_RELEASE)
+    {
+        key4Pressed = false;
+    }
+    if(glfwGetKey(window, GLFW_KEY_5) == GLFW_PRESS && !key5Pressed)
+    {
+        if(sceneManager)
+            sceneManager->switchScene(4);
+        key5Pressed = true;
+    }
+    else if (glfwGetKey(window, GLFW_KEY_5) == GLFW_RELEASE)
+    {
+        key5Pressed = false;
+    }
+
+
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
         glfwSetWindowShouldClose(window, true);
 }

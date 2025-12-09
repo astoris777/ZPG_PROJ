@@ -346,13 +346,6 @@ Scene* SceneBuilder::createAirplaneScene(ResourceManager* resources)
 	return scene;
 }
 
-Scene* SceneBuilder::createFormulaOneScene(ResourceManager* resources)
-{
-	Scene* scene = new Scene();
-
-	return scene;
-}
-
 Scene* SceneBuilder::createSpheresScene(ResourceManager* resources)
 {
 	Scene* scene = new Scene();
