@@ -21,6 +21,7 @@ public:
     ShaderProgram* getPhongShader() const { return shaders[1]; }
     ShaderProgram* getConstantShader() const { return shaders[2]; }
     ShaderProgram* getBlinnShader() const { return shaders[3]; }
+    Shader* getSkyboxShader() const { return skyboxShader; }
 
     VertexArray* getTreeModel();
     VertexArray* getBushModel();
@@ -45,6 +46,7 @@ public:
 
 private:
     std::vector<ShaderProgram*> shaders;
+    Shader* skyboxShader;
     std::unordered_map<std::string, VertexArray*> simpleModels;
     std::unordered_map<std::string, std::vector<SubMesh>> complexModelsGeometry;
     std::unordered_map<std::string, std::vector<Material*>> complexModelsMaterials;

@@ -13,6 +13,8 @@ ResourceManager::~ResourceManager()
     for (auto shader : shaders)
         delete shader;
 
+    delete skyboxShader;
+
     for (auto &pair : simpleModels)
         delete pair.second;
 
@@ -44,6 +46,7 @@ void ResourceManager::createShaders()
     shaders.push_back(new ShaderProgram("Shaders/vertex_shader_common.glsl", "Shaders/fragment_shader_phong.glsl"));
     shaders.push_back(new ShaderProgram("Shaders/vertex_shader_common.glsl", "Shaders/fragment_shader_constant.glsl"));
     shaders.push_back(new ShaderProgram("Shaders/vertex_shader_common.glsl", "Shaders/fragment_shader_blinn.glsl"));
+    skyboxShader = new Shader("Shaders/vertex_shader_skybox.glsl", "Shaders/fragment_shader_skybox.glsl");
 }
 
 void ResourceManager::createModels()

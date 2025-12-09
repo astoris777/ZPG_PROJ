@@ -166,8 +166,8 @@ Scene* SceneBuilder::createForestScene(ResourceManager* resources, Camera* camer
     resources->getTexture("skybox_back")
 	};
 
-	Skybox* skybox = new Skybox(faces);
-	skybox->setBrightness(0.15f); // Затемнение для ночной атмосферы (0.15 = 15% яркости)
+	Skybox* skybox = new Skybox(faces, resources->getSkyboxShader());
+	skybox->setBrightness(0.15f);
 	scene->setSkybox(skybox);
 
 

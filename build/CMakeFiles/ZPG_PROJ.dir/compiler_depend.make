@@ -4904,6 +4904,7 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Shader.cpp.o: /home/stanislav/zpgproj/ZPG_PROJ/
   /usr/lib/gcc/x86_64-linux-gnu/13/include/syslimits.h
 
 CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Skybox.cpp.o: /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Skybox.cpp \
+  /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Shader.h \
   /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Skybox.h \
   /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Texture.h \
   /home/stanislav/zpgproj/ZPG_PROJ/libs/glew-2.1.0/include/GL/glew.h \
