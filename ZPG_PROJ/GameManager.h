@@ -4,7 +4,6 @@
 #include <glm/glm.hpp>
 #include "ResourceManager.h"
 
-// Forward declaration
 class Scene;
 
 enum class TargetType {

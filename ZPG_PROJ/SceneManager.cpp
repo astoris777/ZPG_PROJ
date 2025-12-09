@@ -92,10 +92,8 @@ void SceneManager::handleObjectClick(unsigned int stencilID)
 {
     if (!currentScene) return;
     
-    // Проверяем, это игровая сцена?
     if (currentSceneIndex == gameSceneIndex)
     {
-        // Игровая сцена - удаляем сразу при клике
         GameManager* gm = currentScene->getGameManager();
         if (gm && gm->isGameActive())
         {
@@ -111,7 +109,6 @@ void SceneManager::handleObjectClick(unsigned int stencilID)
     }
     else
     {
-        // Обычная сцена - только выделяем и выводим сообщение
         std::cout << "[SCENE] Selected object with stencil index: " << stencilID << std::endl;
         std::cout << "[SCENE] Press DELETE key to remove this object" << std::endl;
         setSelectedObject(stencilID);
