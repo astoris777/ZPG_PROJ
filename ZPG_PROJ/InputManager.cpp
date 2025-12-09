@@ -5,20 +5,22 @@
 #include <stdio.h>
 #include <vector>
 
-
-InputManager::InputManager(GLFWwindow* window, Camera* camera)
-    : window(window), camera(camera), sceneManager(nullptr), rightMousePressed(false), lastX(0.0), lastY(0.0), deleteKeyPressed(false)
+InputManager::InputManager(GLFWwindow *window, Camera *camera)
+    : window(window), camera(camera), sceneManager(nullptr), rightMousePressed(false), lastX(0.0), lastY(0.0),
+      deleteKeyPressed(false), f1Pressed(false), f2Pressed(false), f3Pressed(false),
+      key1Pressed(false), key2Pressed(false), key3Pressed(false), rPressed(false)
 {
 }
 
-void InputManager::setSceneManager(SceneManager* sm)
+void InputManager::setSceneManager(SceneManager *sm)
 {
     sceneManager = sm;
 }
 
 void InputManager::updateMousePosition(double xpos, double ypos)
 {
-    if (!rightMousePressed) return;
+    if (!rightMousePressed)
+        return;
 
     double deltaX = xpos - lastX;
     double deltaY = ypos - lastY;
@@ -51,23 +53,10 @@ void InputManager::handleMouseButton(int button, int action)
     }
 }
 
-void InputManager::checkDeleteKey()
-{
-    if (glfwGetKey(window, GLFW_KEY_DELETE) == GLFW_PRESS && !deleteKeyPressed) {
-        deleteKeyPressed = true;
-        if (sceneManager) {
-            sceneManager->deleteSelectedObject();
-            printf("Object deleted!\n");
-        }
-    }
-    else if (glfwGetKey(window, GLFW_KEY_DELETE) == GLFW_RELEASE) {
-        deleteKeyPressed = false;
-    }
-}
-
 void InputManager::handleLeftClick(double xpos, double ypos)
 {
-    if (!sceneManager) return;
+    if (!sceneManager)
+        return;
 
     GLbyte color[4];
     GLfloat depth;
@@ -86,7 +75,8 @@ void InputManager::handleLeftClick(double xpos, double ypos)
     printf("Clicked on pixel %d, %d, color %02hhx%02hhx%02hhx%02hhx, depth %f, stencil index %u\n",
            x, y, color[0], color[1], color[2], color[3], depth, index);
 
-    if (index > 0) {
+    if (index > 0)
+    {
         sceneManager->handleObjectClick(index);
     }
 
@@ -102,7 +92,115 @@ void InputManager::handleLeftClick(double xpos, double ypos)
     controlPoints.push_back(pos);
 }
 
-std::vector<glm::vec3>& InputManager::getControlPoints()
+std::vector<glm::vec3> &InputManager::getControlPoints()
 {
     return controlPoints;
+}
+
+void InputManager::processInput(float deltaTime)
+{
+    float cameraSpeed = 2.5f * deltaTime;
+
+    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+        camera->moveForward(cameraSpeed);
+    if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
+        camera->moveBackward(cameraSpeed);
+    if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+        camera->moveLeft(cameraSpeed);
+    if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+        camera->moveRight(cameraSpeed);
+
+    if (glfwGetKey(window, GLFW_KEY_DELETE) == GLFW_PRESS && !deleteKeyPressed)
+    {
+        deleteKeyPressed = true;
+        if (sceneManager)
+        {
+            sceneManager->deleteSelectedObject();
+            printf("Object deleted!\n");
+        }
+    }
+    else if (glfwGetKey(window, GLFW_KEY_DELETE) == GLFW_RELEASE)
+    {
+        deleteKeyPressed = false;
+    }
+
+    if (glfwGetKey(window, GLFW_KEY_R) == GLFW_PRESS && !rPressed)
+    {
+        if (sceneManager)
+            sceneManager->restartGame();
+        rPressed = true;
+    }
+    else if (glfwGetKey(window, GLFW_KEY_R) == GLFW_RELEASE)
+    {
+        rPressed = false;
+    }
+
+    if (glfwGetKey(window, GLFW_KEY_F1) == GLFW_PRESS && !f1Pressed)
+    {
+        if (sceneManager)
+            sceneManager->setFOV45();
+        f1Pressed = true;
+    }
+    else if (glfwGetKey(window, GLFW_KEY_F1) == GLFW_RELEASE)
+    {
+        f1Pressed = false;
+    }
+
+    if (glfwGetKey(window, GLFW_KEY_F2) == GLFW_PRESS && !f2Pressed)
+    {
+        if (sceneManager)
+            sceneManager->setFOV90();
+        f2Pressed = true;
+    }
+    else if (glfwGetKey(window, GLFW_KEY_F2) == GLFW_RELEASE)
+    {
+        f2Pressed = false;
+    }
+
+    if (glfwGetKey(window, GLFW_KEY_F3) == GLFW_PRESS && !f3Pressed)
+    {
+        if (sceneManager)
+            sceneManager->setFOV130();
+        f3Pressed = true;
+    }
+    else if (glfwGetKey(window, GLFW_KEY_F3) == GLFW_RELEASE)
+    {
+        f3Pressed = false;
+    }
+
+    if (glfwGetKey(window, GLFW_KEY_1) == GLFW_PRESS && !key1Pressed)
+    {
+        if (sceneManager)
+            sceneManager->switchScene(0);
+        key1Pressed = true;
+    }
+    else if (glfwGetKey(window, GLFW_KEY_1) == GLFW_RELEASE)
+    {
+        key1Pressed = false;
+    }
+
+    if (glfwGetKey(window, GLFW_KEY_2) == GLFW_PRESS && !key2Pressed)
+    {
+        if (sceneManager)
+            sceneManager->switchScene(1);
+        key2Pressed = true;
+    }
+    else if (glfwGetKey(window, GLFW_KEY_2) == GLFW_RELEASE)
+    {
+        key2Pressed = false;
+    }
+
+    if (glfwGetKey(window, GLFW_KEY_3) == GLFW_PRESS && !key3Pressed)
+    {
+        if (sceneManager)
+            sceneManager->switchScene(2);
+        key3Pressed = true;
+    }
+    else if (glfwGetKey(window, GLFW_KEY_3) == GLFW_RELEASE)
+    {
+        key3Pressed = false;
+    }
+
+    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+        glfwSetWindowShouldClose(window, true);
 }
