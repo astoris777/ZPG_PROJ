@@ -45,6 +45,15 @@ void Application::processInput(float deltaTime)
 
     static bool f1Pressed = false, f2Pressed = false, f3Pressed = false;
     static bool key1Pressed = false, key2Pressed = false, key3Pressed = false;
+    static bool rPressed = false;
+
+    // Рестарт игры по клавише R
+    if (window->isKeyPressed(GLFW_KEY_R) && !rPressed) {
+        sceneManager->restartGame();
+        rPressed = true;
+    } else if (!window->isKeyPressed(GLFW_KEY_R)) {
+        rPressed = false;
+    }
 
     if (window->isKeyPressed(GLFW_KEY_F1) && !f1Pressed) {
         sceneManager->setFOV45();

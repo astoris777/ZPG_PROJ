@@ -22,18 +22,6 @@ Scene* SceneBuilder::createSolarSystemScene(ResourceManager* resources)
 	camSettings.target = glm::vec3(0.0f, 0.0f, 0.0f);
 	scene->setCameraSettings(camSettings);
 
-	std::vector<Texture*> faces = {
-    resources->getTexture("stars_right"),
-    resources->getTexture("stars_right"),
-    resources->getTexture("stars_right"),
-    resources->getTexture("stars_right"),
-    resources->getTexture("stars_right"),
-    resources->getTexture("stars_right")
-};
-
-	Skybox* skybox = new Skybox(faces);
-	scene->setSkybox(skybox);
-
 
 	float sunScale = 5.0f;
 	
@@ -168,6 +156,20 @@ Scene* SceneBuilder::createSolarSystemScene(ResourceManager* resources)
 Scene* SceneBuilder::createForestScene(ResourceManager* resources, Camera* camera)
 {
 	Scene* scene = new Scene();
+
+	std::vector<Texture*> faces = {
+    resources->getTexture("skybox_right"),
+    resources->getTexture("skybox_left"),
+    resources->getTexture("skybox_top"),
+    resources->getTexture("skybox_bottom"),
+    resources->getTexture("skybox_front"),
+    resources->getTexture("skybox_back")
+	};
+
+	Skybox* skybox = new Skybox(faces);
+	skybox->setBrightness(0.15f); // Затемнение для ночной атмосферы (0.15 = 15% яркости)
+	scene->setSkybox(skybox);
+
 
 	CameraSettings camSettings;
 	camSettings.moveSpeed = 2.0f;

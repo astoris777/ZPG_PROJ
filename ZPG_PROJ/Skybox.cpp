@@ -158,10 +158,11 @@ GLuint Skybox::createShaderProgram()
         in vec3 TexCoords;
 
         uniform samplerCube skybox;
+        uniform float brightness;
 
         void main()
         {
-            FragColor = texture(skybox, TexCoords);
+            FragColor = texture(skybox, TexCoords) * brightness;
         }
     )";
 
@@ -197,9 +198,11 @@ void Skybox::draw(const glm::mat4& view, const glm::mat4& projection)
 
     GLint viewLoc = glGetUniformLocation(shaderProgram, "view");
     GLint projLoc = glGetUniformLocation(shaderProgram, "projection");
+    GLint brightnessLoc = glGetUniformLocation(shaderProgram, "brightness");
 
     glUniformMatrix4fv(viewLoc, 1, GL_FALSE, &viewWithoutTranslation[0][0]);
     glUniformMatrix4fv(projLoc, 1, GL_FALSE, &projection[0][0]);
+    glUniform1f(brightnessLoc, brightness);
 
     glBindVertexArray(VAO);
     glActiveTexture(GL_TEXTURE0);

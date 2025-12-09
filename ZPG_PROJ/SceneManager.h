@@ -16,7 +16,9 @@ public:
     void update(float deltaTime);
     void render();
     void setSelectedObject(unsigned int stencilID);
+    void handleObjectClick(unsigned int stencilID);
     void deleteSelectedObject();
+    void restartGame();
     void setFOV45();
     void setFOV90();
     void setFOV130();
@@ -29,4 +31,6 @@ private:
     Camera* camera;
     Window* window;
     float currentFOV;
+    int currentSceneIndex;
+    int gameSceneIndex;
 };

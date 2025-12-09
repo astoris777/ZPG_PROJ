@@ -87,8 +87,7 @@ void InputManager::handleLeftClick(double xpos, double ypos)
            x, y, color[0], color[1], color[2], color[3], depth, index);
 
     if (index > 0) {
-        sceneManager->setSelectedObject(index);
-        sceneManager->deleteSelectedObject();
+        sceneManager->handleObjectClick(index);
     }
 
     glm::vec3 screenX = glm::vec3(x, newy, depth);

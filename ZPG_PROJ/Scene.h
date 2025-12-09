@@ -40,7 +40,7 @@ public:
     void addLight(Light *light);
     void addMaterial(Material *material);
     void bindObjectToLight(RenderableObject *obj, Light *light, const glm::vec3 &offset = glm::vec3(0.0f));
-    void setSelected(int index);
+    void setSelected(unsigned int objectID);
     RenderableObject *getSelected() const;
     RenderableObject *getObjectByID(unsigned int id) const;
     const std::vector<RenderableObject *> &getObjects() const { return objects; }
@@ -52,6 +52,7 @@ public:
     Skybox* getSkybox() const { return skybox; }
 
     void setGameManager(GameManager* gm);
+    GameManager* getGameManager() const { return gameManager; }
 
 
     int getScore() const { return score; }

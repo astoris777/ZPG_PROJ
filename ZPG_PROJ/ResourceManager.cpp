@@ -90,12 +90,6 @@ void ResourceManager::createTextures()
     loadedTextures.insert({"skybox_back", new Texture("assets/skybox/negz.jpg", false)});
     loadedTextures.insert({"skybox_front", new Texture("assets/skybox/posz.jpg", false)});
 
-    loadedTextures.insert({"stars_right", new Texture("assets/skybox/stars.jpg", false)});
-    // loadedTextures.insert({"stars_left", new Texture("assets/skybox/stars.jpg", false)});
-    // loadedTextures.insert({"stars_top", new Texture("assets/skybox/stars.jpg", false)});
-    // loadedTextures.insert({"stars_bottom", new Texture("assets/skybox/stars.jpg", false)});
-    // loadedTextures.insert({"stars_front", new Texture("assets/skybox/stars.jpg", false)});
-    // loadedTextures.insert({"stars_back", new Texture("assets/skybox/stars.jpg", false)});
 }
 
 Texture *ResourceManager::getTexture(const std::string &name)

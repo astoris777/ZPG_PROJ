@@ -4,7 +4,8 @@
 #include <iostream>
 
 SceneManager::SceneManager(ResourceManager *rm, Camera *cam, Window *win)
-    : resourceManager(rm), camera(cam), window(win), currentScene(nullptr), currentFOV(45.0f)
+    : resourceManager(rm), camera(cam), window(win), currentScene(nullptr), currentFOV(45.0f),
+      currentSceneIndex(0), gameSceneIndex(0)
 {
 }
 
@@ -18,10 +19,11 @@ SceneManager::~SceneManager()
 
 void SceneManager::createScenes()
 {
+    gameSceneIndex = 0;  // Игровая сцена - первая
     scenes.push_back(SceneBuilder::createGameScene(resourceManager));
     scenes.push_back(SceneBuilder::createSpheresScene(resourceManager));
-    scenes.push_back(SceneBuilder::createSolarSystemScene(resourceManager));
     scenes.push_back(SceneBuilder::createForestScene(resourceManager, camera));
+    scenes.push_back(SceneBuilder::createSolarSystemScene(resourceManager));
     scenes.push_back(SceneBuilder::createAirplaneScene(resourceManager));
     scenes.push_back(SceneBuilder::createFormulaOneScene(resourceManager));
     
@@ -44,6 +46,7 @@ void SceneManager::switchScene(int index)
 {
     if (index >= 0 && index < scenes.size())
     {
+        currentSceneIndex = index;
         currentScene = scenes[index];
         
         if (camera && currentScene) {
@@ -82,11 +85,37 @@ void SceneManager::setSelectedObject(unsigned int stencilID)
 {
     if (currentScene)
     {
-        RenderableObject *obj = currentScene->getObjectByID(stencilID);
-        if (obj)
+        currentScene->setSelected(stencilID);
+    }
+}
+
+void SceneManager::handleObjectClick(unsigned int stencilID)
+{
+    if (!currentScene) return;
+    
+    // Проверяем, это игровая сцена?
+    if (currentSceneIndex == gameSceneIndex)
+    {
+        // Игровая сцена - удаляем сразу при клике
+        GameManager* gm = currentScene->getGameManager();
+        if (gm && gm->isGameActive())
         {
-            currentScene->setSelected(stencilID);
+            std::cout << "[GAME] Hit object ID: " << stencilID << std::endl;
+            gm->onTargetHit(stencilID);
         }
+        else
+        {
+            std::cout << "[GAME] Deleting object ID: " << stencilID << std::endl;
+            setSelectedObject(stencilID);
+            deleteSelectedObject();
+        }
+    }
+    else
+    {
+        // Обычная сцена - только выделяем и выводим сообщение
+        std::cout << "[SCENE] Selected object with stencil index: " << stencilID << std::endl;
+        std::cout << "[SCENE] Press DELETE key to remove this object" << std::endl;
+        setSelectedObject(stencilID);
     }
 }
 
@@ -94,13 +123,33 @@ void SceneManager::deleteSelectedObject()
 {
     if (currentScene)
     {
-        
         RenderableObject *selected = currentScene->getSelected();
         if (selected)
         {
             unsigned int id = selected->getID();
+            std::cout << "Deleting object with ID: " << id << std::endl;
             currentScene->removeObjectByID(id);
         }
+        else
+        {
+            std::cout << "No object selected to delete!" << std::endl;
+        }
+    }
+}
+
+void SceneManager::restartGame()
+{
+    if (currentScene && currentSceneIndex == gameSceneIndex)
+    {
+        GameManager* gm = currentScene->getGameManager();
+        if (gm)
+        {
+            gm->resetGame();
+        }
+    }
+    else
+    {
+        std::cout << "Can only restart in game scene (Scene 1)" << std::endl;
     }
 }
 

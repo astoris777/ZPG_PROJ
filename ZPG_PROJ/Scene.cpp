@@ -107,16 +107,9 @@ void Scene::draw(const glm::mat4 &projection, const glm::mat4 &view, const glm::
     glDisable(GL_STENCIL_TEST);
 }
 
-void Scene::setSelected(int index)
+void Scene::setSelected(unsigned int objectID)
 {
-    if (index >= 0 && index < objects.size())
-    {
-        selectedObject = objects[index];
-    }
-    else
-    {
-        selectedObject = nullptr;
-    }
+    selectedObject = getObjectByID(objectID);
 }
 
 RenderableObject *Scene::getSelected() const
