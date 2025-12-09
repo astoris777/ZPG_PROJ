@@ -59,7 +59,7 @@ vec3 calculateLightContribution(Light light, vec3 normal, vec3 fragPos, vec3 vie
     float attenuation = 1.0;
     vec3 lightColor = light.color * light.intensity;
 
-    // 0 = POINT, 1 = SPOT, 2 = DIRECTIONAL, 3 = AMBIENT  (????????????? LightType ? C++)
+   
     if (light.type == 0) {
         // POINT
         lightDir = normalize(light.position - fragPos);

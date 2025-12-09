@@ -164,9 +164,15 @@ Scene* SceneBuilder::createSolarSystemScene(ResourceManager* resources)
 }
 
 
-Scene* SceneBuilder::createForestScene(ResourceManager* resources)
+Scene* SceneBuilder::createForestScene(ResourceManager* resources, Camera* camera)
 {
 	Scene* scene = new Scene();
+
+	CameraSettings camSettings;
+	camSettings.moveSpeed = 2.0f;
+	camSettings.position = glm::vec3(0.0f, 2.0f, 0.0f);
+
+	scene->setCameraSettings(camSettings);
 
 	int treeCount = 50;
 	int bushCount = 30;
@@ -202,7 +208,7 @@ Scene* SceneBuilder::createForestScene(ResourceManager* resources)
 	scene->addMaterial(grassMaterial);
 
 	RenderableObject* grass = new RenderableObject(
-		resources->getConstantShader(),
+		resources->getPhongShader(),
 		planeModel
 	);
 	grass->transform.add(new ScaleTransform(glm::vec3(20.0f, 1.0f, 20.0f)));
@@ -284,18 +290,11 @@ Scene* SceneBuilder::createForestScene(ResourceManager* resources)
 		scene->addMaterial(mat);
 	}
 
-	Light* ambientLight = Light::createAmbient(
-		glm::vec3(0.3f, 0.3f, 0.25f),
-		0.4f
-	);
-	scene->addLight(ambientLight);
 
-	Light* sunLight = Light::createDirectional(
-		glm::vec3(-0.3f, -1.0f, -0.4f),
-		glm::vec3(1.0f, 0.95f, 0.8f),
-		0.9f
-	);
-	scene->addLight(sunLight);
+	Light* flashlight = Light::createSpot(camera->getPosition(), camera->getDirection(), glm::vec3(1.0f), 5.0f);
+	flashlight->setDirection(camera->getDirection());
+	flashlight->setPosition(camera->getPosition());
+	scene->addLight(flashlight);
 
 	return scene;
 }

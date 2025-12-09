@@ -51,10 +51,20 @@ void Scene::update(float deltaTime)
     }
 }
 
-void Scene::draw(const glm::mat4 &projection, const glm::mat4 &view, const glm::vec3 &cameraPos)
+void Scene::draw(const glm::mat4 &projection, const glm::mat4 &view, const glm::vec3 &cameraPos, const glm::vec3& cameraDir)
 {
     glEnable(GL_STENCIL_TEST);
     glStencilOp(GL_KEEP, GL_KEEP, GL_REPLACE);
+
+    for(auto light: lights)
+    {
+        if(light->getType() == LightType::SPOT)
+        {
+            light->setPosition(cameraPos);
+            light->setDirection(cameraDir);
+            break;
+        }
+    }
 
     if (skybox)
     {

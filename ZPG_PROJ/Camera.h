@@ -29,6 +29,7 @@ public:
     void moveLeft(float delta);
     void processMouseMovement(float xoffset, float yoffset, bool constrainPitch = true);
     glm::vec3 getPosition();
+    glm::vec3 getDirection();
     void setResolution(int width, int height);
     glm::ivec2 getResolution() const;
 

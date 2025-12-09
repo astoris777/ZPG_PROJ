@@ -20,7 +20,7 @@ void SceneManager::createScenes()
 {
     scenes.push_back(SceneBuilder::createSpheresScene(resourceManager));
     scenes.push_back(SceneBuilder::createSolarSystemScene(resourceManager));
-    scenes.push_back(SceneBuilder::createForestScene(resourceManager));
+    scenes.push_back(SceneBuilder::createForestScene(resourceManager, camera));
     scenes.push_back(SceneBuilder::createAirplaneScene(resourceManager));
     scenes.push_back(SceneBuilder::createFormulaOneScene(resourceManager));
     
@@ -71,8 +71,9 @@ void SceneManager::render()
         glm::mat4 projection = glm::perspective(glm::radians(currentFOV), aspectRatio, 0.1f, 100.0f);
         glm::mat4 view = camera->getViewMatrix();
         glm::vec3 cameraPos = camera->getPosition();
+        glm::vec3 cameraDir = camera->getDirection();
 
-        currentScene->draw(projection, view, cameraPos);
+        currentScene->draw(projection, view, cameraPos, cameraDir);
     }
 }
 

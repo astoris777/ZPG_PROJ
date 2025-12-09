@@ -81,6 +81,11 @@ glm::vec3 Camera::getPosition()
     return position;
 }
 
+glm::vec3 Camera::getDirection()
+{
+    return front;
+}
+
 void Camera::setResolution(int width, int height)
 {
     resolutionX = width;

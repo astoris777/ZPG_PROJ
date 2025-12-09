@@ -35,7 +35,7 @@ public:
 
     void addObject(RenderableObject *obj);
     void update(float deltaTime);
-    void draw(const glm::mat4 &projection, const glm::mat4 &view, const glm::vec3 &cameraPos);
+    void draw(const glm::mat4 &projection, const glm::mat4 &view, const glm::vec3 &cameraPos, const glm::vec3& cameraDir);
     void addLight(Light *light);
     void addMaterial(Material *material);
     void bindObjectToLight(RenderableObject *obj, Light *light, const glm::vec3 &offset = glm::vec3(0.0f));
@@ -53,6 +53,8 @@ public:
 
     int getScore() const { return score; }
     void resetScore() { score = 0; }
+
+    
 
 private:
     std::vector<RenderableObject *> objects;
