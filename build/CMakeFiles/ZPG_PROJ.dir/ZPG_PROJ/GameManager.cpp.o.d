@@ -1,8 +1,7 @@
-CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/SceneBuilder.cpp.o: \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/SceneBuilder.cpp \
+CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/GameManager.cpp.o: \
+ /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/GameManager.cpp \
  /usr/include/stdc-predef.h \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/SceneBuilder.h \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Scene.h \
+ /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/GameManager.h \
  /usr/include/c++/13/vector /usr/include/c++/13/bits/requires_hosted.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \
@@ -53,8 +52,6 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/SceneBuilder.cpp.o: \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
  /usr/include/c++/13/bits/uses_allocator.h \
  /usr/include/c++/13/bits/uses_allocator_args.h /usr/include/c++/13/tuple \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/RenderableObject.h \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Shader.h \
  /usr/include/c++/13/string /usr/include/c++/13/bits/stringfwd.h \
  /usr/include/c++/13/bits/char_traits.h \
  /usr/include/c++/13/bits/postypes.h /usr/include/c++/13/cwchar \
@@ -273,9 +270,32 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/SceneBuilder.cpp.o: \
  /usr/include/glm/detail/type_half.hpp \
  /usr/include/glm/detail/type_half.inl /usr/include/glm/integer.hpp \
  /usr/include/glm/detail/func_integer.inl \
+ /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/ResourceManager.h \
+ /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/ShaderProgram.h \
+ /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/ShaderObserver.h \
+ /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Light.h \
+ /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Shader.h \
  /home/stanislav/zpgproj/ZPG_PROJ/libs/glew-2.1.0/include/GL/glew.h \
- /usr/include/GL/glu.h /usr/include/GL/gl.h \
+ /usr/include/GL/glu.h /usr/include/GL/gl.h /usr/include/c++/13/stdexcept \
+ /usr/include/c++/13/exception /usr/include/c++/13/bits/exception_ptr.h \
+ /usr/include/c++/13/bits/cxxabi_init_exception.h \
+ /usr/include/c++/13/typeinfo /usr/include/c++/13/bits/nested_exception.h \
  /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/VertexArray.h \
+ /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Material.h \
+ /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Texture.h \
+ /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Model.h \
+ /usr/include/c++/13/map /usr/include/c++/13/bits/stl_tree.h \
+ /usr/include/c++/13/ext/aligned_buffer.h \
+ /usr/include/c++/13/bits/node_handle.h \
+ /usr/include/c++/13/bits/stl_map.h \
+ /usr/include/c++/13/bits/stl_multimap.h \
+ /usr/include/c++/13/bits/erase_if.h /usr/include/c++/13/unordered_map \
+ /usr/include/c++/13/bits/unordered_map.h \
+ /usr/include/c++/13/bits/hashtable.h \
+ /usr/include/c++/13/bits/hashtable_policy.h \
+ /usr/include/c++/13/bits/enable_special_members.h \
+ /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Scene.h \
+ /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/RenderableObject.h \
  /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Transform.h \
  /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/BaseTransform.h \
  /usr/include/glm/gtc/matrix_transform.hpp \
@@ -290,40 +310,10 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/SceneBuilder.cpp.o: \
  /usr/include/glm/ext/matrix_transform.hpp \
  /usr/include/glm/ext/matrix_transform.inl \
  /usr/include/glm/gtc/matrix_transform.inl \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Material.h \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Texture.h \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Model.h \
- /usr/include/c++/13/map /usr/include/c++/13/bits/stl_tree.h \
- /usr/include/c++/13/ext/aligned_buffer.h \
- /usr/include/c++/13/bits/node_handle.h \
- /usr/include/c++/13/bits/stl_map.h \
- /usr/include/c++/13/bits/stl_multimap.h \
- /usr/include/c++/13/bits/erase_if.h \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Light.h \
- /usr/include/c++/13/stdexcept /usr/include/c++/13/exception \
- /usr/include/c++/13/bits/exception_ptr.h \
- /usr/include/c++/13/bits/cxxabi_init_exception.h \
- /usr/include/c++/13/typeinfo /usr/include/c++/13/bits/nested_exception.h \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/ShaderProgram.h \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/ShaderObserver.h \
  /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Camera.h \
  /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Skybox.h \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/GameManager.h \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/ResourceManager.h \
- /usr/include/c++/13/unordered_map \
- /usr/include/c++/13/bits/unordered_map.h \
- /usr/include/c++/13/bits/hashtable.h \
- /usr/include/c++/13/bits/hashtable_policy.h \
- /usr/include/c++/13/bits/enable_special_members.h \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/TranslateTransform.h \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/MoveTransform.h \
  /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/ScaleTransform.h \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/RotateTransform.h \
- /usr/include/c++/13/ctime /usr/include/time.h \
- /usr/include/x86_64-linux-gnu/bits/time.h \
- /usr/include/x86_64-linux-gnu/bits/timex.h \
- /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h \
- /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h \
+ /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/MoveTransform.h \
  /usr/include/c++/13/iostream /usr/include/c++/13/ostream \
  /usr/include/c++/13/ios /usr/include/c++/13/bits/ios_base.h \
  /usr/include/c++/13/ext/atomicity.h \
@@ -332,7 +322,11 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/SceneBuilder.cpp.o: \
  /usr/include/pthread.h /usr/include/sched.h \
  /usr/include/x86_64-linux-gnu/bits/sched.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h \
- /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
+ /usr/include/x86_64-linux-gnu/bits/cpu-set.h /usr/include/time.h \
+ /usr/include/x86_64-linux-gnu/bits/time.h \
+ /usr/include/x86_64-linux-gnu/bits/timex.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h \
  /usr/include/x86_64-linux-gnu/bits/setjmp.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h \
@@ -351,5 +345,4 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/SceneBuilder.cpp.o: \
  /usr/include/c++/13/bits/locale_facets.tcc \
  /usr/include/c++/13/bits/basic_ios.tcc \
  /usr/include/c++/13/bits/ostream.tcc /usr/include/c++/13/istream \
- /usr/include/c++/13/bits/istream.tcc \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/CustomTransform.h
+ /usr/include/c++/13/bits/istream.tcc

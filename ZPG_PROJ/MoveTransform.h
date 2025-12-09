@@ -10,6 +10,7 @@ enum class MoveType
     CIRCULAR,
     LINEAR,
     SINUSOIDAL,
+    POLYLINE,
     BEZIER,
     BEZIER_SPLINE
 };
@@ -30,7 +31,11 @@ private:
     float t = 0.0f;
     bool loopBezier = true;
     float delta = 0.01f;
+        bool loopPath;
 
+    float totalPathLength;
+
+    std::vector<float> segmentLengths;
 public:
     static MoveTransform *createCircular(const glm::vec3 &center = glm::vec3(0.0f), float radius = 3.0f, float speed = 2.0f)
     {
@@ -61,6 +66,49 @@ public:
         transform->frequency = frequency;
         return transform;
     }
+
+        static MoveTransform* createPolyline(const std::vector<glm::vec3>& points, float speed = 1.0f, bool loop = true)
+
+    {
+
+        MoveTransform* transform = new MoveTransform();
+
+        transform->moveType = MoveType::POLYLINE;
+
+        transform->controlPoints = points;
+
+        transform->speed = speed;
+
+        transform->loopPath = loop;
+
+        transform->totalPathLength = 0.0f;
+
+        transform->segmentLengths.clear();
+
+        for (size_t i = 0; i < points.size() - 1; ++i) {
+
+            float segmentLen = glm::length(points[i + 1] - points[i]);
+
+            transform->segmentLengths.push_back(segmentLen);
+
+            transform->totalPathLength += segmentLen;
+
+        }
+
+        if (loop && points.size() > 1) {
+
+            float segmentLen = glm::length(points[0] - points.back());
+
+            transform->segmentLengths.push_back(segmentLen);
+
+            transform->totalPathLength += segmentLen;
+
+        }
+
+        return transform;
+
+    }
+
 
     static MoveTransform *createBezier(const std::vector<glm::vec3> &controlPoints, float speed = 1.0f, bool loop = true)
     {
@@ -114,6 +162,74 @@ public:
             offset.y = amplitude.y * sin(frequency * elapsedTime + glm::pi<float>() / 2.0f);
             offset.z = amplitude.z * sin(frequency * elapsedTime + glm::pi<float>());
             M = glm::translate(M, center + offset);
+            break;
+        }
+                case MoveType::POLYLINE:
+
+        {
+
+            if (controlPoints.size() < 2) {
+
+                if (!controlPoints.empty()) {
+
+                    M = glm::translate(M, controlPoints[0]);
+
+                }
+
+                break;
+
+            }
+
+            float distance = fmod(speed * elapsedTime, totalPathLength);
+
+            if (!loopPath && speed * elapsedTime > totalPathLength) {
+
+                M = glm::translate(M, controlPoints.back());
+
+                break;
+
+            }
+
+            float accumulatedLength = 0.0f;
+
+            size_t segmentIndex = 0;
+
+            for (size_t i = 0; i < segmentLengths.size(); ++i) {
+
+                if (distance < accumulatedLength + segmentLengths[i]) {
+
+                    segmentIndex = i;
+
+                    break;
+
+                }
+
+                accumulatedLength += segmentLengths[i];
+
+            }
+
+            float segmentT = (distance - accumulatedLength) / segmentLengths[segmentIndex];
+
+            glm::vec3 startPoint = controlPoints[segmentIndex];
+
+            glm::vec3 endPoint;
+
+            if (segmentIndex < controlPoints.size() - 1) {
+
+                endPoint = controlPoints[segmentIndex + 1];
+
+            }
+
+            else {
+
+                endPoint = controlPoints[0];
+
+            }
+
+            glm::vec3 currentPos = glm::mix(startPoint, endPoint, segmentT);
+
+            M = glm::translate(M, currentPos);
+
             break;
         }
 

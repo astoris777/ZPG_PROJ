@@ -1,5 +1,6 @@
 #include "Scene.h"
 #include <iostream>
+#include "GameManager.h"
 
 Scene::Scene()
 {
@@ -14,6 +15,8 @@ Scene::~Scene()
         delete light;
     for (auto material : materials)
         delete material;
+
+    if(gameManager) delete gameManager;
 }
 
 void Scene::addObject(RenderableObject *obj)
@@ -48,6 +51,11 @@ void Scene::update(float deltaTime)
     {
         glm::vec3 objectPos = binding.object->transform.getPosition();
         binding.light->setPosition(objectPos + binding.offset);
+    }
+    
+    if(gameManager)
+    {
+        gameManager->update(deltaTime);
     }
 }
 
@@ -168,4 +176,9 @@ void Scene::setCameraSettings(const CameraSettings &settings)
 const CameraSettings &Scene::getCameraSettings() const
 {
     return cameraSettings;
+}
+
+void Scene::setGameManager(GameManager * gm)
+{
+    gameManager = gm;
 }

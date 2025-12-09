@@ -308,6 +308,7 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/SceneManager.cpp.o: \
  /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/ShaderObserver.h \
  /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Camera.h \
  /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Skybox.h \
+ /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/GameManager.h \
  /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/ResourceManager.h \
  /usr/include/c++/13/unordered_map \
  /usr/include/c++/13/bits/unordered_map.h \

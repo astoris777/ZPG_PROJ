@@ -6,6 +6,7 @@
 #include "Camera.h"
 #include "Material.h"
 #include "Skybox.h"
+#include "GameManager.h"
 
 struct ObjectLightBinding
 {
@@ -50,6 +51,8 @@ public:
     void setSkybox(Skybox* sb) { skybox = sb; }
     Skybox* getSkybox() const { return skybox; }
 
+    void setGameManager(GameManager* gm);
+
 
     int getScore() const { return score; }
     void resetScore() { score = 0; }
@@ -65,5 +68,6 @@ private:
     RenderableObject *selectedObject = nullptr;
     CameraSettings cameraSettings;
     Skybox* skybox = nullptr;
+    GameManager * gameManager = nullptr;
     int score = 0;
 };

@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Application.cpp.o.d"
   "CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Camera.cpp.o"
   "CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Camera.cpp.o.d"
+  "CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/GameManager.cpp.o"
+  "CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/GameManager.cpp.o.d"
   "CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/InputManager.cpp.o"
   "CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/InputManager.cpp.o.d"
   "CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Light.cpp.o"

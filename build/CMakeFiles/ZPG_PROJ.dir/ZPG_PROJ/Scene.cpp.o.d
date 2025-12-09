@@ -307,6 +307,13 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Scene.cpp.o: \
  /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/ShaderObserver.h \
  /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Camera.h \
  /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Skybox.h \
+ /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/GameManager.h \
+ /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/ResourceManager.h \
+ /usr/include/c++/13/unordered_map \
+ /usr/include/c++/13/bits/unordered_map.h \
+ /usr/include/c++/13/bits/hashtable.h \
+ /usr/include/c++/13/bits/hashtable_policy.h \
+ /usr/include/c++/13/bits/enable_special_members.h \
  /usr/include/c++/13/iostream /usr/include/c++/13/ostream \
  /usr/include/c++/13/ios /usr/include/c++/13/bits/ios_base.h \
  /usr/include/c++/13/ext/atomicity.h \

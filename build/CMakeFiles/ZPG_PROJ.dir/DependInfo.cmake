@@ -10,6 +10,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Application.cpp" "CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Application.cpp.o" "gcc" "CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Application.cpp.o.d"
   "/home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Camera.cpp" "CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Camera.cpp.o" "gcc" "CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Camera.cpp.o.d"
+  "/home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/GameManager.cpp" "CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/GameManager.cpp.o" "gcc" "CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/GameManager.cpp.o.d"
   "/home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/InputManager.cpp" "CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/InputManager.cpp.o" "gcc" "CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/InputManager.cpp.o.d"
   "/home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Light.cpp" "CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Light.cpp.o" "gcc" "CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Light.cpp.o.d"
   "/home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Material.cpp" "CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Material.cpp.o" "gcc" "CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Material.cpp.o.d"

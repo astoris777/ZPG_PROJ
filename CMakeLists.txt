@@ -36,6 +36,7 @@ set(SOURCES
     ZPG_PROJ/VertexArray.cpp
     ZPG_PROJ/Window.cpp
     ZPG_PROJ/Skybox.cpp
+    ZPG_PROJ/GameManager.cpp
 )
 
 # Header files
@@ -69,6 +70,7 @@ set(HEADERS
     ZPG_PROJ/stb_image.h
     ZPG_PROJ/tiny_obj_loader.h
     ZPG_PROJ/Skybox.h
+    ZPG_PROJ/GameManager.h
 )
 
 # Create executable

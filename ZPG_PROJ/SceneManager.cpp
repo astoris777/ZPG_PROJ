@@ -18,6 +18,7 @@ SceneManager::~SceneManager()
 
 void SceneManager::createScenes()
 {
+    scenes.push_back(SceneBuilder::createGameScene(resourceManager));
     scenes.push_back(SceneBuilder::createSpheresScene(resourceManager));
     scenes.push_back(SceneBuilder::createSolarSystemScene(resourceManager));
     scenes.push_back(SceneBuilder::createForestScene(resourceManager, camera));
@@ -93,6 +94,7 @@ void SceneManager::deleteSelectedObject()
 {
     if (currentScene)
     {
+        
         RenderableObject *selected = currentScene->getSelected();
         if (selected)
         {

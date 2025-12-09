@@ -190,6 +190,30 @@ ZPG_PROJ/Camera.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ZPG_PROJ.dir/build.make CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Camera.cpp.s
 .PHONY : ZPG_PROJ/Camera.cpp.s
 
+ZPG_PROJ/GameManager.o: ZPG_PROJ/GameManager.cpp.o
+.PHONY : ZPG_PROJ/GameManager.o
+
+# target to build an object file
+ZPG_PROJ/GameManager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ZPG_PROJ.dir/build.make CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/GameManager.cpp.o
+.PHONY : ZPG_PROJ/GameManager.cpp.o
+
+ZPG_PROJ/GameManager.i: ZPG_PROJ/GameManager.cpp.i
+.PHONY : ZPG_PROJ/GameManager.i
+
+# target to preprocess a source file
+ZPG_PROJ/GameManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ZPG_PROJ.dir/build.make CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/GameManager.cpp.i
+.PHONY : ZPG_PROJ/GameManager.cpp.i
+
+ZPG_PROJ/GameManager.s: ZPG_PROJ/GameManager.cpp.s
+.PHONY : ZPG_PROJ/GameManager.s
+
+# target to generate assembly for a file
+ZPG_PROJ/GameManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ZPG_PROJ.dir/build.make CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/GameManager.cpp.s
+.PHONY : ZPG_PROJ/GameManager.cpp.s
+
 ZPG_PROJ/InputManager.o: ZPG_PROJ/InputManager.cpp.o
 .PHONY : ZPG_PROJ/InputManager.o
 
@@ -566,6 +590,9 @@ help:
 	@echo "... ZPG_PROJ/Camera.o"
 	@echo "... ZPG_PROJ/Camera.i"
 	@echo "... ZPG_PROJ/Camera.s"
+	@echo "... ZPG_PROJ/GameManager.o"
+	@echo "... ZPG_PROJ/GameManager.i"
+	@echo "... ZPG_PROJ/GameManager.s"
 	@echo "... ZPG_PROJ/InputManager.o"
 	@echo "... ZPG_PROJ/InputManager.i"
 	@echo "... ZPG_PROJ/InputManager.s"
