@@ -54,13 +54,13 @@ void GameManager::endGame()
 
 void GameManager::resetGame()
 {
-    // Удаляем все активные цели
+    
     for (const auto& target : activeTargets) {
         scene->removeObjectByID(target.objectID);
     }
     activeTargets.clear();
     
-    // Сбрасываем счётчики
+   
     score = 0;
     gameTime = 0.0f;
     spawnTimer = 0.0f;
@@ -71,7 +71,7 @@ void GameManager::resetGame()
     std::cout << "===    GAME RESTARTED!            ===" << std::endl;
     std::cout << "========================================" << std::endl;
     
-    // Запускаем новую игру
+    
     startGame();
 }
 

@@ -15,40 +15,39 @@ public:
     ~ResourceManager();
 
     void createShaders();
-    void attachShadersToCamera(Camera* camera); 
+    void attachShadersToCamera(Camera *camera);
 
-    ShaderProgram* getLambertShader() const { return shaders[0]; }
-    ShaderProgram* getPhongShader() const { return shaders[1]; }
-    ShaderProgram* getConstantShader() const { return shaders[2]; }
-    ShaderProgram* getBlinnShader() const { return shaders[3]; }
-    Shader* getSkyboxShader() const { return skyboxShader; }
+    ShaderProgram *getLambertShader() const { return shaders[0]; }
+    ShaderProgram *getPhongShader() const { return shaders[1]; }
+    ShaderProgram *getConstantShader() const { return shaders[2]; }
+    ShaderProgram *getBlinnShader() const { return shaders[3]; }
+    Shader *getSkyboxShader() const { return skyboxShader; }
 
-    VertexArray* getTreeModel();
-    VertexArray* getBushModel();
-    VertexArray* getSphereModel();
-    VertexArray* getPlaneModel();
-    VertexArray* getLoginModel();
+    VertexArray *getTreeModel();
+    VertexArray *getBushModel();
+    VertexArray *getSphereModel();
+    VertexArray *getPlaneModel();
+    VertexArray *getLoginModel();
 
-    void loadFionaModel(std::vector<Material*>& outMaterials, std::vector<SubMesh>& outModel);
-    void loadShrekModel(std::vector<Material*>& outMaterials, std::vector<SubMesh>& outModel);
+    void loadFionaModel(std::vector<Material *> &outMaterials, std::vector<SubMesh> &outModel);
+    void loadShrekModel(std::vector<Material *> &outMaterials, std::vector<SubMesh> &outModel);
 
-    void loadAirplaneModel(std::vector<Material*>& outMaterials, std::vector<SubMesh>& outModel);
-    void loadHelicopterModel(std::vector<Material*>& outMaterials, std::vector<SubMesh>& outModel);
+    void loadAirplaneModel(std::vector<Material *> &outMaterials, std::vector<SubMesh> &outModel);
+    void loadHelicopterModel(std::vector<Material *> &outMaterials, std::vector<SubMesh> &outModel);
+    void loadMinionModel(std::vector<Material *> &outMaterials, std::vector<SubMesh> &outModel);
 
-    
+    Texture *getTexture(const std::string &name);
 
-    Texture* getTexture(const std::string& name);
-
-    const std::vector<ShaderProgram*>& getAllShaders() const { return shaders; }
+    const std::vector<ShaderProgram *> &getAllShaders() const { return shaders; }
 
     void createModels();
     void createTextures();
 
 private:
-    std::vector<ShaderProgram*> shaders;
-    Shader* skyboxShader;
-    std::unordered_map<std::string, VertexArray*> simpleModels;
+    std::vector<ShaderProgram *> shaders;
+    Shader *skyboxShader;
+    std::unordered_map<std::string, VertexArray *> simpleModels;
     std::unordered_map<std::string, std::vector<SubMesh>> complexModelsGeometry;
-    std::unordered_map<std::string, std::vector<Material*>> complexModelsMaterials;
-    std::unordered_map<std::string, Texture*> loadedTextures;
+    std::unordered_map<std::string, std::vector<Material *>> complexModelsMaterials;
+    std::unordered_map<std::string, Texture *> loadedTextures;
 };

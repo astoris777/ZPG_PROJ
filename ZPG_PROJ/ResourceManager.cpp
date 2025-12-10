@@ -75,6 +75,10 @@ void ResourceManager::createModels()
     complexModelsMaterials["helicopter"] = materials;
     materials.clear();
 
+    complexModelsGeometry["minion"] = Model::loadWithMaterials("GameScene/minion.obj", materials);
+    complexModelsMaterials["minion"] = materials;
+    materials.clear();
+
 }
 
 void ResourceManager::createTextures()
@@ -174,6 +178,16 @@ void ResourceManager::loadHelicopterModel(std::vector<Material *> &outMaterials,
     outModel = complexModelsGeometry["helicopter"];
     outMaterials.clear();
     for (auto *mat : complexModelsMaterials["helicopter"])
+    {
+        outMaterials.push_back(new Material(mat->ambient, mat->diffuse, mat->specular, mat->shininess, mat->texture));
+    }
+}
+
+void ResourceManager::loadMinionModel(std::vector<Material *> &outMaterials, std::vector<SubMesh> &outModel)
+{
+    outModel = complexModelsGeometry["minion"];
+    outMaterials.clear();
+    for (auto *mat : complexModelsMaterials["minion"])
     {
         outMaterials.push_back(new Material(mat->ambient, mat->diffuse, mat->specular, mat->shininess, mat->texture));
     }
