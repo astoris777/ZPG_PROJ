@@ -50,6 +50,7 @@ vec3 calculateDiffuse(vec3 lightColor, vec3 lightDir, vec3 normal, float attenua
 
 vec3 calculateSpecularBlinn(vec3 lightColor, vec3 lightDir, vec3 viewDir, vec3 normal, float attenuation) {
     vec3 halfwayDir = normalize(lightDir + viewDir);
+    // Для Blinn-Phong используем материал shininess напрямую
     float spec = pow(max(dot(normal, halfwayDir), 0.0), material.shininess);
     return spec * lightColor * material.specular * attenuation;
 }

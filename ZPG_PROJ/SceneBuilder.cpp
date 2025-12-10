@@ -174,6 +174,7 @@ Scene* SceneBuilder::createForestScene(ResourceManager* resources, Camera* camer
 	CameraSettings camSettings;
 	camSettings.moveSpeed = 2.0f;
 	camSettings.position = glm::vec3(0.0f, 2.0f, 0.0f);
+	camSettings.target = glm::vec3(0.0f, 3.0f, -1.0f);
 
 	scene->setCameraSettings(camSettings);
 
@@ -248,7 +249,7 @@ Scene* SceneBuilder::createForestScene(ResourceManager* resources, Camera* camer
 		float randomRotation = static_cast<float>(rand() % 360);
 
 		RenderableObject* bush = new RenderableObject(
-			resources->getConstantShader(),
+			resources->getPhongShader(),
 			resources->getBushModel()
 		);
 
@@ -305,6 +306,13 @@ Scene* SceneBuilder::createForestScene(ResourceManager* resources, Camera* camer
 Scene* SceneBuilder::createAirplaneScene(ResourceManager* resources)
 {
 	Scene* scene = new Scene();
+
+	CameraSettings camSettings;
+	camSettings.moveSpeed = 2.0f;
+	camSettings.position = glm::vec3(50.0f, 10.0f, 20.0f);
+	camSettings.target = glm::vec3(0.0f, 0.0f, 0.0f);
+
+	scene->setCameraSettings(camSettings);
 
 	std::vector<Material*> airplaneMaterials;
 	std::vector<SubMesh> airplaneSubmeshes;

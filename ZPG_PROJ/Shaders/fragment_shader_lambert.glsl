@@ -94,7 +94,8 @@ void main() {
         materialDiffuse *= texColor.rgb;
     }
     
-    vec3 result = vec3(0.0);
+    // Добавляем базовое ambient освещение
+    vec3 result = material.ambient * 0.1;
 
     for (int i = 0; i < numberOfLights && i < MAX_LIGHTS; i++) {
         result += calculateLightContribution(lights[i], normal, FragPos, materialDiffuse);
