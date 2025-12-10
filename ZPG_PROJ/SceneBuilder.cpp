@@ -261,6 +261,22 @@ Scene* SceneBuilder::createForestScene(ResourceManager* resources, Camera* camer
 		scene->addObject(bush);
 	}
 
+	VertexArray* loginModel = resources->getLoginModel();
+
+	RenderableObject* login  =new RenderableObject(
+		resources->getPhongShader(),
+		loginModel
+	);
+
+	Material* loginMaterial = new Material();
+	login->setMaterial(loginMaterial);
+	login->transform.add(new TranslateTransform(glm::vec3(1.0f, 0.0f, 1.0f)));
+	login->transform.add(new RotateTransform(90, glm::vec3(1.0f, 0.0f, 0.0f)));
+	login->transform.add(new RotateTransform(180, glm::vec3(0.0f, 0.0f, 1.0f)));
+
+	scene->addMaterial(loginMaterial);
+	scene->addObject(login);
+	
 	std::vector<Material*> fionaMaterials;
 	std::vector<SubMesh>fionaModel;
 	resources->loadFionaModel(fionaMaterials, fionaModel);
