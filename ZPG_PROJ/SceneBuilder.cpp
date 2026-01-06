@@ -375,7 +375,7 @@ Scene* SceneBuilder::createSpheresScene(ResourceManager* resources)
 	Scene* scene = new Scene();
 
 	CameraSettings camSettings;
-	camSettings.position = glm::vec3(0.0f, 0.0f, -10.0f);
+	camSettings.position = glm::vec3(0.0f, 0.0f, -5.0f);
 	camSettings.target = glm::vec3(0.0f, 0.0f, 0.0f);
 	camSettings.moveSpeed = 2.0f;
 	scene->setCameraSettings(camSettings);
@@ -434,10 +434,15 @@ Scene* SceneBuilder::createSpheresScene(ResourceManager* resources)
 
 	login->setMaterial(sphereMaterial);
 
-	scene->addObject(login);
+	// scene->addObject(login);
 
-	Light* light = Light::createPoint(glm::vec3(0.0f, 0.0f, -10.0f), glm::vec3(1.0f), 10.0f, 0.5f, 0.5f, 0.5f);
+	Light* light = Light::createPoint(glm::vec3(0.0f, 0.0f, -5.0f), glm::vec3(1.0f), 32.0f, 0.5f, 0.5f, 0.5f);
 	scene->addLight(light);
+
+	// Light* light = Light::createSpot(glm::vec3(0.0f, 0.0f, -0.0f), glm::vec3(0.0f, 0.0f, 0.0f));
+	// scene->addLight(light);
+
+	
 
 	return scene;
 }
