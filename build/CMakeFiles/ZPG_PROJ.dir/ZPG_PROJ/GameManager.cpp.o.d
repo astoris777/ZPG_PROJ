@@ -345,5 +345,4 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/GameManager.cpp.o: \
  /usr/include/c++/13/bits/locale_facets.tcc \
  /usr/include/c++/13/bits/basic_ios.tcc \
  /usr/include/c++/13/bits/ostream.tcc /usr/include/c++/13/istream \
- /usr/include/c++/13/bits/istream.tcc \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/RotateTransform.h
+ /usr/include/c++/13/bits/istream.tcc

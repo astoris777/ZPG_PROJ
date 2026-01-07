@@ -9,6 +9,7 @@
 #include "Model.h"
 #include <iostream>
 #include "CustomTransform.h"
+#include "BezierCurveTransform.h"
 #include "Camera.h"
 #include "GameManager.h"
 
@@ -340,8 +341,16 @@ Scene* SceneBuilder::createAirplaneScene(ResourceManager* resources)
 		airplaneMaterials
 	);
 
+	// Движение по кубической кривой Безье
+	airplane->transform.add(BezierCurveTransform::create(
+		glm::vec3(-50.0f, 10.0f, 0.0f),   // P0 - начальная точка
+		glm::vec3(-20.0f, 30.0f, -30.0f), // P1 - контрольная точка 1
+		glm::vec3(20.0f, 5.0f, -30.0f),   // P2 - контрольная точка 2
+		glm::vec3(50.0f, 15.0f, 0.0f),    // P3 - конечная точка
+		0.3f,  // скорость
+		true   // зацикливать
+	));
 	airplane->transform.add(new ScaleTransform(glm::vec3(0.01f)));
-	airplane->transform.add(new TranslateTransform(glm::vec3(0.0f, 0.0f, -50.0f)));
 	airplane->transform.add(new RotateTransform(-90.0f, glm::vec3(1.0f, 0.0f, 0.0f)));
 
 	scene->addObject(airplane);

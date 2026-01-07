@@ -50,6 +50,7 @@ set(HEADERS
     ZPG_PROJ/Material.h
     ZPG_PROJ/Model.h
     ZPG_PROJ/MoveTransform.h
+    ZPG_PROJ/BezierCurveTransform.h
     ZPG_PROJ/RenderableObject.h
     ZPG_PROJ/ResourceManager.h
     ZPG_PROJ/RotateTransform.h
