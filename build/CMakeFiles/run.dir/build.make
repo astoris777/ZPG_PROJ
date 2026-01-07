@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/stanislav/zpgproj/ZPG_PROJ
+CMAKE_SOURCE_DIR = /home/stanislav/ZPG_PROJ
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/stanislav/zpgproj/ZPG_PROJ/build
+CMAKE_BINARY_DIR = /home/stanislav/ZPG_PROJ/build
 
 # Utility rule file for run.
 
@@ -67,8 +67,8 @@ include CMakeFiles/run.dir/compiler_depend.make
 include CMakeFiles/run.dir/progress.make
 
 CMakeFiles/run: ZPG_PROJ
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/stanislav/zpgproj/ZPG_PROJ/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Running ZPG_PROJ..."
-	/home/stanislav/zpgproj/ZPG_PROJ/build/ZPG_PROJ
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/stanislav/ZPG_PROJ/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Running ZPG_PROJ..."
+	/home/stanislav/ZPG_PROJ/build/ZPG_PROJ
 
 run: CMakeFiles/run
 run: CMakeFiles/run.dir/build.make
@@ -83,6 +83,6 @@ CMakeFiles/run.dir/clean:
 .PHONY : CMakeFiles/run.dir/clean
 
 CMakeFiles/run.dir/depend:
-	cd /home/stanislav/zpgproj/ZPG_PROJ/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/stanislav/zpgproj/ZPG_PROJ /home/stanislav/zpgproj/ZPG_PROJ /home/stanislav/zpgproj/ZPG_PROJ/build /home/stanislav/zpgproj/ZPG_PROJ/build /home/stanislav/zpgproj/ZPG_PROJ/build/CMakeFiles/run.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/stanislav/ZPG_PROJ/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/stanislav/ZPG_PROJ /home/stanislav/ZPG_PROJ /home/stanislav/ZPG_PROJ/build /home/stanislav/ZPG_PROJ/build /home/stanislav/ZPG_PROJ/build/CMakeFiles/run.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/run.dir/depend
 

@@ -1,7 +1,7 @@
 CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/ResourceManager.cpp.o: \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/ResourceManager.cpp \
+ /home/stanislav/ZPG_PROJ/ZPG_PROJ/ResourceManager.cpp \
  /usr/include/stdc-predef.h \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/ResourceManager.h \
+ /home/stanislav/ZPG_PROJ/ZPG_PROJ/ResourceManager.h \
  /usr/include/c++/13/vector /usr/include/c++/13/bits/requires_hosted.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \
@@ -52,8 +52,8 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/ResourceManager.cpp.o: \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
  /usr/include/c++/13/bits/uses_allocator.h \
  /usr/include/c++/13/bits/uses_allocator_args.h /usr/include/c++/13/tuple \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/ShaderProgram.h \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/ShaderObserver.h \
+ /home/stanislav/ZPG_PROJ/ZPG_PROJ/ShaderProgram.h \
+ /home/stanislav/ZPG_PROJ/ZPG_PROJ/ShaderObserver.h \
  /usr/include/glm/glm.hpp /usr/include/glm/detail/_fixes.hpp \
  /usr/include/c++/13/cmath /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
@@ -241,9 +241,9 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/ResourceManager.cpp.o: \
  /usr/include/glm/detail/type_half.hpp \
  /usr/include/glm/detail/type_half.inl /usr/include/glm/integer.hpp \
  /usr/include/glm/detail/func_integer.inl \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Light.h \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Shader.h \
- /usr/include/c++/13/string /usr/include/c++/13/bits/stringfwd.h \
+ /home/stanislav/ZPG_PROJ/ZPG_PROJ/Light.h \
+ /home/stanislav/ZPG_PROJ/ZPG_PROJ/Shader.h /usr/include/c++/13/string \
+ /usr/include/c++/13/bits/stringfwd.h \
  /usr/include/c++/13/bits/char_traits.h \
  /usr/include/c++/13/bits/postypes.h /usr/include/c++/13/cwchar \
  /usr/include/wchar.h /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h \
@@ -275,16 +275,16 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/ResourceManager.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/types/error_t.h \
  /usr/include/c++/13/bits/charconv.h \
  /usr/include/c++/13/bits/basic_string.tcc \
- /home/stanislav/zpgproj/ZPG_PROJ/libs/glew-2.1.0/include/GL/glew.h \
+ /home/stanislav/ZPG_PROJ/libs/glew-2.1.0/include/GL/glew.h \
  /usr/include/GL/glu.h /usr/include/GL/gl.h /usr/include/c++/13/stdexcept \
  /usr/include/c++/13/exception /usr/include/c++/13/bits/exception_ptr.h \
  /usr/include/c++/13/bits/cxxabi_init_exception.h \
  /usr/include/c++/13/typeinfo /usr/include/c++/13/bits/nested_exception.h \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/VertexArray.h \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Material.h \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Texture.h \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Model.h \
- /usr/include/c++/13/map /usr/include/c++/13/bits/stl_tree.h \
+ /home/stanislav/ZPG_PROJ/ZPG_PROJ/VertexArray.h \
+ /home/stanislav/ZPG_PROJ/ZPG_PROJ/Material.h \
+ /home/stanislav/ZPG_PROJ/ZPG_PROJ/Texture.h \
+ /home/stanislav/ZPG_PROJ/ZPG_PROJ/Model.h /usr/include/c++/13/map \
+ /usr/include/c++/13/bits/stl_tree.h \
  /usr/include/c++/13/ext/aligned_buffer.h \
  /usr/include/c++/13/bits/node_handle.h \
  /usr/include/c++/13/bits/stl_map.h \
@@ -294,7 +294,7 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/ResourceManager.cpp.o: \
  /usr/include/c++/13/bits/hashtable.h \
  /usr/include/c++/13/bits/hashtable_policy.h \
  /usr/include/c++/13/bits/enable_special_members.h \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/assets/ForestScene/tree.h \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/assets/ForestScene/bushes.h \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Camera.h \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/plane.h
+ /home/stanislav/ZPG_PROJ/ZPG_PROJ/assets/ForestScene/tree.h \
+ /home/stanislav/ZPG_PROJ/ZPG_PROJ/assets/ForestScene/bushes.h \
+ /home/stanislav/ZPG_PROJ/ZPG_PROJ/Camera.h \
+ /home/stanislav/ZPG_PROJ/ZPG_PROJ/plane.h

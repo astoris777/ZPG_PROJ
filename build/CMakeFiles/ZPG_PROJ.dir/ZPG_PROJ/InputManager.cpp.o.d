@@ -1,8 +1,8 @@
 CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/InputManager.cpp.o: \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/InputManager.cpp \
+ /home/stanislav/ZPG_PROJ/ZPG_PROJ/InputManager.cpp \
  /usr/include/stdc-predef.h \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/InputManager.h \
- /home/stanislav/zpgproj/ZPG_PROJ/libs/glew-2.1.0/include/GL/glew.h \
+ /home/stanislav/ZPG_PROJ/ZPG_PROJ/InputManager.h \
+ /home/stanislav/ZPG_PROJ/libs/glew-2.1.0/include/GL/glew.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
@@ -21,7 +21,7 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/InputManager.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-least.h /usr/include/GL/glu.h \
  /usr/include/GL/gl.h \
- /home/stanislav/zpgproj/ZPG_PROJ/libs/glfw-3.4.bin.WIN64/include/GLFW/glfw3.h \
+ /home/stanislav/ZPG_PROJ/libs/glfw-3.4.bin.WIN64/include/GLFW/glfw3.h \
  /usr/include/c++/13/vector /usr/include/c++/13/bits/requires_hosted.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \
@@ -241,13 +241,13 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/InputManager.cpp.o: \
  /usr/include/glm/detail/type_half.hpp \
  /usr/include/glm/detail/type_half.inl /usr/include/glm/integer.hpp \
  /usr/include/glm/detail/func_integer.inl \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Camera.h \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/ShaderObserver.h \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/SceneManager.h \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Scene.h \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/RenderableObject.h \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Shader.h \
- /usr/include/c++/13/string /usr/include/c++/13/bits/stringfwd.h \
+ /home/stanislav/ZPG_PROJ/ZPG_PROJ/Camera.h \
+ /home/stanislav/ZPG_PROJ/ZPG_PROJ/ShaderObserver.h \
+ /home/stanislav/ZPG_PROJ/ZPG_PROJ/SceneManager.h \
+ /home/stanislav/ZPG_PROJ/ZPG_PROJ/Scene.h \
+ /home/stanislav/ZPG_PROJ/ZPG_PROJ/RenderableObject.h \
+ /home/stanislav/ZPG_PROJ/ZPG_PROJ/Shader.h /usr/include/c++/13/string \
+ /usr/include/c++/13/bits/stringfwd.h \
  /usr/include/c++/13/bits/char_traits.h \
  /usr/include/c++/13/bits/postypes.h /usr/include/c++/13/cwchar \
  /usr/include/wchar.h /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h \
@@ -279,9 +279,9 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/InputManager.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/types/error_t.h \
  /usr/include/c++/13/bits/charconv.h \
  /usr/include/c++/13/bits/basic_string.tcc \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/VertexArray.h \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Transform.h \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/BaseTransform.h \
+ /home/stanislav/ZPG_PROJ/ZPG_PROJ/VertexArray.h \
+ /home/stanislav/ZPG_PROJ/ZPG_PROJ/Transform.h \
+ /home/stanislav/ZPG_PROJ/ZPG_PROJ/BaseTransform.h \
  /usr/include/glm/gtc/matrix_transform.hpp \
  /usr/include/glm/ext/matrix_projection.hpp \
  /usr/include/glm/gtc/constants.hpp \
@@ -294,27 +294,26 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/InputManager.cpp.o: \
  /usr/include/glm/ext/matrix_transform.hpp \
  /usr/include/glm/ext/matrix_transform.inl \
  /usr/include/glm/gtc/matrix_transform.inl \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Material.h \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Texture.h \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Model.h \
- /usr/include/c++/13/map /usr/include/c++/13/bits/stl_tree.h \
+ /home/stanislav/ZPG_PROJ/ZPG_PROJ/Material.h \
+ /home/stanislav/ZPG_PROJ/ZPG_PROJ/Texture.h \
+ /home/stanislav/ZPG_PROJ/ZPG_PROJ/Model.h /usr/include/c++/13/map \
+ /usr/include/c++/13/bits/stl_tree.h \
  /usr/include/c++/13/ext/aligned_buffer.h \
  /usr/include/c++/13/bits/node_handle.h \
  /usr/include/c++/13/bits/stl_map.h \
  /usr/include/c++/13/bits/stl_multimap.h \
  /usr/include/c++/13/bits/erase_if.h \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Light.h \
- /usr/include/c++/13/stdexcept /usr/include/c++/13/exception \
- /usr/include/c++/13/bits/exception_ptr.h \
+ /home/stanislav/ZPG_PROJ/ZPG_PROJ/Light.h /usr/include/c++/13/stdexcept \
+ /usr/include/c++/13/exception /usr/include/c++/13/bits/exception_ptr.h \
  /usr/include/c++/13/bits/cxxabi_init_exception.h \
  /usr/include/c++/13/typeinfo /usr/include/c++/13/bits/nested_exception.h \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/ShaderProgram.h \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Skybox.h \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/GameManager.h \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/ResourceManager.h \
+ /home/stanislav/ZPG_PROJ/ZPG_PROJ/ShaderProgram.h \
+ /home/stanislav/ZPG_PROJ/ZPG_PROJ/Skybox.h \
+ /home/stanislav/ZPG_PROJ/ZPG_PROJ/GameManager.h \
+ /home/stanislav/ZPG_PROJ/ZPG_PROJ/ResourceManager.h \
  /usr/include/c++/13/unordered_map \
  /usr/include/c++/13/bits/unordered_map.h \
  /usr/include/c++/13/bits/hashtable.h \
  /usr/include/c++/13/bits/hashtable_policy.h \
  /usr/include/c++/13/bits/enable_special_members.h \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Window.h
+ /home/stanislav/ZPG_PROJ/ZPG_PROJ/Window.h

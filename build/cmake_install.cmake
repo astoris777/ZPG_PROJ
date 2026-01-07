@@ -1,4 +1,4 @@
-# Install script for directory: /home/stanislav/zpgproj/ZPG_PROJ
+# Install script for directory: /home/stanislav/ZPG_PROJ
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/stanislav/zpgproj/ZPG_PROJ/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/stanislav/ZPG_PROJ/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

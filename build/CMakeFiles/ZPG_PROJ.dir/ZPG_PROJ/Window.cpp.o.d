@@ -1,8 +1,7 @@
 CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Window.cpp.o: \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Window.cpp \
- /usr/include/stdc-predef.h \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Window.h \
- /home/stanislav/zpgproj/ZPG_PROJ/libs/glew-2.1.0/include/GL/glew.h \
+ /home/stanislav/ZPG_PROJ/ZPG_PROJ/Window.cpp /usr/include/stdc-predef.h \
+ /home/stanislav/ZPG_PROJ/ZPG_PROJ/Window.h \
+ /home/stanislav/ZPG_PROJ/libs/glew-2.1.0/include/GL/glew.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
@@ -21,9 +20,9 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Window.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-least.h /usr/include/GL/glu.h \
  /usr/include/GL/gl.h \
- /home/stanislav/zpgproj/ZPG_PROJ/libs/glfw-3.4.bin.WIN64/include/GLFW/glfw3.h \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Camera.h \
- /usr/include/c++/13/vector /usr/include/c++/13/bits/requires_hosted.h \
+ /home/stanislav/ZPG_PROJ/libs/glfw-3.4.bin.WIN64/include/GLFW/glfw3.h \
+ /home/stanislav/ZPG_PROJ/ZPG_PROJ/Camera.h /usr/include/c++/13/vector \
+ /usr/include/c++/13/bits/requires_hosted.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/cpu_defines.h \
@@ -242,8 +241,8 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Window.cpp.o: \
  /usr/include/glm/detail/type_half.hpp \
  /usr/include/glm/detail/type_half.inl /usr/include/glm/integer.hpp \
  /usr/include/glm/detail/func_integer.inl \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/ShaderObserver.h \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/InputManager.h \
+ /home/stanislav/ZPG_PROJ/ZPG_PROJ/ShaderObserver.h \
+ /home/stanislav/ZPG_PROJ/ZPG_PROJ/InputManager.h \
  /usr/include/c++/13/iostream /usr/include/c++/13/ostream \
  /usr/include/c++/13/ios /usr/include/c++/13/iosfwd \
  /usr/include/c++/13/bits/stringfwd.h /usr/include/c++/13/bits/postypes.h \

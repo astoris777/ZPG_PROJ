@@ -1,8 +1,7 @@
 CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Camera.cpp.o: \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Camera.cpp \
- /usr/include/stdc-predef.h \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Camera.h \
- /usr/include/c++/13/vector /usr/include/c++/13/bits/requires_hosted.h \
+ /home/stanislav/ZPG_PROJ/ZPG_PROJ/Camera.cpp /usr/include/stdc-predef.h \
+ /home/stanislav/ZPG_PROJ/ZPG_PROJ/Camera.h /usr/include/c++/13/vector \
+ /usr/include/c++/13/bits/requires_hosted.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -239,7 +238,7 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Camera.cpp.o: \
  /usr/include/glm/detail/type_half.hpp \
  /usr/include/glm/detail/type_half.inl /usr/include/glm/integer.hpp \
  /usr/include/glm/detail/func_integer.inl \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/ShaderObserver.h \
+ /home/stanislav/ZPG_PROJ/ZPG_PROJ/ShaderObserver.h \
  /usr/include/glm/gtc/matrix_transform.hpp \
  /usr/include/glm/ext/matrix_projection.hpp \
  /usr/include/glm/gtc/constants.hpp \

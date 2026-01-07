@@ -1,9 +1,8 @@
 CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Model.cpp.o: \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Model.cpp \
- /usr/include/stdc-predef.h \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Model.h \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/VertexArray.h \
- /home/stanislav/zpgproj/ZPG_PROJ/libs/glew-2.1.0/include/GL/glew.h \
+ /home/stanislav/ZPG_PROJ/ZPG_PROJ/Model.cpp /usr/include/stdc-predef.h \
+ /home/stanislav/ZPG_PROJ/ZPG_PROJ/Model.h \
+ /home/stanislav/ZPG_PROJ/ZPG_PROJ/VertexArray.h \
+ /home/stanislav/ZPG_PROJ/libs/glew-2.1.0/include/GL/glew.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
@@ -21,8 +20,7 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Model.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-least.h /usr/include/GL/glu.h \
- /usr/include/GL/gl.h \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Material.h \
+ /usr/include/GL/gl.h /home/stanislav/ZPG_PROJ/ZPG_PROJ/Material.h \
  /usr/include/glm/glm.hpp /usr/include/glm/detail/_fixes.hpp \
  /usr/include/c++/13/cmath /usr/include/c++/13/bits/requires_hosted.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
@@ -220,8 +218,8 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Model.cpp.o: \
  /usr/include/glm/detail/type_half.hpp \
  /usr/include/glm/detail/type_half.inl /usr/include/glm/integer.hpp \
  /usr/include/glm/detail/func_integer.inl \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Shader.h \
- /usr/include/c++/13/string /usr/include/c++/13/bits/stringfwd.h \
+ /home/stanislav/ZPG_PROJ/ZPG_PROJ/Shader.h /usr/include/c++/13/string \
+ /usr/include/c++/13/bits/stringfwd.h \
  /usr/include/c++/13/bits/memoryfwd.h \
  /usr/include/c++/13/bits/char_traits.h \
  /usr/include/c++/13/bits/postypes.h /usr/include/c++/13/cwchar \
@@ -271,8 +269,8 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Model.cpp.o: \
  /usr/include/c++/13/bits/memory_resource.h \
  /usr/include/c++/13/bits/uses_allocator.h \
  /usr/include/c++/13/bits/uses_allocator_args.h /usr/include/c++/13/tuple \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Texture.h \
- /usr/include/c++/13/vector /usr/include/c++/13/bits/stl_uninitialized.h \
+ /home/stanislav/ZPG_PROJ/ZPG_PROJ/Texture.h /usr/include/c++/13/vector \
+ /usr/include/c++/13/bits/stl_uninitialized.h \
  /usr/include/c++/13/bits/stl_vector.h \
  /usr/include/c++/13/bits/stl_bvector.h \
  /usr/include/c++/13/bits/vector.tcc /usr/include/c++/13/map \
@@ -317,7 +315,7 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Model.cpp.o: \
  /usr/include/c++/13/bits/basic_ios.tcc \
  /usr/include/c++/13/bits/ostream.tcc /usr/include/c++/13/istream \
  /usr/include/c++/13/bits/istream.tcc \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/tiny_obj_loader.h \
+ /home/stanislav/ZPG_PROJ/ZPG_PROJ/tiny_obj_loader.h \
  /usr/include/c++/13/cstring /usr/include/string.h /usr/include/strings.h \
  /usr/include/c++/13/utility /usr/include/c++/13/bits/stl_relops.h \
  /usr/include/c++/13/fstream /usr/include/c++/13/bits/codecvt.h \

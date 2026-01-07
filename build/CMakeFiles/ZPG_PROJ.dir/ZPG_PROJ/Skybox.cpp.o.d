@@ -1,8 +1,7 @@
 CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Skybox.cpp.o: \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Skybox.cpp \
- /usr/include/stdc-predef.h \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Skybox.h \
- /home/stanislav/zpgproj/ZPG_PROJ/libs/glew-2.1.0/include/GL/glew.h \
+ /home/stanislav/ZPG_PROJ/ZPG_PROJ/Skybox.cpp /usr/include/stdc-predef.h \
+ /home/stanislav/ZPG_PROJ/ZPG_PROJ/Skybox.h \
+ /home/stanislav/ZPG_PROJ/libs/glew-2.1.0/include/GL/glew.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
@@ -240,9 +239,9 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/Skybox.cpp.o: \
  /usr/include/c++/13/bits/memory_resource.h \
  /usr/include/c++/13/bits/uses_allocator.h \
  /usr/include/c++/13/bits/uses_allocator_args.h /usr/include/c++/13/tuple \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Texture.h \
- /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Shader.h \
- /usr/include/c++/13/string /usr/include/c++/13/bits/stringfwd.h \
+ /home/stanislav/ZPG_PROJ/ZPG_PROJ/Texture.h \
+ /home/stanislav/ZPG_PROJ/ZPG_PROJ/Shader.h /usr/include/c++/13/string \
+ /usr/include/c++/13/bits/stringfwd.h \
  /usr/include/c++/13/bits/char_traits.h \
  /usr/include/c++/13/bits/postypes.h /usr/include/c++/13/cwchar \
  /usr/include/wchar.h /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h \

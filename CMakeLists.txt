@@ -4,17 +4,17 @@ project(ZPG_PROJ)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Paths to libraries
-set(GLFW_DIR "${CMAKE_SOURCE_DIR}/libs/glfw-3.4.bin.WIN64")
-set(GLEW_DIR "${CMAKE_SOURCE_DIR}/libs/glew-2.1.0")
-set(GLM_DIR "${CMAKE_SOURCE_DIR}/libs/glm")
+# Paths to libraries (dynamic)
+set(GLFW_DIR "${CMAKE_CURRENT_SOURCE_DIR}/libs/glfw-3.4.bin.WIN64")
+set(GLEW_DIR "${CMAKE_CURRENT_SOURCE_DIR}/libs/glew-2.1.0")
+set(GLM_DIR "${CMAKE_CURRENT_SOURCE_DIR}/libs/glm")
 
 # Include directories
 include_directories(
     ${GLFW_DIR}/include
     ${GLEW_DIR}/include
     ${GLM_DIR}
-    ${CMAKE_SOURCE_DIR}/ZPG_PROJ
+    ${CMAKE_CURRENT_SOURCE_DIR}/ZPG_PROJ
 )
 
 # Source files
@@ -106,15 +106,15 @@ endif()
 # Copy assets to build directory
 add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_directory
-    ${CMAKE_SOURCE_DIR}/ZPG_PROJ/assets
+    ${CMAKE_CURRENT_SOURCE_DIR}/ZPG_PROJ/assets
     $<TARGET_FILE_DIR:${PROJECT_NAME}>/assets
 )
 
 # Copy shader files to build directory
-file(GLOB SHADER_FILES "ZPG_PROJ/Shaders/*.glsl")
+file(GLOB SHADER_FILES "${CMAKE_CURRENT_SOURCE_DIR}/ZPG_PROJ/Shaders/*.glsl")
 add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_directory
-    ${CMAKE_SOURCE_DIR}/ZPG_PROJ/Shaders
+    ${CMAKE_CURRENT_SOURCE_DIR}/ZPG_PROJ/Shaders
     $<TARGET_FILE_DIR:${PROJECT_NAME}>/Shaders
 )
 

@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/stanislav/zpgproj/ZPG_PROJ/libs/glfw-3.4.bin.WIN64/include -I/home/stanislav/zpgproj/ZPG_PROJ/libs/glew-2.1.0/include -I/home/stanislav/zpgproj/ZPG_PROJ/libs/glm -I/home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ
+CXX_INCLUDES = -I/home/stanislav/ZPG_PROJ/libs/glfw-3.4.bin.WIN64/include -I/home/stanislav/ZPG_PROJ/libs/glew-2.1.0/include -I/home/stanislav/ZPG_PROJ/libs/glm -I/home/stanislav/ZPG_PROJ/ZPG_PROJ
 
 CXX_FLAGS = -std=gnu++17
 

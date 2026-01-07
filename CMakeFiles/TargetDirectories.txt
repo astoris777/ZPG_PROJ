@@ -1,4 +1,0 @@
-/home/stanislav/ZPG_PROJ/CMakeFiles/ZPG_PROJ.dir
-/home/stanislav/ZPG_PROJ/CMakeFiles/run.dir
-/home/stanislav/ZPG_PROJ/CMakeFiles/edit_cache.dir
-/home/stanislav/ZPG_PROJ/CMakeFiles/rebuild_cache.dir
