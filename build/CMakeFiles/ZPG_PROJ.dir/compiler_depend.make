@@ -690,6 +690,7 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/GameManager.cpp.o: /home/stanislav/zpgproj/ZPG_
   /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/MoveTransform.h \
   /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/RenderableObject.h \
   /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/ResourceManager.h \
+  /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/RotateTransform.h \
   /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/ScaleTransform.h \
   /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Scene.h \
   /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Shader.h \
@@ -6696,9 +6697,9 @@ CMakeFiles/ZPG_PROJ.dir/ZPG_PROJ/main.cpp.o: /home/stanislav/zpgproj/ZPG_PROJ/ZP
 
 /usr/include/c++/13/tr1/poly_laguerre.tcc:
 
-/home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/RotateTransform.h:
-
 /home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/Light.cpp:
+
+/home/stanislav/zpgproj/ZPG_PROJ/ZPG_PROJ/RotateTransform.h:
 
 /usr/include/c++/13/bits/basic_string.h:
 
